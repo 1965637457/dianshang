@@ -1,0 +1,8 @@
+<extend name="Public/tpl-edit-dialog" />
+<block name="scripts">
+    <script>
+        var diag = Dialog.getInstance("popDialog");
+        diag.openerWindow.$.spec.updateItem({$data});
+        diag.close();
+    </script>
+</block>

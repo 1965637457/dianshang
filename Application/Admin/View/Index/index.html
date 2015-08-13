@@ -1,0 +1,70 @@
+<extend name="Public/tpl-data" />
+<block name="page-handle"></block>
+<block name="content">
+    <div class="container-fluid container-dashboard">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="panel panel-default">
+                    <div class="panel-heading">新闻中心</div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>{:L('TITLE')}</th>
+                                <th>{:L('PUBLISH_TIME')}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>这是一条新闻</td>
+                                <td class="th-150">2014-10-10</td>
+                            </tr>
+                            <tr>
+                                <td>这是一条新闻</td>
+                                <td class="th-150">2014-10-10</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">系统信息</div>
+                    <table class='table'>
+                        <tr>
+                            <th>网站域名：</th>
+                            <td>{$Think.SERVER.SERVER_NAME}</td>
+                        </tr>
+                        <tr>
+                            <th>服务器IP：</th>
+                            <td>{$Think.SERVER.SERVER_NAME|gethostbyname}</td>
+                        </tr>
+                        <tr>
+                            <th>操作系统：</th>
+                            <td>{:PHP_OS}</td>
+                        </tr>
+                        <tr>
+                            <th>服务器：</th>
+                            <td>{$Think.server.SERVER_SOFTWARE}</td>
+                        </tr>
+                        <tr>
+                            <th>接口类型：</th>
+                            <td>{:php_sapi_name()}</td>
+                        </tr>
+                        <tr>
+                            <th>PHP版本：</th>
+                            <td>{:phpversion()}</td>
+                        </tr>
+                        <tr>
+                            <th>MYSQL：</th>
+                            <td>{:mysql_get_server_info()}</td>
+                        </tr>
+                        <tr>
+                            <th>内核版本：</th>
+                            <td>{$Think.version}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>

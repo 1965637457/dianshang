@@ -1,0 +1,58 @@
+<extend name="Public/tpl-add" />
+<block name="content">
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-target="#pane1" data-toggle="tab">基本信息</a></li>
+        <li class="disabled"><a data-target="#pane2" data-toggle="tab">规则信息</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="pane1">
+            <table class="table table-condensed tb-data">
+                <tr>
+                    <th>{:L('STATUS')}</th>
+                    <td>
+                        <label><input type="radio" name="main[status]" value="1" checked /> {:L('ACTIVE')}</label>
+                        <label><input type="radio" name="main[status]" value="0" /> {:L('DISABLED')}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <th>{:L('SORT')}</th>
+                    <td><input type="text" name="main[sort]" value="0" class="form-control-sm" /> <i>{:L('SORT_INFO')}</i></td>
+                </tr>
+                <tr>
+                    <th>{:L('NAME')}</th>
+                    <td><input type="text" name="main[promotion]" class="form-control-sm" /></td>
+                </tr>
+                <tr>
+                    <th>{:L('START_TIME')}</th>
+                    <td>
+                        <input type="text" name="main[start_time]" value="{:date('Y-m-d H:i:s')}" class="form-control-sm js-form-datetime" data-date-format="yyyy-mm-dd hh:ii:ss" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>{:L('END_TIME')}</th>
+                    <td>
+                        <input type="text" name="main[end_time]" value="{:date('Y-m-d 23:59:59')}" class="form-control-sm js-form-datetime" data-date-format="yyyy-mm-dd hh:ii:ss" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>{:L('REMARK')}</th>
+                    <td><textarea name="main[remark]" class="form-control-sm"></textarea></td>
+                </tr>
+            </table>
+        </div>
+        <div class="tab-pane" id="pane2">
+            <table class="table table-condensed tb-data">
+            </table>
+        </div>
+    </div>
+
+</block>
+<block name="scripts">
+    <script>
+        $(".js-form-datetime").datetimepicker({
+            todayBtn: true,
+            todayHighlight: true,
+            autoclose: true
+        });
+    </script>
+</block>

@@ -1,0 +1,109 @@
+<extend name="Public/tpl-edit" />
+<block name="content">
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-target="#pane1" data-toggle="tab">基本信息</a></li>
+        <li><a data-target="#pane2" data-toggle="tab">值信息</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="pane1">
+            <table class="table table-condensed tb-data">
+                <tr>
+                    <th>{:L('DISPLAY')}</th>
+                    <td>
+                        <label><input type="radio" name="display" value="1" checked /> 单选</label>
+                        <label><input type="radio" name="display" value="0" <eq name="data.display" value="0">checked</eq> /> 多选</label>
+                    </td>
+                </tr>
+                <tr>
+                    <th>{:L('NAME')}</th>
+                    <td><input type="text" name="attribute" value="{$data.attribute|htmlspecialchars}" class="form-control-sm" /></td>
+                </tr>
+                <tr>
+                    <th>{:L('ALIAS')}</th>
+                    <td><input type="text" name="attribute_alias" value="{$data.attribute_alias|htmlspecialchars}" class="form-control-sm" /></td>
+                </tr>
+                <tr>
+                    <th>{:L('REMARK')}</th>
+                    <td><textarea name="remark" class="form-control-sm">{$data.remark|htmlspecialchars}</textarea></td>
+                </tr>
+            </table>
+        </div>
+        <div class="tab-pane" id="pane2">
+            <table class="table table-condensed table-bordered tb-data-list" id="js-attr-value-list" data-add-url="{:U('AttributeValue/add',array('attrid'=>$data['id']))}" data-remove-url="{:U('AttributeValue/delete')}">
+                <thead>
+                    <tr>
+                        <th class="th-300">属性值</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <volist name="data._list" id="v">
+                    <tr data-id="{$v.id}">
+                        <td><input type="text" name="values[{$v.id}][attribute_value]" value="{$v.attribute_value}" class="form-control-sm t-sm"></td>
+                        <td class="f16">
+                            <a href="javascript:;" class="js-move-up"><span class="glyphicon glyphicon-arrow-up"></span></a>
+                            <a href="javascript:;" class="js-move-down"><span class="glyphicon glyphicon-arrow-down"></span></a>
+                            <a href="javascript:;" class="js-remove-item"><span class="glyphicon glyphicon-remove"></span></a>
+                            <input type="hidden" name="values[{$v.id}][id]" value="{$v.id}">
+                        </td>
+                    </tr>
+                </volist>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3"><button type="button" class="btn btn-success btn-xs" id="js-add-item">添加</button></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</block>
+<block name="scripts">
+    <script>
+        +function($){
+            var $obj = $('#js-attr-value-list');
+            var url_add = $obj.attr('data-add-url');
+            var url_edit = $obj.attr('data-edit-url');
+            var url_remove = $obj.attr('data-remove-url');
+            $.attribute = {
+                init : function(){
+                    $obj.on('click','#js-add-item',function(){
+                        var diag = new Dialog();
+                        diag.ID = 'popDialog';
+                        diag.URL = url_add;
+                        diag.Title = '添加';
+                        diag.Height = 150;
+                        diag.OKEvent = function(){
+                            diag.innerDoc.getElementById('j-fmData').submit();
+                        };
+                        diag.show();
+                    }).on('click','.js-remove-item',function(){
+                        var $o = $(this).parent().parent();
+                        if(confirm('确认删除吗？')){
+                            $.getJSON(url_remove,{ id : $o.attr('data-id') },function(data){
+                                if(data.status===0){
+                                    alert(data.info);
+                                }else{
+                                    $o.remove();
+                                }
+                            });
+                        }
+                    });
+                },
+                createItem : function(data){
+                    var html = '<tr data-id="'+data.id+'">\
+                        <td><input type="text" name="values['+data.id+'][attribute_value]" value="'+data.attribute_value+'" class="form-control-sm t-sm"></td>\
+                        <td class="f16">\
+                            <a href="javascript:;" class="js-move-up"><span class="glyphicon glyphicon-arrow-up"></span></a>\
+                            <a href="javascript:;" class="js-move-down"><span class="glyphicon glyphicon-arrow-down"></span></a>\
+                            <a href="javascript:;" class="js-remove-item"><span class="glyphicon glyphicon-remove"></span></a>\
+                            <input type="hidden" name="values['+data.id+'][id]" value="'+data.id+'">\
+                        </td>\
+                    </tr>';
+                    $('tbody',$obj).append(html);
+                }
+            };
+            $.attribute.init();
+        }(jQuery);
+    </script>
+</block>

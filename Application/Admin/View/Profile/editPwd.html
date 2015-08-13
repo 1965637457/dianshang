@@ -1,0 +1,21 @@
+<extend name="Public/tpl-data" />
+<block name="page-handle"></block>
+<block name="content">
+<form action="{:U('updatePwd')}" method="post" enctype="multipart/form-data" class="form-data" id="j-fmData">
+    <table class="table table-condensed tb-data">
+        <tr>
+            <th>用户名</th>
+            <td><input type="text" value="{$data.account|htmlspecialchars}" class="form-control-sm" disabled /></td>
+        </tr>
+        <tr>
+            <th>旧密码</th>
+            <td><input type="text" name="old_password" class="form-control-sm" /></td>
+        </tr>
+        <tr>
+            <th>新密码</th>
+            <td><input type="text" name="new_password" class="form-control-sm" /></td>
+        </tr>
+    </table>
+    <include file="Public/tb-data-control"/>
+</form>
+</block>

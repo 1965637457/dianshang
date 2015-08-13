@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>elFinder 2.0</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- elFinder JS (REQUIRED) -->
+        <script type="text/javascript" src="__JS__/elfinder/js/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="__JS__/elfinder/js/jquery/jquery-ui.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="__JS__/elfinder/js/jquery/jquery-ui.min.css" />
+        <!-- elFinder JS (REQUIRED) -->
+        <script type="text/javascript" src="__JS__/elfinder/js/elfinder.min.js"></script>
+        <!-- elFinder CSS (REQUIRED) -->
+        <link rel="stylesheet" type="text/css" media="screen" href="__JS__/elfinder/css/elfinder.min.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="__JS__/elfinder/css/theme.css">
+        <script>
+            // Helper function to get parameters from the query string.
+            function getUrlParam(paramName) {
+                var reParam = new RegExp('(?:[\?&]|&amp;)' + paramName + '=([^&]+)', 'i') ;
+                var match = window.location.search.match(reParam) ;
+
+                return (match && match.length > 1) ? match[1] : '' ;
+            }
+
+            $().ready(function() {
+                var funcNum = getUrlParam('CKEditorFuncNum');
+                var elf = $('#elfinder').elfinder({
+                    url : '/admin.php/Editor/connectElfinder',
+                    height: 600,
+                    getFileCallback : function(file) {
+                        window.opener.CKEDITOR.tools.callFunction(funcNum, file);
+                        window.close();
+                    },
+                    resizable: false
+                }).elfinder('instance');
+            });
+        </script>
+    </head>
+    <body>
+        <div id="elfinder"></div>
+    </body>
+</html>

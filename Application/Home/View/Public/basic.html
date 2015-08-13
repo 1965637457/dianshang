@@ -1,0 +1,33 @@
+<include file="Public/header" />
+<div class="banner width">
+    <img src="<empty name='top_banner'>__IMAGES__/inner_banner_1.jpg<else/>__UPLOAD__/{$top_banner.image}</empty>">
+</div>
+<div class="content width">
+    <div class="inner_page clear">
+        <div class="left_side {$left_side_bg}">
+            <include file='left_side_box' />
+            <block name="left_nav">
+                <include file="Public/sider_nav" />
+            </block>
+            <block name="left_side_include">
+                <include file="Public/sider_category" />
+            </block>
+        </div>
+        <div class="right_side">
+            <div class="right_menu clear">
+                <block name="bread_nav"><a href="{:U('/')}" class="icon">Home</a> <span>/</span> <a href="#">About Us</a></block>
+                <div class="btn_share">
+                    <img src="__IMAGES__/btn_share.jpg">
+                </div>
+            </div>
+            <div class="right_side_content clear">
+                <block name="right_side_content">
+                <div class="article_content">
+                    {$article.content}
+                </div>
+                </block>
+            </div>
+        </div>
+    </div>
+</div>
+<include file="Public/footer" />

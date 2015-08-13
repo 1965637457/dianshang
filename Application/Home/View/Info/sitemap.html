@@ -1,0 +1,52 @@
+<extend name="Public/basic" />
+<block name="bread_nav"><a href="{:U('/')}" class="icon">Home</a> <span>/</span> <a href="{:U('/Info')}">Info</a></block>
+<block name="right_side_content">
+    <div class="news_title clear">
+        <h2>{$article.title}</h2>
+    </div>
+    <div class="sitemap_box clear">
+        <ul>
+            <li><h3>About Us</h3></li>
+            <volist name="nav_list.About" id='v'>
+                <li><a href="<empty name='v.rewriteuri'>{:U('About/detail',array('id'=>$v['id']))}<else/>{:U('About/'.$v['rewriteuri'])}</empty>">{$v.title}</a></li>
+            </volist>
+        </ul>
+        <ul>
+            <li><h3>News</h3></li>
+            <volist name="nav_list.News" id='v'>
+                <li><a href="<empty name='v.rewriteuri'>{:U('News/category',array('id'=>$v['id']))}<else/>{:U('News/'.$v['rewriteuri'])}</empty>">{$v.cate_name}</a></li>
+            </volist>
+        </ul>
+        <ul>
+            <li><h3>Services</h3></li>
+            <volist name="nav_list.Service" id='v'>
+                <li><a href="<empty name='v.rewriteuri'>{:U('Service/detail',array('id'=>$v['id']))}<else/>{:U('Service/'.$v['rewriteuri'])}</empty>">{$v.title}</a></li>
+            </volist>
+        </ul>
+        <ul>
+            <li><h3>Resources</h3></li>
+            <volist name="nav_list.Resource" id='v'>
+                <li><a href="<empty name='v.rewriteuri'>{:U('Resource/detail',array('id'=>$v['id']))}<else/>{:U('Resource/'.$v['rewriteuri'])}</empty>">{$v.title}</a></li>
+            </volist>
+        </ul>
+        <ul>
+            <li><h3>Quality</h3></li>
+            <volist name="nav_list.Quality" id='v'>
+                <li><a href="<empty name='v.rewriteuri'>{:U('Quality/detail',array('id'=>$v['id']))}<else/>{:U('Quality/'.$v['rewriteuri'])}</empty>">{$v.title}</a></li>
+            </volist>
+        </ul>
+        <ul>
+            <li><h3>Technology</h3></li>
+            <volist name="nav_list.Technology" id='v'>
+                <li><a href="<empty name='v.rewriteuri'>{:U('Technology/detail',array('id'=>$v['id']))}<else/>{:U('Technology/'.$v['rewriteuri'])}</empty>">{$v.title}</a></li>
+            </volist>
+        </ul>
+        <ul>
+            <li><h3>Info</h3></li>
+            <volist name="nav_list.Info" id='v'>
+                <li><a href="<empty name='v.rewriteuri'>{:U('Info/detail',array('id'=>$v['id']))}<else/>{:U('Info/'.$v['rewriteuri'])}</empty>">{$v.title}</a></li>
+            </volist>
+        </ul>
+        
+    </div>
+</block>

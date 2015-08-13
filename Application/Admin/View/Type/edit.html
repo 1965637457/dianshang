@@ -1,0 +1,95 @@
+<extend name="Public/tpl-edit" />
+<block name="content">
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-target="#pane1" data-toggle="tab">基本信息</a></li>
+        <li><a data-target="#pane2" data-toggle="tab">关联属性</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="pane1">
+            <table class="table table-condensed tb-data">
+                <tr>
+                    <th>{:L('NAME')}</th>
+                    <td><input type="text" name="type_name" value="{$data.type_name|htmlspecialchars}" class="form-control-sm" /></td>
+                </tr>
+                <tr>
+                    <th>{:L('REMARK')}</th>
+                    <td><textarea name="remark" class="form-control-sm">{$data.remark|htmlspecialchars}</textarea></td>
+                </tr>
+            </table>
+        </div>
+        <div class="tab-pane" id="pane2">
+            <table class="table table-condensed table-bordered tb-data-list" id="js-type-attribute-list" data-choose-url="{:U('chooseattribute')}">
+                <thead>
+                    <tr>
+                        <th class="th-150">属性</th>
+                        <th class="th-300">属性值</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <volist name="data._attributes" id="v">
+                    <tr data-id="{$v.id}">
+                        <td>{$v.attribute}</td>
+                        <td>{$v.attribute_values}</td>
+                        <td class="f16">
+                            <a href="javascript:;" class="js-move-up"><span class="glyphicon glyphicon-arrow-up"></span></a>
+                            <a href="javascript:;" class="js-move-down"><span class="glyphicon glyphicon-arrow-down"></span></a>
+                            <a href="javascript:;" class="js-remove-attribute"><span class="glyphicon glyphicon-remove"></span></a>
+                            <input type="hidden" name="attributes[]" value="{$v.id}">
+                        </td>
+                    </tr>
+                </volist>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3"><button type="button" class="btn btn-success btn-xs" id="js-choose-attribute">选择属性</button></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</block>
+<block name="scripts">
+    <script>
+        +function($){
+            $.producttype = {
+                init : function(){
+                    var url_choose = $('#js-type-attribute-list').attr('data-choose-url');
+                    $(document).on('click','#js-choose-attribute',function(){
+                        var diag = new Dialog();
+                        diag.ID = 'popDialog';
+                        diag.URL = url_choose;
+                        diag.Title = '选择属性';
+                        diag.Width = $(window).width() - 200;
+                        diag.Height = $(window).height() - 250;
+                        diag.OKEvent = function(){
+                            diag.innerWin.$('#js-table-list tbody :checked').each(function(){
+                                var id = $(this).val();
+                                if($('#js-type-attribute-list tr[data-id="'+id+'"]').length > 0){
+                                    return;
+                                }
+                                var html = '<tr data-id="'+id+'">\
+                                    <td>'+$(this).attr('data-attribute')+'</td>\
+                                    <td>'+$(this).attr('data-values')+'</td>\
+                                    <td class="f16">\
+                                        <a href="javascript:;" class="js-move-up"><span class="glyphicon glyphicon-arrow-up"></span></a>\
+                                        <a href="javascript:;" class="js-move-down"><span class="glyphicon glyphicon-arrow-down"></span></a>\
+                                        <a href="javascript:;" class="js-remove-attribute"><span class="glyphicon glyphicon-remove"></span></a>\
+                                        <input type="hidden" name="attributes[]" value="'+id+'">\
+                                    </td>\
+                                </tr>';
+                                $('#js-type-attribute-list tbody').append(html);
+                            });
+                            diag.close();
+                        };
+                        diag.show();
+                    }).on('click','.js-remove-attribute',function(){
+                        var $o = $(this).parent().parent();
+                        $o.remove();
+                    });
+                }
+            };
+            $.producttype.init();
+        }(jQuery);
+    </script>
+</block>

@@ -1,0 +1,65 @@
+<extend name="Public/basic" />
+<block name="left_nav">
+    <include file="sider_nav" />
+</block>
+<block name="bread_nav"><a href="{:U('/')}" class="icon">Home</a> <span>/</span> <a href="{:U('/Product')}">Product</a> <span>/</span> <a href="<empty name='article.rewriteuri'>{:U('category',array('id'=>$article['id']))}<else/>{:U('Product/category/'.$article['rewriteuri'])}</empty>">{$article.cate_name}</a> <span>/</span> {$data.title}</block>
+<block name="right_side_content">
+    <div class="products_detail clear">
+        <div class="image"><img src="__UPLOAD__/{$data.image}" /></div>
+        <div class="content">
+            <h2>{$data.title}</h2>
+            <p>{$data.short_desc|nl2br}</p>
+            <h3>Available products</h3>
+            <table class="tb_product_params">
+                <tr><th width="126"><strong>Product CAS</strong></th><td wdith="242">{$data.product_cas}</td></tr>
+                <tr><th><strong>Chemical Formula</strong></th><td>{$data.chemical_formula}</td></tr>
+                <tr><th><strong>Main applications</strong></th><td>{$data.main_applications}</td></tr>
+            </table>
+            <div class="weight clear">
+                <span class="j-inquiryType weight_btn active" data-type="5"><img src="__IMAGES__/icon_5kg.gif" alt="5KG" title="5KG"/></span>
+                <span class="j-inquiryType weight_btn" data-type="10"><img src="__IMAGES__/icon_10kg.gif" alt="10KG" title="10KG" /></span>
+                <span class="j-inquiryType weight_btn" data-type="15"><img src="__IMAGES__/icon_15kg.gif" alt="15KG" title="15KG" /></span>
+                <div class="demo">
+                    <p><a id="j-inquiry" href="javascript:;" data-url="{:U('Product/inquiry')}" data-id="{$data.id}" data-type="5"><img src="__IMAGES__/btn_inquiry.gif"></a></p>
+                </div>
+            </div>
+        </div>
+        <notempty name='data.metal_analysis'>
+        <div class="discription">
+            <h3>Metal analysis</h3>
+            <div class="article_content">{$data.metal_analysis}</div>
+        </div>
+        </notempty>
+        <notempty name='data.description'>
+        <div class="discription">
+            <h3>Discription</h3>
+            <div class="article_content">{$data.description}</div>
+        </div>
+        </notempty>
+        <notempty name='data.packing'>
+        <div class="discription">
+            <h3>Packing</h3>
+            <div class="article_content">{$data.packing}</div>
+        </div>
+        </notempty>
+    </div>
+    <link href="__JS__/fancybox/jquery.fancybox.css" type="text/css" rel="stylesheet"/>
+    <script type="text/javascript" src="__JS__/fancybox/jquery.fancybox.pack.js"></script>
+    <script>
+        $(function(){
+            $('.j-inquiryType').bind('click',function(){
+                $(this).addClass('active').siblings('.j-inquiryType').removeClass('active');
+                $('#j-inquiry').attr('data-type', $(this).attr('data-type'));
+            });
+            $('#j-inquiry').bind('click',function(){
+                var url = $(this).attr('data-url') + '?id=' + $(this).attr('data-id') + '&type=' + $(this).attr('data-type');
+                $.fancybox({
+                    type : 'iframe',
+                    href : url,
+                    padding: 0,
+                    width : 920
+                });
+            });
+        });
+    </script>
+</block>

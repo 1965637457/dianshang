@@ -1,0 +1,34 @@
+<extend name="Public/tpl-edit-dialog" />
+<block name="content">
+    <table class="table table-condensed tb-data">
+        <tr>
+            <th>{:L('STATUS')}</th>
+            <td>
+                <label><input type="radio" name="status" value="1" checked="checked" /> {:L('ACTIVE')}</label>
+                <label><input type="radio" name="status" value="0" <eq name="data.status" value="0">checked</eq> /> {:L('DISABLED')}</label>
+            </td>
+        </tr>
+        <tr>
+            <th>{:L('TITLE')}</th>
+            <td><input type="text" name="title" value="{$data.title|htmlspecialchars}" class="form-control-sm" /></td>
+        </tr>
+        <tr>
+            <th>{:L('URL')}</th>
+            <td><input type="text" name="url" value="{$data.url|htmlspecialchars}" class="form-control-sm" /></td>
+        </tr>
+        <tr>
+            <th>{:L('FILE')}</th>
+            <td>
+                <input type="file" name="upload_file" /><input type="hidden" name="file" value="{$data.file}" />
+            </td>
+        </tr>
+        <notempty name="data.file">
+            <tr>
+                <th></th>
+                <td>
+                    <img src="__UPLOAD__/{$data.file}" style="max-height: 100px;" />
+                </td>
+            </tr>
+        </notempty>
+    </table>
+</block>

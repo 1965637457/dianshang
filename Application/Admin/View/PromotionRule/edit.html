@@ -1,0 +1,88 @@
+<extend name="Public/tpl-edit-dialog" />
+<block name="content">
+    <input type="hidden" name="main[promotion_id]" value="{$data.promotion_id}" />
+    <table class="table table-condensed tb-data">
+        <tr>
+            <th>{:L('STATUS')}</th>
+            <td>
+                <label><input type="radio" name="main[status]" value="1" checked /> {:L('ACTIVE')}</label>
+                <label><input type="radio" name="main[status]" value="0" <eq name="data.status" value="0">checked</eq> /> {:L('DISABLED')}</label>
+            </td>
+        </tr>
+        <tr>
+            <th>规则名称</th>
+            <td><input type="text" name="main[promotion_rule]" value="{$data.promotion_rule|htmlspecialchars}" class="form-control-sm require" /></td>
+        </tr>
+        <tr>
+            <th>规则别名</th>
+            <td><input type="text" name="main[promotion_rule_alias]" value="{$data.promotion_rule_alias|htmlspecialchars}" class="form-control-sm require" /> <i>前台展示</i></td>
+        </tr>
+        <tr>
+            <th>促销类型</th>
+            <td>
+                <select name="main[promote_type]" class="form-control-sm" id="js-promote-type">
+                    <volist name="promote_types" id="v">
+                        <option value="{$key}" <eq name="data.promote_type" value="$key">selected</eq>>{$v}</option>
+                    </volist>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>最小消费金额</th>
+            <td><input type="text" name="main[min_amount]" value="{$data.min_amount|htmlspecialchars}" placeholder="0.00" class="form-control-sm require isNumber" /></td>
+        </tr>
+        <tr id="sectionDiscountAmount" <eq name="data.promote_type" value="2">class="hidden"</eq>>
+            <th>减免金额</th>
+            <td><input type="text" name="main[discount_amount]" value="{$data.discount_amount|htmlspecialchars}" placeholder="0.00" class="form-control-sm"/></td>
+        </tr>
+        <tr id="sectionDiscountRate" <neq name="data.promote_type" value="2">class="hidden"</neq>>
+            <th>折扣</th>
+            <td><input type="text" name="main[discount_rate]" value="{$data.discount_rate|htmlspecialchars}" placeholder="99" class="form-control-sm"/> <i>取值0 - 99</i></td>
+        </tr>
+        <tr>
+            <th>限定类型</th>
+            <td>
+                <select name="main[limit_type]" class="form-control-sm" id="js-limit-type">
+                    <volist name="limit_types" id="v">
+                        <option value="{$key}" <eq name="data.limit_type" value="$key">selected</eq>>{$v}</option>
+                    </volist>
+                </select>
+            </td>
+        </tr>
+        <tr id="sectionProduct" <neq name="data.limit_type" value="2">class="hidden"</neq>>
+            <th>
+                <a href="javascript:;" class="btn btn-success btn-xs" id="js-select-product" data-url="{:U('products')}">选择商品</a>
+            </th>
+            <td>
+                <ul id="js-limit-list" style="list-style: none;padding: 0;">
+                    <volist name="data._product_list" id="v">
+                        <li data-id="{$v.id}">
+                            <input type="hidden" name="limit_products[]" value="{$v.id}" > 
+                            {$v.goods_sno} | {$v.goods}
+                            <a href="javascript:;" class="btn btn-danger btn-xs js-remove-item"><i class="glyphicon glyphicon-remove"></i></a>
+                        </li>
+                    </volist>
+                </ul>
+            </td>
+        </tr>
+        <tr id="sectionCategory" <neq name="data.limit_type" value="3">class="hidden"</neq>>
+            <th>选择分类</th>
+            <td>
+                <ul style="height:150px;list-style: none;padding-left: 5px;border:1px solid #ccc;">
+                    <volist name="category_list" id="v">
+                        <li><label><input type="checkbox" name="limit_category[]" value="{$v.id}" <in name="v.id" value="$data['_chosen_category']">checked</in> > {$v.grade|do_sub_prefix}{$v.category}</label></li>
+                    </volist>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>{:L('REMARK')}</th>
+            <td><textarea name="main[remark]" class="form-control-sm">{$data.remark|htmlspecialchars}</textarea></td>
+        </tr>
+    </table>
+</block>
+<block name="scripts">
+    <script>
+        $.promotion.initRule();
+    </script>
+</block>

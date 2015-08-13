@@ -1,0 +1,47 @@
+<extend name="Public/tpl-dialog" />
+<block name="content">
+    <form action="" method="post" enctype="multipart/form-data" class="form-data" id="j-fmData">
+        <input type="hidden" name="code" value="{$data.order_code}" >
+        <table class="table">
+            <thead>
+                <tr>
+                    <td class="th-80"><b>开发票</b></td>
+                    <td>
+                        <label><input type="radio" name="need_invoice" value="1" checked /> 是</label>
+                        <label><input type="radio" name="need_invoice" value="0" <eq name="data.need_invoice" value='0'>checked</eq> /> 否</label>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>发票类型</th>
+                    <td>
+                        <label><input type="radio" name="invoice_type" value="1" checked /> 普通发票</label>
+                        <label><input type="radio" name="invoice_type" value="2" <eq name="data.invoice_type" value='2'>checked</eq> /> 增值税发票</label>
+                    </td>
+                </tr>
+                <tr>
+                    <th>发票抬头</th>
+                    <td><input type="text" name="invoice_title" value="{$data.invoice_title|htmlspecialchars}" class="form-control input-sm" /></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</block>
+<block name="scripts">
+    <script>
+        $(function(){
+            $('#j-fmData').bind('submit',function(){
+                $.post(this.action,$(this).serialize(),function(data){
+                    if(data.status===1){
+                        var diag = Dialog.getInstance("popDialog");
+                        diag.openerWindow.reload();
+                    }else{
+                        alert(data.info);
+                    }
+                },'json');
+                return false;
+            });
+        });
+    </script>
+</block>

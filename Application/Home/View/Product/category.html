@@ -1,0 +1,42 @@
+<extend name="Public/basic" />
+<block name="left_nav">
+    <include file="sider_nav" />
+</block>
+<block name="bread_nav"><a href="{:U('/')}" class="icon">Home</a> <span>/</span> <a href="{:U('/Product')}">Product</a> <span>/</span> <a href="<empty name='article.rewriteuri'>{:U('category',array('id'=>$article['id']))}<else/>{:U('Product/category/'.$article['rewriteuri'])}</empty>">{$article.cate_name}</a></block>
+<block name="right_side_content">
+    <div class="editor_public clear">
+        <div style="width:400px; float:left">
+            <h3>{$article.cate_name}</h3>
+            <p>{$article.short_desc|nl2br}</p><br /><br />
+        </div>
+    </div>
+    <div class="intro_list">
+        <div class="products_cate">
+            <h4>A-Z Product Quick Finder</h4>
+            <p>Search by product name:</p>
+            <div class="search">
+                <form action="{:U('Product/detail')}" method="get">
+                    <select name="id" size="1">
+                        <option value="0">Select a product name</option>
+                        <volist name="list" id="v">
+                        <option value="{$v.id}">{$v.title}（{$v.short_title}）</option>
+                        </volist>
+                    </select>
+                    <button type="submit" class="btn_search"></button>
+                </form>
+            </div>
+            <p>Please just make a click on the elements in Periodic Table, you can directly go to the homepage of this elements:</p>
+            <div class="products_list clear">
+                <ul>
+                    <volist name="list" id="v">
+                    <li><a href="<empty name='v.rewriteuri'>{:U('detail',array('id'=>$v['id']))}<else/>{:U('Product/'.$v['rewriteuri'])}</empty>">{$v.short_title}</a></li>
+                    </volist>
+                </ul>
+                <img src="__IMAGES__/introduction_1.jpg" style=" width:365px; height:255px;position:absolute; right:-50px;top:20px; z-index:-1;">
+            </div>
+            <p>Advanced extraction lines separating Rare Earth mixed compounds to 99% to 99.999% various purities of individual and co-precipitated Rare Earth chemicals, including Oxides, Acetates, Chloride, Carbonates, Hydroxides, Fluorides, Nitrates, Oxalates, totally covered 90% of Rare Earth products, applied widely in manufacturing tri-band phosphors, advanced ceramics, pigments, glass, glazes, laser crystals, Rare Earth doped fibers.</p>
+            <p>Despite the normal process of igniting, special designed ignition furnaces and procedure guarantee the physical characteristics alonging with higher requirements for quickly developing technology, the advanced materials can provice with higher surface area, smaller or large particle size for specialty </p>
+        </div>
+    </div>
+    <include file="bottom_info" />
+</block>

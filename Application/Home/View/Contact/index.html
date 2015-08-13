@@ -1,0 +1,51 @@
+<extend name="Public/basic" />
+<block name="bread_nav"><a href="{:U('/')}" class="icon">Home</a> <span>/</span> <a href="{:U('/Contact')}">Contact Us</a></block>
+<block name="left_nav">
+    <include file="sider_nav" />
+</block>
+<block name="right_side_content">
+    <div class="contact_box">
+        <h2>Get in Touch</h2>
+        <p>We're very approachable and would love to speak to you. Feel free to call, send us an email, or simply complete the enquiry form.</p>
+        <ul>
+            <li><img src="__IMAGES__/icon_phone.gif"><p>{$Think.config.CONTACT_PHONE}</p></li>
+            <li><img src="__IMAGES__/icon_fax.gif"><p>{$Think.config.CONTACT_FAX}</p></li>
+            <li><img src="__IMAGES__/icon_email.gif"><p>{$Think.config.CONTACT_EMAIL}</p></li>
+            <li><img src="__IMAGES__/icon_map.gif"><p style="margin-bottom:62px;">{$Think.config.CONTACT_ADDR|nl2br}</p></li>
+        </ul>
+    </div>
+    <div class="contact_box" style="margin-left:28px;">
+        <h2>Send Us A Message</h2>
+        <p>We'd love to hear from you.</p>
+        <form action="{:U('dofeedback')}" method="post" id="j-fmFeedback">
+            <label>First name *</label>
+            <input type="text" name="first_name" class="require" />
+            <label>Last name *</label>
+            <input type="text" name="last_name" class="require" />
+            <label>Company name *</label>
+            <input type="text" name="company" class="require" />
+            <label>Address *</label>
+            <input type="text" name="address" class="require" />
+            <label>Email Address *</label>
+            <input type="text" name="email" class="require email" />
+            <label>Message *</label>
+            <textarea name="memo" class="require"></textarea>
+            <button type="submit">INQUIRY</button>
+        </form>
+    </div>
+    <script>
+        $('#j-fmFeedback').bind('submit',function(){
+            var flag=true,v;
+            $('.require',this).each(function(){
+                v = $.trim($(this).val());
+                if(v===''){
+                    flag=false;alert("Please fill your info!");return false;
+                }
+                if($(this).hasClass('email') && !isEmail(v)){
+                    flag=false;alert("Please fill your Email!");return false;
+                }
+            });
+            if(!flag){ return false; }
+        });
+    </script>
+</block>

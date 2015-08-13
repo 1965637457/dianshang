@@ -1,0 +1,96 @@
+<extend name="Public/tpl-edit" />
+<block name="content">
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-target="#pane1" data-toggle="tab">基本信息</a></li>
+        <li><a data-target="#pane2" data-toggle="tab">规则信息</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="pane1">
+            <table class="table table-condensed tb-data">
+                <tr>
+                    <th>{:L('STATUS')}</th>
+                    <td>
+                        <label><input type="radio" name="main[status]" value="1" checked /> {:L('ACTIVE')}</label>
+                        <label><input type="radio" name="main[status]" value="0" <eq name="data.status" value="0">checked</eq> /> {:L('DISABLED')}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <th>{:L('SORT')}</th>
+                    <td><input type="text" name="main[sort]" value="{$data.sort|htmlspecialchars}" class="form-control-sm" /> <i>{:L('SORT_INFO')}</i></td>
+                </tr>
+                <tr>
+                    <th>{:L('NAME')}</th>
+                    <td><input type="text" name="main[promotion]" value="{$data.promotion|htmlspecialchars}" class="form-control-sm" /></td>
+                </tr>
+                <tr>
+                    <th>{:L('START_TIME')}</th>
+                    <td>
+                        <input type="text" name="main[start_time]" value="{:date('Y-m-d H:i:s', $data['start_time'])}" class="form-control-sm js-form-datetime" data-date-format="yyyy-mm-dd hh:ii:ss" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>{:L('END_TIME')}</th>
+                    <td>
+                        <input type="text" name="main[end_time]" value="{:date('Y-m-d H:i:s', $data['end_time'])}" class="form-control-sm js-form-datetime" data-date-format="yyyy-mm-dd hh:ii:ss" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>{:L('REMARK')}</th>
+                    <td><textarea name="main[remark]" class="form-control-sm">{$data.remark|htmlspecialchars}</textarea></td>
+                </tr>
+            </table>
+        </div>
+        <div class="tab-pane" id="pane2">
+            <table class="table table-condensed table-bordered tb-data-list" id="js-promotion-rule-list" data-add-url="{:U('PromotionRule/add',array('promotion_id'=>$data['id']))}" data-edit-url="{:U('PromotionRule/edit')}" data-update-url="{:U('PromotionRule/setStatus')}" data-remove-url="{:U('PromotionRule/delete')}">
+                <thead>
+                    <tr>
+                        <th class="th-200">规则名称</th>
+                        <th class="th-100">规则别名</th>
+                        <th class="th-100">最小金额</th>
+                        <th class="th-200">规则类型</th>
+                        <th class="th-100">优惠</th>
+                        <th class="th-100">限制类型</th>
+                        <th class="th-50">状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <volist name="data._rule_list" id="v">
+                    <tr data-id="{$v.id}">
+                        <td>{$v.promotion_rule}</td>
+                        <td>{$v.promotion_rule_alias}</td>
+                        <td>{$v.min_amount}</td>
+                        <td>{$promote_types[$v['promote_type']]}</td>
+                        <td><eq name='v.promote_type' value='2'>{$v['discount_rate']}%<else/>{$v['discount_amount']}</eq></td>
+                        <td>{$limit_types[$v['limit_type']]}</td>
+                        <td class="f16"><a href="javascript:;" class="js-update-item" data-field="status" data-status="{$v.status}"><span class="glyphicon {$v['status']==1?'glyphicon-ok-circle green':'glyphicon-remove-circle red'}"></span></a></td>
+                        <td class="f16">
+                            <a href="javascript:;" class="js-move-up"><span class="glyphicon glyphicon-arrow-up"></span></a>
+                            <a href="javascript:;" class="js-move-down"><span class="glyphicon glyphicon-arrow-down"></span></a>
+                            <a href="javascript:;" class="js-edit-item"><span class="glyphicon glyphicon-edit"></span></a>
+                            <a href="javascript:;" class="js-remove-item"><span class="glyphicon glyphicon-remove"></span></a>
+                            <input type="hidden" name="promotion_rules[]" value="{$v.id}">
+                        </td>
+                    </tr>
+                </volist>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3"><button type="button" class="btn btn-success btn-xs" id="js-add-item">添加</button></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+</block>
+<block name="scripts">
+    <script>
+        $(".js-form-datetime").datetimepicker({
+            todayBtn: true,
+            todayHighlight: true,
+            autoclose: true
+        });
+        $.promotion.init();
+    </script>
+</block>

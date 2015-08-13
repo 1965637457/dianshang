@@ -1,0 +1,55 @@
+<extend name="Public/tpl-add-dialog" />
+<block name="content">
+    <input type="hidden" name="member_id" value="{$member_id}" >
+    <table class="table table-condensed tb-data">
+        <tr>
+            <th>默认</th>
+            <td>
+                <label><input type="radio" name="is_default" value="1" /> {:L('ACTIVE')}</label>
+                <label><input type="radio" name="is_default" value="0" checked /> {:L('DISABLED')}</label>
+            </td>
+        </tr>
+        <tr>
+            <th>{:L('CATEGORY')}</th>
+            <td data-url="{:U('MemberAddress/getregion')}">
+                <select name="province_id" class="form-control-sm js-province">
+                    <option value="0">请选择省份...</option>
+                    <volist name="province_list" id="v">
+                        <option value="{$v.id}">{$v.region_name}</option>
+                    </volist>
+                </select>
+                <select name="city_id" class="form-control-sm js-city">
+                    <option value="0">请选择城市...</option>
+                </select>
+                <select name="zone_id" class="form-control-sm js-zone">
+                    <option value="0">请选择区域...</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>{:L('ADDRESS')}</th>
+            <td><input type="text" name="address" class="form-control-sm" /></td>
+        </tr>
+        <tr>
+            <th>{:L('ZIPCODE')}</th>
+            <td><input type="text" name="zipcode" class="form-control-sm" /></td>
+        </tr>
+        <tr>
+            <th>{:L('FULLNAME')}</th>
+            <td><input type="text" name="truename" class="form-control-sm" /></td>
+        </tr>
+        <tr>
+            <th>{:L('PHONE')}</th>
+            <td><input type="text" name="phone" class="form-control-sm" /></td>
+        </tr>
+        <tr>
+            <th>{:L('MOBILE')}</th>
+            <td><input type="text" name="mobile" class="form-control-sm" /></td>
+        </tr>
+    </table>
+</block>
+<block name="scripts">
+    <script>
+        $.region.init();
+    </script>
+</block>

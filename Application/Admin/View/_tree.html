@@ -1,0 +1,49 @@
+<extend name="Public/tpl-list" />
+<block name="content">
+    <div class="table-responsive">
+        <table class="table table-condensed table-hover tb-list" id="tree-list">
+            <thead>
+                <tr>
+                    <th class="th-20"><input type="checkbox" class="j-check-all" /></th>
+                    <th class="th-50">{:L('LIST_SORT')}</th>
+                    <th class="th-40">ID</th>
+                    <th>{:L('NAME')}【<a href="#none" onclick="$('#tree-list').treetable('expandAll')">{:L('EXPAND')}</a>|<a href="#none" onclick="$('#tree-list').treetable('collapseAll')">{:L('COLLAPSE')}</a>】</th>
+                    <th class="th-60">{:L('STATUS')}</th>
+                    <th class="th-150">{:L('ACTIONS')}</th>
+                </tr>
+            </thead>
+            <tbody>
+            <volist name="list" id="v">
+                <tr data-tt-id="{$v.id}" <gt name="v.pid" value="0">data-tt-parent-id="{$v.pid}"</gt>>
+                <td><input type="checkbox" name="id[]" value="{$v.id}" /></td>
+                <td><input type="text" value="{$v.sort}" class="form-control-sm tl-xs js-sort" data-id="{$v.id}" ></td>
+                <td>{$v.id}</td>
+                <td><a href="{:U('edit',array('id'=>$v['id']))}">{$v.name|default='== 未定义 =='}</a></td>
+                <td><button type="button" class="status-{$v.status|intval} j-status" data-url="{:U('setStatus',array('id'=>$v['id'],'field'=>'status','val'=>$v['status']))}">{$v['status']?L('ACTIVE'):L('DISABLED')}</button></td>
+                <td>
+                    <a href="{:U('edit',array('id'=>$v['id']))}" class="btn btn-success btn-xs">{:L('EDIT')}</a>
+                    <a href="{:U('delete',array('id'=>$v['id']))}" class="btn btn-danger btn-xs j-del">{:L('DELETE')}</a>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-cog"></i> <i class="caret"></i></button>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="{:U('privilege',array('rid'=>$v['id']))}">设置权限</a></li>
+                            <li class='divider'></li>
+                            <li><a href="{:U('User/search',array('rid'=>$v['id']))}">查看管理员</a></li>
+                            <li><a href="{:U('User/add',array('rid'=>$v['id']))}">添加管理员</a></li>
+                        </ul>
+                    </div>
+                </td>
+                </tr>
+            </volist>
+            </tbody>
+        </table>
+    </div>
+</block>
+<block name="scripts">
+    <load href="__JS__/jquery.treetable.min.js" />
+    <script>
+        $(function() {
+            $("#tree-list").treetable({expandable: true, column: 3, initialState: "expanded"});
+        });
+    </script>
+</block>

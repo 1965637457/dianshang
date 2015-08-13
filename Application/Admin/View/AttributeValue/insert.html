@@ -1,0 +1,8 @@
+<extend name="Public/tpl-add-dialog" />
+<block name="scripts">
+    <script>
+        var diag = Dialog.getInstance("popDialog");
+        diag.openerWindow.$.attribute.createItem({$data});
+        diag.close();
+    </script>
+</block>

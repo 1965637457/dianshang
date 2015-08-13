@@ -1,0 +1,59 @@
+<extend name="Public/tpl-list" />
+<block name="page-handle">
+    <div class="pull-right page-direction-handle">
+        <a href="{:U('CouponRule/add')}" class="btn btn-success btn-sm"><i class="glyphicon glyphicon-plus"></i> {:L('ADD')}</a>
+        <a href="{:U('CouponRule/index')}" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-list"></i> {:L('LIST')}</a>
+    </div>
+</block>
+<block name="search">
+    <form action="{:U('index')}" method="get" class="list-search">
+        <input type="hidden" name="rid" value="{$opts.rid}" >
+        <select name="batch" class="form-control-sm">
+            <option value="0">==选择批次==</option>
+            <for start="1" end="$coupon_rule.total_batch" comparison="elt">
+                <option value="{$i}" <eq name="opts.batch" value="$i">selected</eq>>批次{$i}</option>
+            </for>
+        </select>
+        <button type="submit" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-search"></i> {:L('SEARCH')}</button>
+    </form>
+</block>
+<block name="content">
+    <div class="table-responsive">
+        <table class="table table-condensed table-hover tb-list">
+            <thead>
+                <tr>
+                    <th class="th-20"><input type="checkbox" class="j-check-all" /></th>
+                    <th class="th-40">ID</th>
+                    <th>优惠券号</th>
+                    <th class="th-60">批次</th>
+                    <th class="th-200">会员帐号</th>
+                    <th class="th-150">使用时间</th>
+                    <th class="th-60">{:L('STATUS')}</th>
+                    <th class="th-150">{:L('ACTIONS')}</th>
+                </tr>
+            </thead>
+            <tbody>
+            <volist name='list' id='v'>
+                <tr>
+                    <td><input type="checkbox" name="id[]" value="{$v.id}" /></td>
+                    <td>{$v.id}</td>
+                    <td>{$v.coupon}</td>
+                    <td>{$v.batch}</td>
+                    <td>{$v.account|default='-'}</td>
+                    <td>{$v.use_time|fn_date='Y-m-d H:i:s',###}</td>
+                    <td>
+                        <eq name="v.status" value="-1">
+                        已使用
+                        <else/>
+                        <button type="button" class="status-{$v.status|intval} j-status" data-url="{:U('setStatus',array('id'=>$v['id'],'field'=>'status','val'=>$v['status']))}">{$v['status']?L('ACTIVE'):L('DISABLED')}</button>
+                        </eq>
+                    </td>
+                    <td>
+                        <a href="{:U('delete',array('id'=>$v['id']))}" class="btn btn-danger btn-xs j-del">{:L('DELETE')}</a>
+                    </td>
+                </tr>
+            </volist>
+            </tbody>
+        </table>
+    </div>
+</block>

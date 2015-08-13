@@ -1,0 +1,18 @@
+<select name="province_id" class="form-control-sm js-province">
+    <option value="0">请选择省份...</option>
+    <volist name="province_list" id="v">
+        <option value="{$v.id}" <eq name="province_id" value="$v.id">selected="selected"</eq>>{$v.region_name}</option>
+    </volist>
+</select>
+<select name="city_id" class="form-control-sm js-city">
+    <option value="0">请选择城市...</option>
+    <volist name="city_list" id="v">
+        <option value="{$v.id}" <eq name="city_id" value="$v.id">selected="selected"</eq>>{$v.region_name}</option>
+    </volist>
+</select>
+<select name="zone_id" class="form-control-sm js-zone">
+    <option value="0">请选择区域...</option>
+    <volist name="zone_list" id="v">
+        <option value="{$v.id}" <eq name="zone_id" value="$v.id">selected="selected"</eq>>{$v.region_name}</option>
+    </volist>
+</select>

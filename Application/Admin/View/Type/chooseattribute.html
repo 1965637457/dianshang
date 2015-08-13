@@ -1,0 +1,25 @@
+<extend name="Public/tpl-dialog" />
+<block name="content">
+    <table class="table table-condensed table-hover tb-list" id="js-table-list">
+        <thead>
+            <tr>
+                <th class="th-20"><input type="checkbox" class="j-check-all" /></th>
+                <th class="th-40">ID</th>
+                <th class="th-150">{:L('NAME')}</th>
+                <th class="th-150">{:L('ALIAS')}</th>
+                <th>属性值</th>
+            </tr>
+        </thead>
+        <tbody>
+        <volist name='list' id='v'>
+            <tr>
+                <td><input type="checkbox" name="id[]" value="{$v.id}" data-attribute="{$v.attribute}" data-values="{$v.attribute_values}" /></td>
+                <td>{$v.id}</td>
+                <td>{$v.attribute|default='== 未定义 =='}</td>
+                <td>{$v.attribute_alias}</td>
+                <td>{$v.attribute_values}</td>
+            </tr>
+        </volist>
+        </tbody>
+    </table>
+</block>

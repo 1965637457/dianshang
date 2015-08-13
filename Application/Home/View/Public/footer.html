@@ -1,0 +1,41 @@
+<div class="footer">
+    <div class="width clear">
+        <div class="footer_products clear">
+            <h3>Some parts of our main  products are Rare Earths</h3>
+            <ul>
+                <volist name="bottom_pros" id="v">
+                <li><a href="<empty name='v.rewriteuri'>{:U('detail',array('id'=>$v['id']))}<else/>{:U('Product/'.$v['rewriteuri'])}</empty>">{$v.title}</a></li>
+                </volist>
+            </ul>
+            <a href="{:U('Product')}" class="btn_products">View All Products +</a>
+        </div>
+        <div class="footer_contact">
+            <h3>Contact Us</h3>
+            <p><strong>Tel:</strong> <span>{$Think.config.CONTACT_PHONE}</span></p> 
+            <p><strong>Fax:</strong> {$Think.config.CONTACT_FAX}</p>
+            <p><strong>E-mail:</strong> {$Think.config.CONTACT_EMAIL}</p>
+            <img src="__IMAGES__/maps.png">
+        </div>
+        <div class="footer_social">
+            <h3>Stay Connected</h3>
+            <a href="#" target="_blank" class="facebook social">facebook</a>
+            <a href="#" target="_blank" class="twitter social">twitter</a>
+            <a href="#" target="_blank" class="google social">google</a>
+            <a href="#" target="_blank" class="pinterest social">pinterest</a>
+            <a href="#" target="_blank" class="linkedin social">linkedin</a>
+            <div class="mail_send">
+                <p>Get product updates and other news.We will never sell your email address. Read our <a href="{:U('Info/privacy-policy')}">Privacy policy.</a> </p>
+                <form action="{:U('Index/subscribe')}" method="post" id="j-fmSubscribe">
+                    <input type="text" name="email" class="require email" placeholder="Enter your email address">
+                    <button type="submit" value="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="copyright clear">
+            <p>{$Think.config.META_COPYRIGHT}</p>
+            <div class="copyright_link"><a href="{:U('Info/privacy-policy')}">Privacy Policy</a><span>|</span><a href="{:U('Info/terms-conditions')}">Terms & Conditions</a><span>|</span><a href="{:U('/Sitemap')}">Site Map</a></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

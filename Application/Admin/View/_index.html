@@ -1,0 +1,62 @@
+<extend name="Public/tpl-list" />
+<block name="search">
+    <form action="" method="get" class="list-search">
+        <input type="text" name="kw" value="{$opts.kw}" class="form-control-sm" />
+        <button type="submit" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-search"></i> {:L('SEARCH')}</button>
+    </form>
+</block>
+<block name="content">
+    <div class="table-responsive">
+        <table class="table table-condensed table-hover tb-list">
+            <thead>
+                <tr>
+                    <th class="th-20"><input type="checkbox" class="j-check-all" /></th>
+                    <th class="th-50">{:L('LIST_SORT')}</th>
+                    <th class="th-40">ID</th>
+                    <th>{:L('TITLE')}</th>
+                    <th class="th-150">字段</th>
+                    <th class="th-60">{:L('STATUS')}</th>
+                    <th class="th-150">{:L('ACTIONS')}</th>
+                </tr>
+            </thead>
+            <tbody>
+            <volist name='list' id='v'>
+                <tr>
+                    <td><input type="checkbox" name="id[]" value="{$v.id}" /></td>
+                    <td><input type="text" value="{$v.sort}" class="form-control-sm tl-xs js-sort" data-id="{$v.id}" ></td>
+                    <td>{$v.id}</td>
+                    <td><a href="{:U('edit',array('id'=>$v['id']))}">{$v.title|default='== 未定义 =='}</a></td>
+                    <td>{$v.name}</td>
+                    <td><button type="button" class="status-{$v.status|intval} j-status" data-url="{:U('setStatus',array('id'=>$v['id'],'field'=>'status','val'=>$v['status']))}">{$v['status']?L('ACTIVE'):L('DISABLED')}</button></td>
+                    <td>
+                        <a href="{:U('edit',array('id'=>$v['id']))}" class="btn btn-success btn-xs">{:L('EDIT')}</a>
+                        <a href="{:U('delete',array('id'=>$v['id']))}" class="btn btn-danger btn-xs j-del">{:L('DELETE')}</a>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-cog"></i> <span class="caret"></span></button>
+                            <ul class="dropdown-menu pull-right">
+                                <li><a href="#">更多操作</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </volist>
+            </tbody>
+        </table>
+    </div>
+</block>
+<block name="list-handle">
+    <div class="container-fluid">
+        <div class='row'>
+            <div class="col-md-4">
+                <a href="javascript:;" data-type="delete" class="btn btn-danger btn-sm js-handle js-need-confirm"><i class="glyphicon glyphicon-trash"></i> {:L('DELETE')}</a>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-cog"></i> <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="javascript:;" data-type="delete" class="btn btn-danger btn-sm js-handle"><i class="glyphicon glyphicon-plus"></i> 更多操作</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-8 text-right"><ul class="pagination square">{$page_nav}</ul></div>
+        </div>
+    </div>
+</block>

@@ -1,0 +1,28 @@
+<extend name="Public/tpl-list" />
+<block name="content">
+    <div class="table-responsive">
+        <table class="table table-condensed table-hover tb-list">
+            <thead>
+                <tr>
+                    <th class="th-40">ID</th>
+                    <th class="th-150">{:L('NAME')}</th>
+                    <th>{:L('REMARK')}</th>
+                    <th class="th-150">{:L('ACTIONS')}</th>
+                </tr>
+            </thead>
+            <tbody>
+            <volist name='list' id='v'>
+                <tr>
+                    <td>{$v.id}</td>
+                    <td><a href="{:U('edit',array('id'=>$v['id']))}">{$v.order_status_name|default='== 未定义 =='}</a></td>
+                    <td>{$v.remark}</td>
+                    <td>
+                        <a href="{:U('edit',array('id'=>$v['id']))}" class="btn btn-success btn-xs">{:L('EDIT')}</a>
+                    </td>
+                </tr>
+            </volist>
+            </tbody>
+        </table>
+    </div>
+</block>
+<block name="list-handle"></block>

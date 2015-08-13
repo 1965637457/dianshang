@@ -1,0 +1,621 @@
+[ 2014-11-27T00:09:22+08:00 ] 127.0.0.1 /admin.php/Public/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000211s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000238s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000365s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000663s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000024s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000048s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.002759s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.002786s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000067s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000083s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000225s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000244s ]
+
+[ 2014-11-27T00:09:22+08:00 ] 127.0.0.1 /admin.php/Public/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000142s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000181s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000261s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000480s ]
+
+[ 2014-11-27T00:09:22+08:00 ] 127.0.0.1 /admin.php/Public/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000139s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000176s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000262s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000476s ]
+
+[ 2014-11-27T00:09:22+08:00 ] 127.0.0.1 /admin.php/Public/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000158s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000275s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000332s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000656s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000028s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000053s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.002654s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.002690s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000074s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000091s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000265s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000285s ]
+
+[ 2014-11-27T00:09:22+08:00 ] 127.0.0.1 /admin.php/Public/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000164s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000196s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000285s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000522s ]
+
+[ 2014-11-27T00:09:30+08:00 ] 127.0.0.1 /admin.php/Public/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000213s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000241s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000323s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000617s ]
+
+[ 2014-11-27T00:09:34+08:00 ] 127.0.0.1 /admin.php/Public/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000209s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000229s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000324s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000618s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000026s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000050s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.002782s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.002809s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000062s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000078s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000218s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000237s ]
+
+[ 2014-11-27T00:09:34+08:00 ] 127.0.0.1 /admin.php/Public/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000151s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000202s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000286s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000540s ]
+
+[ 2014-11-27T02:32:23+08:00 ] 127.0.0.1 /admin.php/Public/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000351s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000275s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000508s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000881s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000288s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000350s ]
+
+[ 2014-11-27T02:32:28+08:00 ] 127.0.0.1 /admin.php/Public/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000232s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000269s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000509s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000883s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000056s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000114s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004308s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004370s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000089s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000137s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000254s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000304s ]
+
+[ 2014-11-27T02:32:28+08:00 ] 127.0.0.1 /admin.php/Public/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000212s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000321s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000541s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001046s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000270s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000336s ]
+
+[ 2014-11-27T21:23:23+08:00 ] 127.0.0.1 /admin.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000035s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000803s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000726s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.003407s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004316s ]
+
+[ 2014-11-27T21:23:23+08:00 ] 127.0.0.1 /admin.php/Public/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000195s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000213s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000434s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000752s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000081s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000232s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015591s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015707s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000506s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000597s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000956s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001061s ]
+
+[ 2014-11-27T21:23:24+08:00 ] 127.0.0.1 /admin.php/Public/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000229s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000272s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000463s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000833s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000411s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000511s ]
+
+[ 2014-11-27T21:24:38+08:00 ] 127.0.0.1 /admin.php/Public/dologin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000305s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000388s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000466s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /Users/xieshaoping/www/hamanaka3/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `smi_user` [ RunTime:0.000971s ]
+SQL: SELECT * FROM `smi_user` WHERE ( `account` = 'administrator' ) LIMIT 1   [ RunTime:0.000213s ]
+SQL: UPDATE `smi_user` SET `last_login_time`=1417094678,`login_count`=login_count+1,`last_login_ip`='127.0.0.1' WHERE ( `id` = 2 ) [ RunTime:0.000964s ]
+
+[ 2014-11-27T21:24:38+08:00 ] 127.0.0.1 /admin.php/Public/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000227s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000251s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000414s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000766s ]
+
+[ 2014-11-27T21:24:38+08:00 ] 127.0.0.1 /admin.php/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000235s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000213s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000339s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000641s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /Users/xieshaoping/www/hamanaka3/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `smi_node` [ RunTime:0.017686s ]
+SQL: SELECT * FROM `smi_node` WHERE ( status = 1 ) ORDER BY route,sort desc,id  [ RunTime:0.001252s ]
+SQL: SELECT `title_cn` FROM `smi_node` WHERE ( `name` = 'Index' ) LIMIT 1   [ RunTime:0.000246s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000076s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000139s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017071s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017154s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000101s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000150s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000355s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000455s ]
+
+[ 2014-11-27T21:24:44+08:00 ] 127.0.0.1 /admin.php/Order/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000317s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000339s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000522s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000991s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /Users/xieshaoping/www/hamanaka3/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `smi_node` [ RunTime:0.001273s ]
+SQL: SELECT * FROM `smi_node` WHERE ( status = 1 ) ORDER BY route,sort desc,id  [ RunTime:0.000731s ]
+SQL: SELECT `title_cn` FROM `smi_node` WHERE ( `name` = 'Order' ) LIMIT 1   [ RunTime:0.000271s ]
+SQL: SHOW COLUMNS FROM `smi_order` [ RunTime:0.001058s ]
+SQL: SELECT SQL_CALC_FOUND_ROWS o.*,m.account FROM smi_order o LEFT JOIN smi_member m ON m.id = o.member_id  ORDER BY o.id desc LIMIT 0,20   [ RunTime:0.000405s ]
+SQL: SELECT FOUND_ROWS() as count [ RunTime:0.000125s ]
+SQL: SHOW COLUMNS FROM `smi_order_status` [ RunTime:0.000895s ]
+SQL: SELECT `id`,`order_status_name` FROM `smi_order_status`  [ RunTime:0.000271s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000106s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000183s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024223s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024309s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000128s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000188s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000365s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000433s ]
+
+[ 2014-11-27T21:25:01+08:00 ] 127.0.0.1 /admin.php/Member/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000043s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000514s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000363s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000530s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001062s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /Users/xieshaoping/www/hamanaka3/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `smi_node` [ RunTime:0.000974s ]
+SQL: SELECT * FROM `smi_node` WHERE ( status = 1 ) ORDER BY route,sort desc,id  [ RunTime:0.000720s ]
+SQL: SELECT `title_cn` FROM `smi_node` WHERE ( `name` = 'Member' ) LIMIT 1   [ RunTime:0.000147s ]
+SQL: SHOW COLUMNS FROM `smi_member` [ RunTime:0.001222s ]
+SQL: 
+            SELECT SQL_CALC_FOUND_ROWS m.id, m.account, m.username, m.status, ml.member_level, mi.register_time
+            FROM smi_member m, smi_member_level ml, smi_member_info mi
+            WHERE m.level_id = ml.id AND m.id = mi.member_id
+            ORDER BY m.id desc
+            LIMIT 0 , 20
+         [ RunTime:0.000357s ]
+SQL: SELECT FOUND_ROWS() as count [ RunTime:0.000113s ]
+SQL: SHOW COLUMNS FROM `smi_member_level` [ RunTime:0.001070s ]
+SQL: SELECT * FROM `smi_member_level` ORDER BY id  [ RunTime:0.000168s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000092s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000172s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019389s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019455s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000102s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000153s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000338s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000406s ]
+
+[ 2014-11-27T21:25:12+08:00 ] 127.0.0.1 /admin.php/Node/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000252s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000220s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000352s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000666s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /Users/xieshaoping/www/hamanaka3/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `smi_node` [ RunTime:0.000932s ]
+SQL: SELECT * FROM `smi_node` WHERE ( status = 1 ) ORDER BY route,sort desc,id  [ RunTime:0.000720s ]
+SQL: SELECT `title_cn` FROM `smi_node` WHERE ( `name` = 'Node' ) LIMIT 1   [ RunTime:0.000174s ]
+SQL: SELECT * FROM `smi_node` ORDER BY route,sort desc,id  [ RunTime:0.001050s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000079s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000146s ]
+NOTIC: [8] Undefined variable: page_nav /Users/xieshaoping/www/hamanaka3/Runtime/Cache/Admin/3b413a7ffc5043a6cb35ecf769ae0bb3.php 第 132 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.122177s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.122263s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000183s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000260s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000415s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000503s ]
+
+[ 2014-11-27T21:25:23+08:00 ] 127.0.0.1 /admin.php/Goods/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000225s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000248s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000386s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000735s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /Users/xieshaoping/www/hamanaka3/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `smi_node` [ RunTime:0.000969s ]
+SQL: SELECT * FROM `smi_node` WHERE ( status = 1 ) ORDER BY route,sort desc,id  [ RunTime:0.000661s ]
+SQL: SELECT `title_cn` FROM `smi_node` WHERE ( `name` = 'Goods' ) LIMIT 1   [ RunTime:0.000139s ]
+SQL: SHOW COLUMNS FROM `smi_goods` [ RunTime:0.000948s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `smi_goods` LIMIT 1   [ RunTime:0.000118s ]
+SQL: 
+                SELECT g.*, c.category
+                FROM smi_goods g, smi_category c
+                WHERE g.category_id = c.id AND g.status in (0,1)
+                ORDER BY g.id
+                LIMIT 0 , 20
+             [ RunTime:0.000815s ]
+SQL: SHOW COLUMNS FROM `smi_category` [ RunTime:0.000790s ]
+SQL: SELECT * FROM `smi_category` ORDER BY route,sort desc,id  [ RunTime:0.000173s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000076s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000145s ]
+NOTIC: [8] Undefined variable: opts /Users/xieshaoping/www/hamanaka3/Runtime/Cache/Admin/7460c3bd08e8aaf3e719467d6ea19bd3.php 第 92 行.
+NOTIC: [8] Undefined variable: opts /Users/xieshaoping/www/hamanaka3/Runtime/Cache/Admin/7460c3bd08e8aaf3e719467d6ea19bd3.php 第 92 行.
+NOTIC: [8] Undefined variable: opts /Users/xieshaoping/www/hamanaka3/Runtime/Cache/Admin/7460c3bd08e8aaf3e719467d6ea19bd3.php 第 92 行.
+NOTIC: [8] Undefined variable: opts /Users/xieshaoping/www/hamanaka3/Runtime/Cache/Admin/7460c3bd08e8aaf3e719467d6ea19bd3.php 第 92 行.
+NOTIC: [8] Undefined variable: opts /Users/xieshaoping/www/hamanaka3/Runtime/Cache/Admin/7460c3bd08e8aaf3e719467d6ea19bd3.php 第 94 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020874s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020937s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000092s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000140s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000336s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000406s ]
+
+[ 2014-11-27T21:25:24+08:00 ] 127.0.0.1 /admin.php/Goods/edit/id/1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000410s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000413s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000550s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001127s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /Users/xieshaoping/www/hamanaka3/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `smi_node` [ RunTime:0.001690s ]
+SQL: SELECT * FROM `smi_node` WHERE ( status = 1 ) ORDER BY route,sort desc,id  [ RunTime:0.000723s ]
+SQL: SELECT `title_cn` FROM `smi_node` WHERE ( `name` = 'Goods' ) LIMIT 1   [ RunTime:0.000146s ]
+SQL: SHOW COLUMNS FROM `smi_goods` [ RunTime:0.001010s ]
+SQL: SELECT * FROM `smi_goods` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000191s ]
+SQL: SHOW COLUMNS FROM `smi_goods_description` [ RunTime:0.000976s ]
+SQL: SELECT * FROM `smi_goods_description` WHERE ( `goods_id` = 1 ) LIMIT 1   [ RunTime:0.000241s ]
+SQL: SHOW COLUMNS FROM `smi_goods_category` [ RunTime:0.002381s ]
+SQL: SELECT GROUP_CONCAT(category_id) FROM `smi_goods_category` WHERE ( `goods_id` = 1 ) AND ( `is_primary` = 0 ) LIMIT 1   [ RunTime:0.000927s ]
+SQL: SHOW COLUMNS FROM `smi_goods_image` [ RunTime:0.000892s ]
+SQL: SELECT `image_id`,`origin_image`,`small_image`,`sort` FROM `smi_goods_image` WHERE ( `goods_id` = 1 ) ORDER BY sort,image_id  [ RunTime:0.000198s ]
+SQL: SHOW COLUMNS FROM `smi_product` [ RunTime:0.000869s ]
+SQL: SELECT * FROM `smi_product` WHERE ( `goods_id` = 1 ) ORDER BY sku_info  [ RunTime:0.000209s ]
+SQL: SHOW COLUMNS FROM `smi_type_attribute` [ RunTime:0.000804s ]
+SQL: SELECT a.* FROM smi_type_attribute ta LEFT JOIN smi_attribute a ON a.id = ta.attribute_id  WHERE ( ta.type_id = '1' ) ORDER BY ta.sort  [ RunTime:0.000277s ]
+SQL: SHOW COLUMNS FROM `smi_attribute_value` [ RunTime:0.000775s ]
+SQL: SELECT * FROM `smi_attribute_value` WHERE ( `attribute_id` IN ('2','1') ) ORDER BY attribute_id,sort  [ RunTime:0.000471s ]
+SQL: SHOW COLUMNS FROM `smi_goods_attribute` [ RunTime:0.000779s ]
+SQL: SELECT GROUP_CONCAT(attr_val_id) FROM `smi_goods_attribute` WHERE ( `goods_id` = 1 ) LIMIT 1   [ RunTime:0.000230s ]
+SQL: SHOW COLUMNS FROM `smi_category` [ RunTime:0.000741s ]
+SQL: SELECT * FROM `smi_category` ORDER BY route,sort desc,id  [ RunTime:0.000153s ]
+SQL: SHOW COLUMNS FROM `smi_type` [ RunTime:0.000795s ]
+SQL: SELECT `id`,`type_name`,`remark` FROM `smi_type`  [ RunTime:0.000134s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000113s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000177s ]
+NOTIC: [8] Undefined offset: 0 /Users/xieshaoping/www/hamanaka3/Runtime/Cache/Admin/608b0c961c661bd6d45820311b4b75a7.php 第 114 行.
+NOTIC: [8] Undefined offset: 0 /Users/xieshaoping/www/hamanaka3/Runtime/Cache/Admin/608b0c961c661bd6d45820311b4b75a7.php 第 114 行.
+NOTIC: [8] Undefined index: goods_id /Users/xieshaoping/www/hamanaka3/Runtime/Cache/Admin/608b0c961c661bd6d45820311b4b75a7.php 第 187 行.
+NOTIC: [8] Undefined index: goods_id /Users/xieshaoping/www/hamanaka3/Runtime/Cache/Admin/608b0c961c661bd6d45820311b4b75a7.php 第 187 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.036918s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.036988s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000104s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000152s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000316s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000383s ]
+
+[ 2014-11-27T21:25:44+08:00 ] 127.0.0.1 /admin.php/Goods/setproductstatus?id=24&field=is_onsale&val=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000286s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000305s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000503s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000917s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /Users/xieshaoping/www/hamanaka3/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `smi_product` [ RunTime:0.001372s ]
+SQL: UPDATE `smi_product` SET `is_onsale`=0 WHERE ( `product_id` = 24 ) [ RunTime:0.000501s ]
+
+[ 2014-11-27T21:25:44+08:00 ] 127.0.0.1 /admin.php/Goods/setproductstatus?id=24&field=is_onsale&val=0
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000234s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000249s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000396s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000729s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /Users/xieshaoping/www/hamanaka3/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `smi_product` [ RunTime:0.001729s ]
+SQL: UPDATE `smi_product` SET `is_onsale`=1 WHERE ( `product_id` = 24 ) [ RunTime:0.000418s ]
+
+[ 2014-11-27T21:25:56+08:00 ] 127.0.0.1 /admin.php/Goods/pickproductimage/id/1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000219s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000241s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000389s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000721s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /Users/xieshaoping/www/hamanaka3/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `smi_node` [ RunTime:0.039823s ]
+SQL: SELECT * FROM `smi_node` WHERE ( status = 1 ) ORDER BY route,sort desc,id  [ RunTime:0.000776s ]
+SQL: SELECT `title_cn` FROM `smi_node` WHERE ( `name` = 'Goods' ) LIMIT 1   [ RunTime:0.000164s ]
+SQL: SHOW COLUMNS FROM `smi_goods_image` [ RunTime:0.007027s ]
+SQL: SELECT * FROM `smi_goods_image` WHERE ( `goods_id` = 1 ) ORDER BY sort  [ RunTime:0.000417s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000083s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000184s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012482s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012619s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000133s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000212s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000329s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000413s ]
+
+[ 2014-11-27T21:26:37+08:00 ] 127.0.0.1 /admin.php/Page/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000238s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000250s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000366s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000704s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /Users/xieshaoping/www/hamanaka3/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `smi_node` [ RunTime:0.000768s ]
+SQL: SELECT * FROM `smi_node` WHERE ( status = 1 ) ORDER BY route,sort desc,id  [ RunTime:0.000581s ]
+SQL: SELECT `title_cn` FROM `smi_node` WHERE ( `name` = 'Page' ) LIMIT 1   [ RunTime:0.000131s ]
+SQL: SHOW COLUMNS FROM `smi_page` [ RunTime:0.000797s ]
+SQL: SELECT SQL_CALC_FOUND_ROWS * FROM `smi_page` ORDER BY id desc LIMIT 0,20   [ RunTime:0.000204s ]
+SQL: SELECT FOUND_ROWS() as count [ RunTime:0.000260s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000074s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000140s ]
+NOTIC: [8] Undefined variable: s_opts /Users/xieshaoping/www/hamanaka3/Runtime/Cache/Admin/31929939fdb8e605f69fbacf2b873270.php 第 90 行.
+NOTIC: [8] Undefined index: name /Users/xieshaoping/www/hamanaka3/Runtime/Cache/Admin/31929939fdb8e605f69fbacf2b873270.php 第 118 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017184s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017307s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000102s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000151s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000277s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000330s ]
+
+[ 2014-11-27T21:26:40+08:00 ] 127.0.0.1 /admin.php/Spec/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000401s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000309s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000501s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000937s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /Users/xieshaoping/www/hamanaka3/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `smi_node` [ RunTime:0.000872s ]
+SQL: SELECT * FROM `smi_node` WHERE ( status = 1 ) ORDER BY route,sort desc,id  [ RunTime:0.000607s ]
+SQL: SELECT `title_cn` FROM `smi_node` WHERE ( `name` = 'Spec' ) LIMIT 1   [ RunTime:0.000126s ]
+SQL: SHOW COLUMNS FROM `smi_spec` [ RunTime:0.000792s ]
+SQL: SELECT SQL_CALC_FOUND_ROWS * FROM `smi_spec` ORDER BY id LIMIT 0,20   [ RunTime:0.000123s ]
+SQL: SELECT FOUND_ROWS() as count [ RunTime:0.000065s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000073s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000142s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019081s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019177s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000195s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000305s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000382s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000461s ]
+
+[ 2014-11-27T21:26:42+08:00 ] 127.0.0.1 /admin.php/Spec/edit/id/1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000213s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000235s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000377s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000717s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /Users/xieshaoping/www/hamanaka3/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `smi_node` [ RunTime:0.001492s ]
+SQL: SELECT * FROM `smi_node` WHERE ( status = 1 ) ORDER BY route,sort desc,id  [ RunTime:0.000601s ]
+SQL: SELECT `title_cn` FROM `smi_node` WHERE ( `name` = 'Spec' ) LIMIT 1   [ RunTime:0.000122s ]
+SQL: SHOW COLUMNS FROM `smi_spec` [ RunTime:0.000754s ]
+SQL: SELECT * FROM `smi_spec` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000178s ]
+SQL: SHOW COLUMNS FROM `smi_spec_value` [ RunTime:0.000682s ]
+SQL: SELECT * FROM `smi_spec_value` WHERE ( `spec_id` = 1 ) ORDER BY sort,id  [ RunTime:0.000211s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000070s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000134s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017291s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017362s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000123s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000172s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000364s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000439s ]
+
+[ 2014-11-27T21:26:51+08:00 ] 127.0.0.1 /admin.php/Spec/edit/id/1?l=en-us
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000241s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000262s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001522s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001885s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /Users/xieshaoping/www/hamanaka3/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `smi_node` [ RunTime:0.000828s ]
+SQL: SELECT * FROM `smi_node` WHERE ( status = 1 ) ORDER BY route,sort desc,id  [ RunTime:0.000933s ]
+SQL: SELECT `title_en` FROM `smi_node` WHERE ( `name` = 'Spec' ) LIMIT 1   [ RunTime:0.000183s ]
+SQL: SHOW COLUMNS FROM `smi_spec` [ RunTime:0.000711s ]
+SQL: SELECT * FROM `smi_spec` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000162s ]
+SQL: SHOW COLUMNS FROM `smi_spec_value` [ RunTime:0.000692s ]
+SQL: SELECT * FROM `smi_spec_value` WHERE ( `spec_id` = 1 ) ORDER BY sort,id  [ RunTime:0.000146s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000072s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000130s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015438s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015496s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000098s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000147s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000343s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000419s ]
+
+[ 2014-11-27T21:27:12+08:00 ] 127.0.0.1 /admin.php/Spec/edit/id/1?l=zh-cn
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000232s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000298s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000512s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000930s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /Users/xieshaoping/www/hamanaka3/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `smi_node` [ RunTime:0.001450s ]
+SQL: SELECT * FROM `smi_node` WHERE ( status = 1 ) ORDER BY route,sort desc,id  [ RunTime:0.000769s ]
+SQL: SELECT `title_cn` FROM `smi_node` WHERE ( `name` = 'Spec' ) LIMIT 1   [ RunTime:0.000178s ]
+SQL: SHOW COLUMNS FROM `smi_spec` [ RunTime:0.001053s ]
+SQL: SELECT * FROM `smi_spec` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000164s ]
+SQL: SHOW COLUMNS FROM `smi_spec_value` [ RunTime:0.000928s ]
+SQL: SELECT * FROM `smi_spec_value` WHERE ( `spec_id` = 1 ) ORDER BY sort,id  [ RunTime:0.000290s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000071s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000138s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020328s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020454s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000190s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000278s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000364s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000444s ]
+

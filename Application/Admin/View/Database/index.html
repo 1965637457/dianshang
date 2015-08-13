@@ -1,0 +1,44 @@
+<extend name="Public/tpl-list" />
+<block name="page-handle"></block>
+<block name="content">
+    <div class="table-responsive">
+        <table class="table table-condensed table-hover tb-list">
+            <thead>
+                <tr>
+                    <th class="th-20"><input type="checkbox" class="j-check-all" /></th>
+                    <th>表名</th>
+                    <th class="th-100">表引擎</th>
+                    <th class="th-100">数据量</th>
+                    <th class="th-100">数据大小</th>
+                    <th class="th-100">多余</th>
+                    <th class="th-150">创建时间</th>
+                </tr>
+            </thead>
+            <tbody>
+            <volist name='list' id='v'>
+                <tr>
+                    <td><input type="checkbox" name="tables[]" value="{$v.name}" /></td>
+                    <td>{$v.name}</td>
+                    <td>{$v.engine}</td>
+                    <td>{$v.rows}</td>
+                    <td>{$v.data_length|format_bytes}</td>
+                    <td>{$v.data_free|format_bytes}</td>
+                    <td>{$v.create_time}</td>
+                </tr>
+            </volist>
+            </tbody>
+        </table>
+    </div>
+</block>
+<block name="list-handle">
+    <div class="container-fluid">
+        <div class='row'>
+            <div class="col-md-4">
+                <a href="javascript:;" data-type="export" class="btn btn-primary btn-sm js-handle"><i class="glyphicon glyphicon-film"></i> 备份表</a>
+                <a href="javascript:;" data-type="optimize" class="btn btn-primary btn-sm js-handle"><i class="glyphicon glyphicon-repeat"></i> 优化表</a>
+                <a href="javascript:;" data-type="repair" class="btn btn-primary btn-sm js-handle"><i class="glyphicon glyphicon-wrench"></i> 修复表</a>
+            </div>
+            <div class="col-md-8 text-right"><ul class="pagination square">{$page_nav}</ul></div>
+        </div>
+    </div>
+</block>

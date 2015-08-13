@@ -1,0 +1,32 @@
+{//头文件}
+<include file='Public/head' />
+{//主导航}
+<include file='Public/nav' />
+<div class="page-direction clearfix">
+    {//面包屑导航}
+    <block name="breadcrumbs">
+        <div class="pull-left bread_nav">
+            <i class="glyphicon glyphicon-tower"></i> {$bread_nav_ctrl}
+        </div>
+    </block>
+    {//页面控件}
+    <block name="page-handle">
+        <div class="pull-right page-direction-handle">
+            <a href="{:U('add')}" class="btn btn-success btn-sm"><i class="glyphicon glyphicon-plus"></i> {:L('ADD')}</a>
+            <a href="{:U('index')}" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-list"></i> {:L('LIST')}</a>
+        </div>
+    </block>
+</div>
+<form action="{:U('insert')}" method="post" enctype="multipart/form-data" class="form-data" id="j-fmData">
+    {//内容区域}
+    <block name="content"></block>
+    {//操作区域}
+    <include file='Public/tb-data-control'/>
+</form>
+<div class='notifications top-right'></div>
+{//载入javascript}
+<include file="Public/javascript-list"/>
+{//脚本区域}
+<block name="scripts"></block>
+{//底部区域}
+<include file="Public/foot"/>

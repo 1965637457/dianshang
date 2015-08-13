@@ -1,0 +1,52 @@
+<extend name="Public/tpl-add" />
+<block name="content">
+    <table class="table table-condensed tb-data">
+        <tr>
+            <th>{:L('STATUS')}</th>
+            <td>
+                <label><input type="radio" name="status" value="1" checked /> {:L('ACTIVE')}</label>
+                <label><input type="radio" name="status" value="0" /> {:L('DISABLED')}</label>
+            </td>
+        </tr>
+        <tr>
+            <th>{:L('SORT')}</th>
+            <td><input type="text" name="sort" value="0" class="form-control-sm" /> <i>{:L('SORT_INFO')}</i></td>
+        </tr>
+        <tr>
+            <th>{:L('TITLE')}</th>
+            <td><input type="text" name="title" class="form-control-sm t-lg" /></td>
+        </tr>
+        <tr>
+            <th>{:L('BRIEF')}</th>
+            <td><textarea name="brief" class="form-control-sm t-600-50"></textarea></td>
+        </tr>
+        <tr>
+            <th>{:L('PUBLISH_TIME')}</th>
+            <td>
+                <input type="text" name="publish_time" value="{:date('Y-m-d H:i')}" class="form-control-sm js-form-datetime" data-date-format="yyyy-mm-dd hh:ii" />
+            </td>
+        </tr>
+        <tr>
+            <th>{:L('CONTENT')}</th>
+            <td><textarea name="content"></textarea></td>
+        </tr>
+        <tr>
+            <th>{:L('SEO_LINK')}</th>
+            <td><input type="text" name="seo_name" class="form-control-sm" /> <i>{:L('SEO_LINK_INFO')}</i></td>
+        </tr>
+        <tr>
+            <th>{:L('IMAGE')}</th>
+            <td><input type="file" name="upload_image" /> <i>{:L('SIZE')}：--*--px</i></td>
+        </tr>
+    </table>
+</block>
+<block name="scripts">
+    <script>
+        CKEDITOR.replace('content');
+        $(".js-form-datetime").datetimepicker({
+            todayBtn: true,
+            todayHighlight: true,
+            autoclose: true
+        });
+    </script>
+</block>

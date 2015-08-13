@@ -1,0 +1,70 @@
+<extend name="Public/tpl-edit" />
+<block name="content">
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-target="#pane1" data-toggle="tab">基本信息</a></li>
+        <li><a data-target="#pane2" data-toggle="tab">值信息</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="pane1">
+            <table class="table table-condensed tb-data">
+                <tr>
+                    <th>{:L('DISPLAY')}</th>
+                    <td>
+                        <label><input type="radio" name="display" value="1" checked /> 文本</label>
+                        <label><input type="radio" name="display" value="0" <eq name="data.display" value="0">checked</eq> /> 图像</label>
+                    </td>
+                </tr>
+                <tr>
+                    <th>{:L('NAME')}</th>
+                    <td><input type="text" name="spec" value="{$data.spec|htmlspecialchars}" class="form-control-sm" /></td>
+                </tr>
+                <tr>
+                    <th>{:L('ALIAS')}</th>
+                    <td><input type="text" name="spec_alias" value="{$data.spec_alias|htmlspecialchars}" class="form-control-sm" /></td>
+                </tr>
+                <tr>
+                    <th>{:L('REMARK')}</th>
+                    <td><textarea name="remark" class="form-control-sm">{$data.remark|htmlspecialchars}</textarea></td>
+                </tr>
+            </table>
+        </div>
+        <div class="tab-pane" id="pane2">
+            <table class="table table-condensed table-bordered tb-data-list" id="js-spec-value-list" data-add-url="{:U('SpecValue/add',array('specid'=>$data['id']))}" data-edit-url="{:U('SpecValue/edit')}" data-remove-url="{:U('SpecValue/delete')}">
+                <thead>
+                    <tr>
+                        <th class="th-300">规格值</th>
+                        <th class="th-100">图像</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <volist name="data._list" id="v">
+                    <tr data-id="{$v.id}">
+                        <td>{$v.spec_value}</td>
+                        <td><notempty name="v.spec_image"><img src="{$v.spec_image}" width="30" height="30"></notempty></td>
+                        <td class="f16">
+                            <a href="javascript:;" class="js-move-up"><span class="glyphicon glyphicon-arrow-up"></span></a>
+                            <a href="javascript:;" class="js-move-down"><span class="glyphicon glyphicon-arrow-down"></span></a>
+                            <a href="javascript:;" class="js-edit-item"><span class="glyphicon glyphicon-edit"></span></a>
+                            <a href="javascript:;" class="js-remove-item"><span class="glyphicon glyphicon-remove"></span></a>
+                            <input type="hidden" name="spec_values[]" value="{$v.id}">
+                        </td>
+                    </tr>
+                </volist>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3"><button type="button" class="btn btn-success btn-xs" id="js-add-item">添加</button></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</block>
+<block name="scripts">
+    <script>
+        $(function(){
+            $.spec.init();
+        });
+    </script>
+</block>

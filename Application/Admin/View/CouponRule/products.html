@@ -1,0 +1,48 @@
+<extend name="Public/tpl-dialog" />
+<block name="search">
+    <form action="{:U('products')}" method="get" class="list-search">
+        <select name="category_id" class="form-control-sm">
+            <option value="0">==选择分类==</option>
+            <volist name="categories" id="v">
+                <option value="{$v.id}" <eq name="v.id" value="$opts.category_id">selected</eq>>{$v.grade|fn_sub_prefix}{$v.category}</option>
+            </volist>
+        </select>
+        <input type="text" name="kw" value="{$opts.kw}" class="form-control-sm" />
+        <button type="submit" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-search"></i> {:L('SEARCH')}</button>
+    </form>
+</block>
+<block name="content">
+    <div class="table-responsive">
+        <table class="table table-condensed table-hover tb-list">
+            <thead>
+                <tr>
+                    <th class="th-20"><input type="checkbox" class="j-check-all" /></th>
+                    <th class="th-40">ID</th>
+                    <th>{:L('NAME')}</th>
+                    <th class="th-150">{:L('CODE')}</th>
+                    <th class="th-150">{:L('CATEGORY')}</th>
+                </tr>
+            </thead>
+            <tbody id="js-products">
+            <volist name='list' id='v'>
+                <tr>
+                    <td><input type="checkbox" name="id[]" value="{$v.id}" data-sno="{$v.goods_sno}" data-name="{$v.goods}" /></td>
+                    <td>{$v.id}</td>
+                    <td>{$v.goods|default='== 未定义 =='}</td>
+                    <td>{$v.goods_sno}</td>
+                    <td>{$v.category}</td>
+                </tr>
+            </volist>
+            </tbody>
+        </table>
+    </div>
+</block>
+<block name="list-handle">
+    <div class="container-fluid">
+        <div class='row'>
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-8 text-right"><ul class="pagination square">{$page_nav}</ul></div>
+        </div>
+    </div>
+</block>

@@ -1,0 +1,25 @@
+<extend name="Public/tpl-add-dialog" />
+<block name="content">
+    <input type="hidden" name="space_id" value="{$space_id}" >
+    <table class="table table-condensed tb-data">
+        <tr>
+            <th>{:L('STATUS')}</th>
+            <td>
+                <label><input type="radio" name="status" value="1" checked /> {:L('ACTIVE')}</label>
+                <label><input type="radio" name="status" value="0" /> {:L('DISABLED')}</label>
+            </td>
+        </tr>
+        <tr>
+            <th>{:L('TITLE')}</th>
+            <td><input type="text" name="title" class="form-control-sm" /></td>
+        </tr>
+        <tr>
+            <th>{:L('URL')}</th>
+            <td><input type="text" name="url" class="form-control-sm" /></td>
+        </tr>
+        <tr>
+            <th>{:L('FILE')}</th>
+            <td><input type="file" name="upload_file" /></td>
+        </tr>
+    </table>
+</block>

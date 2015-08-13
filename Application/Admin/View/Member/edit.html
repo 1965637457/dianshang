@@ -1,0 +1,184 @@
+ <extend name="Public/tpl-edit" />
+<block name="content">
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-target="#pane1" data-toggle="tab">基本信息</a></li>
+        <li><a data-target="#pane2" data-toggle="tab">地址信息</a></li>
+        <li><a data-target="#pane3" data-toggle="tab">购买列表</a></li>
+        <li><a data-target="#pane4" data-toggle="tab">收藏列表</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="pane1">
+            <table class="table table-condensed tb-data">
+                <tr>
+                    <th>{:L('STATUS')}</th>
+                    <td>
+                        <label><input type="radio" name="main[status]" value="1" checked /> {:L('ACTIVE')}</label>
+                        <label><input type="radio" name="main[status]" value="0" <eq name="data.status" value="0">checked</eq> /> {:L('DISABLED')}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <th>{:L('LEVEL')}</th>
+                    <td>
+                        <select name="main[level_id]" class="form-control-sm">
+                            <option value="0">请选择...</option>
+                            <volist name="level_list" id="v">
+                                <option value="{$v.id}" <eq name="data.level_id" value="$v.id">selected="selected"</eq>>{$v.member_level}</option>
+                            </volist>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>{:L('ACCOUNT')}</th>
+                    <td><input type="text" value="{$data.account|htmlspecialchars}" disabled class="form-control-sm" /> <i>用于会员登录</i></td>
+                </tr>
+                <tr>
+                    <th>{:L('CREATE_TIME')}</th>
+                    <td><input type="text" value="{$data._info.register_time|date='Y-m-d H:i',###}" disabled class="form-control-sm" /></td>
+                </tr>
+                <tr>
+                    <th>{:L('USERNAME')}</th>
+                    <td><input type="text" name="main[username]" value="{$data.username|htmlspecialchars}" class="form-control-sm" /></td>
+                </tr>
+                <tr>
+                    <th>{:L('REMARK')}</th>
+                    <td><textarea name="info[remark]" class="form-control-sm">{$data._info.remark|htmlspecialchars}</textarea></td>
+                </tr>
+            </table>
+        </div>
+        <div class="tab-pane" id="pane2">
+            <table class="table table-condensed table-bordered tb-data-list" id="js-address-list" data-reload-url="{:U('MemberAddress/reloadaddress',array('mid'=>$data['id']))}" data-add-url="{:U('MemberAddress/add',array('mid'=>$data['id']))}" data-edit-url="{:U('MemberAddress/edit')}" data-remove-url="{:U('MemberAddress/delete')}">
+                <thead>
+                    <tr>
+                        <th class="th-120">姓名</th>
+                        <th class="th-120">电话</th>
+                        <th class="th-120">手机</th>
+                        <th>地址</th>
+                        <th class="th-120">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <volist name="data._address_list" id="v">
+                    <tr data-id="{$v.id}">
+                        <td>{$v.truename}</td>
+                        <td>{$v.phone}</td>
+                        <td>{$v.mobile}</td>
+                        <td>{$region_list[$v['province_id']]}{$region_list[$v['city_id']]}{$region_list[$v['zone_id']]}, {$v.address}, {$v.zipcode}</td>
+                        <td class="f16">
+                            <a href="javascript:;" class="js-edit-item"><span class="glyphicon glyphicon-edit"></span></a>
+                            <a href="javascript:;" class="js-remove-item"><span class="glyphicon glyphicon-remove"></span></a>
+                        </td>
+                    </tr>
+                </volist>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3"><button type="button" class="btn btn-success btn-xs" id="js-add-address">添加</button></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="tab-pane" id="pane3">
+            <table class="table table-condensed table-bordered tb-data-list" id="js-address-list" data-reload-url="{:U('MemberAddress/reloadaddress',array('mid'=>$data['id']))}" data-add-url="{:U('MemberAddress/add',array('mid'=>$data['id']))}" data-edit-url="{:U('MemberAddress/edit')}" data-remove-url="{:U('MemberAddress/delete')}">
+                <thead>
+                    <tr>
+                        <th class="th-120">姓名</th>
+                        <th class="th-120">商品名</th>
+                        <th class="th-120">商品分类</th>
+                        <th class="th-120">OnSale</th>
+                        <th class="th-120">SkuIofo</th>
+                        <th class="th-120">原价</th>
+                        <th class="th-120">售价</th>
+                        <th class="th-120">stack</th>
+                        <th class="th-120">手机</th> 
+                        <th class="th-120">是否付款</th> 
+                        <th>地址</th>
+                        <th class="th-120">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <volist name="data._bug_list" id="b">
+                    <tr data-id="{$b.id}">
+                        <td>{$b.truename}</td>
+                        <td>{$b.goods}</td>
+                        <td>{$b.category}</td>
+                        <td>{$b.is_onsale}</td>
+                        <td>{$b.sku_info}</td>
+                        <td>{$b.original_price}</td> 
+                        <td>{$b.price}</td>
+                        <td>{$b.stock}</td>
+                        <td>{$b.mobile}</td>
+                        <td>{$b.is_payed}</td>
+                        <td>{$region_list[$v['province_id']]}{$region_list[$v['city_id']]}{$region_list[$v['zone_id']]}, {$v.address}, {$v.zipcode}</td>
+                        <td class="f16">
+                            <a href="javascript:;" class="js-edit-item"><span class="glyphicon glyphicon-edit"></span></a>
+                            <a href="javascript:;" class="js-remove-item"><span class="glyphicon glyphicon-remove"></span></a>
+                        </td>
+                    </tr>
+                </volist>
+ 
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="6"><button type="button" class="btn btn-success btn-xs" id="js-add-address">添加</button></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        
+        <div class="tab-pane" id="pane4">
+            <table class="table table-condensed table-bordered tb-data-list" id="js-address-list" data-reload-url="{:U('MemberAddress/reloadaddress',array('mid'=>$data['id']))}" data-add-url="{:U('MemberAddress/add',array('mid'=>$data['id']))}" data-edit-url="{:U('MemberAddress/edit')}" data-remove-url="{:U('MemberAddress/delete')}">
+            <thead>
+                    <tr>
+                        <th class="th-120">姓名</th>
+                        <th class="th-120">商品名</th>
+                        <th class="th-120">商品分类</th>
+                        <th class="th-120">OnSale</th>
+                        <th class="th-120">SkuIofo</th>
+                        <th class="th-120">原价</th>
+                        <th class="th-120">售价</th>
+                        <th class="th-120">stack</th> 
+                        <th class="th-120">手机</th> 
+                        <th class="th-120">是否付款</th> 
+                        <th>地址</th>
+                        <th class="th-120">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <volist name="data._stock_list" id="b">
+                    <tr data-id="{$b.id}">
+                        <td>{$b.account}</td>
+                        <td>{$b.goods}</td>
+                        <td>{$b.category}</td>
+                        <td>{$b.is_onsale}</td>
+                        <td>{$b.sku_info}</td>
+                        <td>{$b.original_price}</td> 
+                        <td>{$b.price}</td>
+                        <td>{$b.stock}</td> 
+                        <td>{$b.mobile}</td>
+                        <td>{$b.is_payed}</td>
+                        <td>{$region_list[$v['province_id']]}{$region_list[$v['city_id']]}{$region_list[$v['zone_id']]}, {$v.address}, {$v.zipcode}</td>
+                        <td class="f16">
+                            <a href="javascript:;" class="js-edit-item"><span class="glyphicon glyphicon-edit"></span></a>
+                            <a href="javascript:;" class="js-remove-item"><span class="glyphicon glyphicon-remove"></span></a>
+                        </td>
+                    </tr>
+                </volist>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3"><button type="button" class="btn btn-success btn-xs" id="js-add-address">添加</button></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        
+    </div>
+
+</block>
+<block name="scripts">
+    <script>
+        $(function(){
+            $.member.init();
+        });
+    </script>
+</block>

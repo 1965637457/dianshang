@@ -1,0 +1,45 @@
+{//头文件}
+<include file='Public/head' />
+{//主导航}
+<include file='Public/nav' />
+<div class="page-direction clearfix">
+    {//面包屑导航}
+    <block name="breadcrumbs">
+        <div class="pull-left bread_nav">
+            <i class="glyphicon glyphicon-tower"></i> {$bread_nav_ctrl}
+        </div>
+    </block>
+    {//页面控件}
+    <block name="page-handle">
+        <div class="pull-right page-direction-handle">
+            <a href="{:U('add')}" class="btn btn-success btn-sm"><i class="glyphicon glyphicon-plus"></i> {:L('ADD')}</a>
+            <a href="{:U('index')}" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-list"></i> {:L('LIST')}</a>
+        </div>
+    </block>
+</div>
+{//搜索区域}
+<block name="search"></block>
+{//主内容区域}
+<form action="{:U('handle')}" method="post" id="js-form-handle">
+    <input type="hidden" name="handle_type" class="js-handle-type" >
+    {//主列表数据}
+    <block name="content"></block>
+    {//列表操作+分页}
+    <block name="list-handle">
+        <div class="container-fluid">
+            <div class='row'>
+                <div class="col-md-4">
+                    <a href="javascript:;" data-type="delete" class="btn btn-danger btn-sm js-handle js-need-confirm"><i class="glyphicon glyphicon-trash"></i> {:L('DELETE')}</a>
+                </div>
+                <div class="col-md-8 text-right"><ul class="pagination square">{$page_nav}</ul></div>
+            </div>
+        </div>
+    </block>
+</form>
+<div class='notifications top-right'></div>
+{//载入javascript}
+<include file="Public/javascript-list"/>
+{//脚本区域}
+<block name="scripts"></block>
+{//底部区域}
+<include file="Public/foot"/>

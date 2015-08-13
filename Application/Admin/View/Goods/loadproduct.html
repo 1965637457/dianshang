@@ -1,0 +1,77 @@
+<table class="table table-condensed tb-data">
+    <tr>
+        <th>货品规格</th>
+        <td>
+    <empty name="data.specification">
+        <input type="hidden" name="info[default_product]" value="{$data.default_product}" >
+        <button type="button" class="btn btn-success btn-sm" id="js-open-specification">开启规格</button>
+        <else/>
+        <button type="button" class="btn btn-success btn-sm" id="js-open-specification">编辑规格</button>
+        <button type="button" class="btn btn-danger btn-sm" id="js-close-specification">关闭规格</button>
+    </empty>
+</td>
+</tr>
+</table>
+<empty name="data.specification">
+    <div style="padding:0 20px;">
+        <table class="table table-condensed table-hover table-bordered tb-list">
+            <thead>
+                <tr>
+                    <th style="width:100px;">Stock</th>
+                </tr>
+            </thead>
+            <tbody>
+            <volist name="data.products" id="v">
+                <tr data-id="{$v.product_id}">
+                    <td><input type="text" name="products[{$v.product_id}][stock]" value="{$v.stock}" class="form-control-sm t-xs" ></td>
+                </tr>
+            </volist>
+            </tbody>
+        </table>
+    </div>
+<else/>
+    <div style="padding:0 20px;">
+        <table class="table table-condensed table-hover table-bordered tb-list">
+            <thead>
+                <tr>
+                    <th style="width:80px;">Default</th>
+                    <th style="width:80px;">OnSale</th>
+                    <th style="width:100px;">SkuInfo</th>
+                    <th style="width:200px;">ProductSno</th>
+                    <th style="width:100px;">Stock</th>
+                    <th>Images</th>
+                </tr>
+            </thead>
+            <tbody>
+            <volist name="data.products" id="v">
+                <tr data-id="{$v.product_id}">
+                    <td><label><input type="radio" name="info[default_product]" value="{$v.product_id}" <eq name="data.default_product" value="$v.product_id">checked</eq> > #{$v.product_id}</label></td>
+                    <td class="f16"><a href="javascript:;" class="js-update-item" data-field="is_onsale" data-status="{$v.is_onsale}"><span class="glyphicon {$v['is_onsale']==1?'glyphicon-ok-circle green':'glyphicon-remove-circle red'}"></span></a></td>
+                    <td>{$v.sku_info}</td>
+                    <td><input type="text" name="products[{$v.product_id}][product_sno]" value="{$v.product_sno}" class="form-control-sm t-sm" ></td>
+                    <td><input type="text" name="products[{$v.product_id}][stock]" value="{$v.stock}" class="form-control-sm t-xs" ></td>
+                    <td>
+                        <button type="button" class="btn btn-success btn-sm js-pick-product-image fl" data-id="{$v.product_id}"><i class="glyphicon glyphicon-plus"></i></button>
+                        <ul class="product-image-list">
+                            <notempty name="v.sku_images">
+                                {~$sku_images = explode(',', $v['sku_images']);}
+                                <volist name="sku_images" id='img' key="z">
+                                    <li>
+                                        <div><img src="{$data.images.$img.origin_image}" height="30" ></div>
+                                        <div>
+                                            <a href="javascript:;" class="js-move-up"><span class="glyphicon glyphicon-arrow-left"></span></a>
+                                            <a href="javascript:;" class="js-move-down"><span class="glyphicon glyphicon-arrow-right"></span></a>
+                                            <a href="javascript:;" class="js-remove-image"><span class="glyphicon glyphicon-remove"></span></a>
+                                        </div>
+                                        <input type="hidden" name="products[{$v.product_id}][sku_images][]" value="{$img}" />
+                                    </li>
+                                </volist>
+                            </notempty>
+                        </ul>
+                    </td>
+                </tr>
+            </volist>
+            </tbody>
+        </table>
+    </div>
+</empty>

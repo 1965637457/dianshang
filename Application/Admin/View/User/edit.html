@@ -1,0 +1,26 @@
+<extend name="Public/tpl-edit" />
+<block name="content">
+    <table class="table table-condensed tb-data">
+        <tr>
+            <th>{:L('STATUS')}</th>
+            <td>
+                <label><input type="radio" name="status" value="1" checked="checked" /> {:L('ACTIVE')}</label>
+                <label><input type="radio" name="status" value="0" <eq name="data.status" value="0">checked="checked"</eq> /> {:L('DISABLED')}</label>
+            </td>
+        </tr>
+        <tr>
+            <th>{:L('ROLE')}</th>
+            <td>
+                <select name="role_id" class="form-control-sm">
+                    <volist name="roles" id="v">
+                        <option value="{$v.id}" <eq name='data.role_id' value='$v.id'>selected</eq>>{$v.grade|do_sub_prefix}{$v.name}</option>
+                    </volist>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>{:L('ACCOUNT')}</th>
+            <td><input type="text" name="account" value="{$data.account|htmlspecialchars}" class="form-control-sm" /></td>
+        </tr>
+    </table>
+</block>

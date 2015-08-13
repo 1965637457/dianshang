@@ -1,0 +1,15 @@
+<extend name="Public/basic" />
+<block name="left_nav">
+    <include file="sider_nav" />
+</block>
+<block name="bread_nav"><a href="{:U('/')}" class="icon">Home</a> <span>/</span> <a href="{:U('/Product')}">Product</a> <span>/</span> <a href="<empty name='article.rewriteuri'>{:U('category',array('id'=>$article['id']))}<else/>{:U('Product/category/'.$article['rewriteuri'])}</empty>">{$article.cate_name}</a> <span>/</span> {$data.title}</block>
+<block name="right_side_content">
+    <div class="products_detail clear">
+        <notempty name='data.metal_analysis'>
+        <div class="discription">
+            <h3>Product</h3>
+            <div class="article_content">{$data.description}</div>
+        </div>
+        </notempty>
+    </div>
+</block>

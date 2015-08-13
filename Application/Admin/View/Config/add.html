@@ -1,0 +1,44 @@
+<extend name="Public/tpl-add" />
+<block name="content">
+    <table class="table table-condensed tb-data">
+        <tr>
+            <th>类型</th>
+            <td>
+                <label><input type="radio" name="type" value="input" /> 单选</label>
+                <label><input type="radio" name="type" value="text" checked /> 文本</label>
+                <label><input type="radio" name="type" value="textarea" /> 文本域</label>
+            </td>
+        </tr>
+        <tr>
+            <th>{:L('SORT')}</th>
+            <td><input type="text" name="sort" value="0" class="form-control-sm" /> <i>{:L('SORT_INFO')}</i></td>
+        </tr>
+        <tr>
+            <th>上一级</th>
+            <td>
+                <select name="pid" class='form-control-sm'>
+                    <option value="0">-根节点-</option>
+                    <volist name="parents" id="v">
+                    <option value="{$v.id}" <eq name="pid" value="$v.id">selected="selected"</eq>>{$v.grade|do_sub_prefix}{$v.config_title}</option>
+                    </volist>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>配置名称</th>
+            <td><input type="text" name="config_title" class="form-control-sm require" /><sup>*</sup></td>
+        </tr>
+        <tr>
+            <th>配置代码</th>
+            <td><input type="text" name="code" class="form-control-sm require" /><sup>*</sup></td>
+        </tr>
+        <tr>
+            <th>配置值</th>
+            <td><textarea name="config_value" class="form-control-sm"></textarea></td>
+        </tr>
+        <tr>
+            <th>备注</th>
+            <td><textarea name="remark" class="form-control-sm"></textarea></td>
+        </tr>
+    </table>
+</block>

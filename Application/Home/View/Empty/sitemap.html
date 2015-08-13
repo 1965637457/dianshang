@@ -1,0 +1,23 @@
+<extend name="Public/basic" />
+<block name="bread_nav"><a href="/">首页</a><span></span><a href="{:U('/sitemap')}">网站地图</a></block>
+<block name="side_left">
+    <div class="left_side">
+        <h2>网站地图</h2>
+    </div>
+</block>
+<block name="main">
+    <div class="content_side">
+        <volist name="sitemap_list" id="m">
+        <div class="sitemap_box">
+            <a href=""><h3>{$m.title}</h3></a>
+            <ul>
+                <volist name="m.list" id="v">
+                <li><a href="<empty name='v.rewriteuri'>{:U($m['controller'].'/detail',array('id'=>$v['id']))}<else/>{:U($m['controller'].'/'.$v['rewriteuri'])}</empty>">{$v.title}</a></li>
+                </volist>
+            </ul>
+        </div>
+        </volist>
+    </div>
+</block>
+<block name="side_right"></block>
+<block name="innerbottom"></block>

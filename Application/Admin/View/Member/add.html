@@ -1,0 +1,57 @@
+<extend name="Public/tpl-add" />
+<block name="content">
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-target="#pane1" data-toggle="tab">基本信息</a></li>
+        <li class="disabled"><a data-target="#pane2" data-toggle="tab">其他信息</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="pane1">
+            <table class="table table-condensed tb-data">
+                <tr>
+                    <th>{:L('STATUS')}</th>
+                    <td>
+                        <label><input type="radio" name="main[status]" value="1" checked /> {:L('ACTIVE')}</label>
+                        <label><input type="radio" name="main[status]" value="0" /> {:L('DISABLED')}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <th>{:L('LEVEL')}</th>
+                    <td>
+                        <select name="main[level_id]" class="form-control-sm">
+                            <option value="0">请选择...</option>
+                            <volist name="level_list" id="v">
+                                <option value="{$v.id}">{$v.member_level}</option>
+                            </volist>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>{:L('ACCOUNT')}</th>
+                    <td><input type="text" name="main[account]" placeholder="email@example.com" class="form-control-sm" /> <i>请输入邮箱，用于会员登录</i></td>
+                </tr>
+                <tr>
+                    <th>{:L('PASSWORD')}</th>
+                    <td><input type="text" name="main[pwd]" class="form-control-sm" /> <i>6-12个字母、数字、下划线组成的字符</i></td>
+                </tr>
+                <tr>
+                    <th>{:L('USERNAME')}</th>
+                    <td><input type="text" name="main[username]" class="form-control-sm" /></td>
+                </tr>
+                <tr>
+                    <th>{:L('REMARK')}</th>
+                    <td><textarea name="info[remark]" class="form-control-sm"></textarea></td>
+                </tr>
+            </table>
+        </div>
+        <div class="tab-pane" id="pane2">
+            <table class="table table-condensed tb-data">
+            </table>
+        </div>
+    </div>
+
+</block>
+<block name="scripts">
+    <script>
+        
+    </script>
+</block>

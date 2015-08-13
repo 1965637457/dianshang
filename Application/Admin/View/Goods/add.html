@@ -1,0 +1,124 @@
+<extend name="Public/tpl-add" />
+<block name="content">
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-target="#pane1" data-toggle="tab">基本信息</a></li>
+        <li><a data-target="#pane2" data-toggle="tab">详细信息</a></li>
+        <li><a data-target="#pane5" data-toggle="tab">扩展属性</a></li>
+        <li class="disabled"><a data-target="#pane3" data-toggle="tab">产品图片</a></li>
+        <li class="disabled"><a data-target="#pane4" data-toggle="tab">货品信息</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="pane1">
+            <table class="table table-condensed tb-data">
+                <tr>
+                    <th>{:L('STATUS')}</th>
+                    <td>
+                        <label><input type="radio" name="info[status]" value="1" checked /> {:L('ONSALE')}</label>
+                        <label><input type="radio" name="info[status]" value="0" /> {:L('OFFSALE')}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <th>{:L('CATEGORY')}</th>
+                    <td>
+                        <select name="info[category_id]" class="form-control-sm" id="js-category-list">
+                            <option value="0" data-type-id="0" data-type="">==请选择==</option>
+                            <volist name="categories" id="v">
+                            <option value="{$v.id}" data-type-id="{$v.type_id}" data-type="{$type_list[$v['type_id']]['type_name']}">{$v.grade|fn_sub_prefix}{$v.category}</option>
+                            </volist>
+                        </select>
+                        <i></i>
+                    </td>
+                </tr>
+                <tr>
+                    <th>{:L('VICE_CATE')}</th>
+                    <td>
+                        <select name="categories[]" multiple="multiple" class="js-multi-select">
+                            <volist name="categories" id="v">
+                            <option value="{$v.id}">{$v.grade|fn_sub_prefix}{$v.category}</option>
+                            </volist>
+                        </select>
+                    </td>
+                </tr> 
+                <tr>
+                    <th>选择商家</th>
+                    <td>
+                        <select name="info[business_id]" class="form-control-sm" id="js-category-list">
+                            <option value="0" data-type-id="0" data-type="">==请选择==</option>
+                            <volist name="business" id="v">
+                            	<option value="{$v.id}">{$v.business_name}</option>
+                            </volist>
+                        </select>
+                        <i></i>
+                    </td>
+                </tr>
+                <tr>
+                    <th>{:L('CODE')}</th>
+                    <td><input type="text" name="info[goods_sno]" class="form-control-sm" /></td>
+                </tr>
+                <tr>
+                    <th>{:L('NAME')}</th>
+                    <td><input type="text" name="info[goods]" class="form-control-sm t-lg" /></td>
+                </tr>
+                <tr>
+                    <th>{:L('VICE')}{:L('NAME')}</th>
+                    <td><input type="text" name="info[short_name]" class="form-control-sm t-lg" /></td>
+                </tr>
+                <tr>
+                    <th>{:L('STOCK')}</th>
+                    <td><input type="text" name="info[stock]" value="0" class="form-control-sm" /></td>
+                </tr>
+                <tr>
+                    <th>原价</th>
+                    <td><input type="text" name="info[original_price]" value="0" class="form-control-sm" /></td>
+                </tr>
+                <tr>
+                    <th>售价</th>
+                    <td><input type="text" name="info[price]" value="0" class="form-control-sm" /></td>
+                </tr>
+                <tr>
+                    <th>{:L('IMAGE')}</th>
+                    <td><input type="file" name="upload_file" /> <i>{:L('SIZE')}：--*--px</i></td>
+                </tr>
+            </table>
+        </div>
+        <div class="tab-pane" id="pane2">
+            <table class="table table-condensed tb-data">
+                <tr>
+                    <th>{:L('CONTENT')}</th>
+                    <td><textarea name="description[content]"></textarea></td>
+                </tr>
+            </table>
+        </div>
+        <div class="tab-pane" id="pane5">
+            <table class="table table-condensed tb-data" id="js-table-attribute">
+                <thead>
+                <tr>
+                    <th>产品类型</th>
+                    <td>
+                        <select name="info[type_id]" class="form-control-sm" id="js-type-list" data-url="{:U('getattributes',array('goodsid'=>$data['id']))}">
+                            <option value="0">==无==</option>
+                            <volist name="type_list" id="v">
+                                <option value="{$v.id}">{$v.type_name}</option>
+                            </volist>
+                        </select>
+                        <i></i>
+                    </td>
+                </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+            
+        </div>
+    </div>
+</block>
+<block name="scripts">
+    <script src="__JS__/bootstrap-multiselect/bootstrap-multiselect.js"></script>
+    <link href="__JS__/bootstrap-multiselect/bootstrap-multiselect.css" rel="stylesheet" />
+    <script>
+        CKEDITOR.replace('description[content]');
+        $('.js-multi-select').multiselect();
+        $.goods.init();
+    </script>
+</block>

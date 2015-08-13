@@ -1,0 +1,58 @@
+<extend name="Public/tpl-list" />
+<block name="search">
+    <form action="{:U('search')}" method="get" class="list-search">
+        <select name="category_id" class="form-control-sm">
+            <option value="0">==选择分类==</option>
+            <volist name="categories" id="v">
+                <option value="{$v.id}" <eq name="v.id" value="$opts.category_id">selected</eq>>{$v.grade|fn_sub_prefix}{$v.category}</option>
+            </volist>
+        </select>
+        <input type="text" name="kw" value="{$opts.kw}" class="form-control-sm" />
+        <button type="submit" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-search"></i> {:L('SEARCH')}</button>
+    </form>
+</block>
+<block name="content">
+    <div class="table-responsive">
+        <table class="table table-condensed table-hover tb-list">
+            <thead>
+                <tr>
+                    <th class="th-20"><input type="checkbox" class="j-check-all" /></th>
+                    <th class="th-40">ID</th>
+                    <th>{:L('NAME')}</th>
+                    <th class="th-150">{:L('CODE')}</th>
+                    <th class="th-150">{:L('CATEGORY')}</th>
+                    <th class="th-150">{:L('PRICE')}</th>
+                    <th class="th-60">{:L('STATUS')}</th>
+                    <th class="th-150">{:L('ACTIONS')}</th>
+                </tr>
+            </thead>
+            <tbody>
+            <volist name='list' id='v'>
+                <tr>
+                    <td><input type="checkbox" name="id[]" value="{$v.id}" /></td>
+                    <td>{$v.id}</td>
+                    <td><a href="{:U('edit',array('id'=>$v['id']))}">{$v.goods|default='== 未定义 =='}</a></td>
+                    <td>{$v.goods_sno}</td>
+                    <td>{$v.category}</td>
+                    <td>{$v.price}</td>
+                    <td><button type="button" class="status-{$v.status|intval} j-status" data-url="{:U('setStatus',array('id'=>$v['id'],'field'=>'status','val'=>$v['status']))}">{$v['status']?L('ACTIVE'):L('DISABLED')}</button></td>
+                    <td>
+                        <a href="{:U('edit',array('id'=>$v['id']))}" class="btn btn-success btn-xs">{:L('EDIT')}</a>
+                        <a href="{:U('recycle',array('id'=>$v['id']))}" class="btn btn-danger btn-xs j-del">{:L('RECYCLE')}</a>
+                    </td>
+                </tr>
+            </volist>
+            </tbody>
+        </table>
+    </div>
+</block>
+<block name="list-handle">
+    <div class="container-fluid">
+        <div class='row'>
+            <div class="col-md-4">
+                <a href="javascript:;" data-type="recycle" class="btn btn-danger btn-sm js-handle js-need-confirm"><i class="glyphicon glyphicon-trash"></i> {:L('RECYCLE')}</a>
+            </div>
+            <div class="col-md-8 text-right"><ul class="pagination square">{$page_nav}</ul></div>
+        </div>
+    </div>
+</block>

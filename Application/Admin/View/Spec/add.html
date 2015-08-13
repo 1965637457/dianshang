@@ -1,0 +1,32 @@
+<extend name="Public/tpl-add" />
+<block name="content">
+    <ul class="nav nav-tabs" id="js-data-tabs">
+        <li class="active"><a data-target="#pane1" data-toggle="tab">基本信息</a></li>
+        <li class="disabled"><a data-target="#pane2" data-toggle="tab">值信息</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="pane1">
+            <table class="table table-condensed tb-data">
+                <tr>
+                    <th>{:L('DISPLAY')}</th>
+                    <td>
+                        <label><input type="radio" name="display" value="1" checked /> 文本</label>
+                        <label><input type="radio" name="display" value="0" /> 图像</label>
+                    </td>
+                </tr>
+                <tr>
+                    <th>{:L('NAME')}</th>
+                    <td><input type="text" name="spec" class="form-control-sm" /></td>
+                </tr>
+                <tr>
+                    <th>{:L('ALIAS')}</th>
+                    <td><input type="text" name="spec_alias" class="form-control-sm" /></td>
+                </tr>
+                <tr>
+                    <th>{:L('REMARK')}</th>
+                    <td><textarea name="remark" class="form-control-sm"></textarea></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</block>

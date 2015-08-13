@@ -1,0 +1,135 @@
+<extend name="Public/tpl-edit" />
+<block name="content">
+    <table class="table table-condensed tb-data">
+        <tr>
+            <th>{:L('STATUS')}</th>
+            <td>
+                <label><input type="radio" name="main[status]" value="1" checked /> {:L('ACTIVE')}</label>
+                <label><input type="radio" name="main[status]" value="0" <eq name="data.status" value="0">checked</eq> /> {:L('DISABLED')}</label>
+            </td>
+        </tr>
+        <tr>
+            <th>优惠券规则</th>
+            <td><input type="text" name="main[coupon_rule]" value="{$data.coupon_rule|htmlspecialchars}" class="form-control-sm require" /></td>
+        </tr>
+        <tr>
+            <th>规则别名</th>
+            <td><input type="text" name="main[coupon_alias]" value="{$data.coupon_alias|htmlspecialchars}" class="form-control-sm require" /> <i>前台展示</i></td>
+        </tr>
+        <tr>
+            <th>{:L('START_TIME')}</th>
+            <td>
+                <input type="text" name="main[start_time]" value="{:date('Y-m-d H:i:s', $data['start_time'])}" class="form-control-sm js-form-datetime" data-date-format="yyyy-mm-dd hh:ii:ss" />
+            </td>
+        </tr>
+        <tr>
+            <th>{:L('END_TIME')}</th>
+            <td>
+                <input type="text" name="main[end_time]" value="{:date('Y-m-d H:i:s', $data['end_time'])}" class="form-control-sm js-form-datetime" data-date-format="yyyy-mm-dd hh:ii:ss" />
+            </td>
+        </tr>
+        <tr>
+            <th>优惠券类型</th>
+            <td>
+                <select name="main[coupon_type]" class="form-control-sm" id="js-coupon-type">
+                    <volist name="coupon_types" id="v">
+                        <option value="{$key}" <eq name="data.coupon_type" value="$key">selected</eq>>{$v}</option>
+                    </volist>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>最小消费金额</th>
+            <td><input type="text" name="main[min_amount]" value="{$data.min_amount|htmlspecialchars}" placeholder="0.00" class="form-control-sm require isNumber" /></td>
+        </tr>
+        <tr id="sectionDiscountAmount" <neq name="data.coupon_type" value="1">class="hidden"</neq>>
+            <th>减免金额</th>
+            <td><input type="text" name="main[discount_amount]" value="{$data.discount_amount|htmlspecialchars}" placeholder="0.00" class="form-control-sm"/></td>
+        </tr>
+        <tr id="sectionDiscountRate" <neq name="data.coupon_type" value="2">class="hidden"</neq>>
+            <th>折扣</th>
+            <td><input type="text" name="main[discount_rate]" value="{$data.discount_rate|htmlspecialchars}" placeholder="99" class="form-control-sm"/> <i>取值0 - 99</i></td>
+        </tr>
+        <tr>
+            <th>发放目标</th>
+            <td>
+                <select name="main[target_type]" class="form-control-sm" id="js-target-type">
+                    <volist name="target_types" id="v">
+                        <option value="{$key}" <eq name="data.target_type" value="$key">selected</eq>>{$v}</option>
+                    </volist>
+                </select>
+            </td>
+        </tr>
+        <tr id="sectionMember" class="hidden">
+            <th>
+                <a href="javascript:;" class="btn btn-success btn-xs" id="js-select-member" data-url="{:U('members')}">选择会员</a>
+            </th>
+            <td>
+                <ul id="js-member-list" style="list-style: none;padding: 0;">
+                    <volist name="data._member_list" id="v">
+                        <li data-id="{$v.id}">
+                            <input type="hidden" name="limit_members[]" value="{$v.id}" > 
+                            {$v.account}
+                            <a href="javascript:;" class="btn btn-danger btn-xs js-remove-item"><i class="glyphicon glyphicon-remove"></i></a>
+                        </li>
+                    </volist>
+                </ul>
+            </td>
+        </tr>
+        <tr id="sectionMemberLevel" class="hidden">
+            <th>选择会员等级</th>
+            <td>
+                <ul style="height:150px;list-style: none;padding-left: 5px;border:1px solid #ccc;">
+                    <volist name="member_levels" id="v">
+                        <li><label><input type="checkbox" name="limit_levels[]" value="{$v.id}" <in name="v.id" value="$data['_chosen_member_level']">checked</in> > {$v.member_level}</label></li>
+                    </volist>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>限定类型</th>
+            <td>
+                <select name="main[limit_type]" class="form-control-sm" id="js-limit-type">
+                    <volist name="limit_types" id="v">
+                        <option value="{$key}" <eq name="data.limit_type" value="$key">selected</eq>>{$v}</option>
+                    </volist>
+                </select>
+            </td>
+        </tr>
+        <tr id="sectionProduct" <neq name="data.limit_type" value="2">class="hidden"</neq>>
+            <th>
+                <a href="javascript:;" class="btn btn-success btn-xs" id="js-select-product" data-url="{:U('products')}">选择商品</a>
+            </th>
+            <td>
+                <ul id="js-limit-list" style="list-style: none;padding: 0;">
+                    <volist name="data._product_list" id="v">
+                        <li data-id="{$v.id}">
+                            <input type="hidden" name="limit_products[]" value="{$v.id}" > 
+                            {$v.goods_sno} | {$v.goods}
+                            <a href="javascript:;" class="btn btn-danger btn-xs js-remove-item"><i class="glyphicon glyphicon-remove"></i></a>
+                        </li>
+                    </volist>
+                </ul>
+            </td>
+        </tr>
+        <tr id="sectionCategory" <neq name="data.limit_type" value="3">class="hidden"</neq>>
+            <th>选择分类</th>
+            <td>
+                <ul style="height:150px;list-style: none;padding-left: 5px;border:1px solid #ccc;">
+                    <volist name="category_list" id="v">
+                        <li><label><input type="checkbox" name="limit_category[]" value="{$v.id}" <in name="v.id" value="$data['_chosen_category']">checked</in> > {$v.grade|do_sub_prefix}{$v.category}</label></li>
+                    </volist>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>{:L('REMARK')}</th>
+            <td><textarea name="main[remark]" class="form-control-sm">{$data.remark|htmlspecialchars}</textarea></td>
+        </tr>
+    </table>
+</block>
+<block name="scripts">
+    <script>
+        $.coupon.initRule();
+    </script>
+</block>

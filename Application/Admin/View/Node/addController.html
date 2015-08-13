@@ -1,0 +1,56 @@
+<extend name="Public/tpl-data" />
+<block name="content">
+<form action="{:U('insertController')}" method="post" enctype="multipart/form-data" class="fm_data" id="j-fmData">
+    <table class="table table-condensed tb-data">
+        <tr>
+            <th>{:L('STATUS')}</th>
+            <td>
+                <label><input type="radio" name="status" value="1" checked /> {:L('ACTIVE')}</label>
+                <label><input type="radio" name="status" value="0" /> {:L('DISABLED')}</label>
+            </td>
+        </tr>
+        <tr>
+            <th>{:L('SORT')}</th>
+            <td><input type="text" name="sort" value="0" class="form-control-sm" /> <i>{:L('SORT_INFO')}</i></td>
+        </tr>
+        <tr>
+            <th>上一级</th>
+            <td>
+                <select name="pid" class="form-control-sm">
+                    <volist name="parents" id="v">
+                        <option value="{$v.id}" <eq name="pid" value="$v.id">selected="selected"</eq>>{$v.grade|do_sub_prefix}{$v.title_cn}</option>
+                    </volist>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>控制器名称[中]：</th>
+            <td><input type="text" name="title_cn" class="form-control-sm require" /> <sup>*</sup></td>
+        </tr>
+        <tr>
+            <th>控制器名称[英]：</th>
+            <td><input type="text" name="title_en" class="form-control-sm require" /> <sup>*</sup></td>
+        </tr>
+        <tr>
+            <th>控制器代码：</th>
+            <td><input type="text" name="name" class="form-control-sm require" /> <sup>*</sup></td>
+        </tr>
+        <tr>
+            <th>操作：</th>
+            <td>
+                <label><input type="checkbox" name="action[]" value="index" checked /> 列表</label>
+                <label><input type="checkbox" name="action[]" value="add" checked /> 添加</label>
+                <label><input type="checkbox" name="action[]" value="insert" checked /> 插入</label>
+                <label><input type="checkbox" name="action[]" value="edit" checked /> 编辑</label>
+                <label><input type="checkbox" name="action[]" value="update" checked /> 更新</label>
+                <label><input type="checkbox" name="action[]" value="delete" checked /> {:L('DELETE')}</label>
+                <label><input type="checkbox" name="action[]" value="search" checked /> 搜索</label>
+                <label><input type="checkbox" name="action[]" value="setStatus" checked /> 设置{:L('STATUS')}</label>
+                <label><input type="checkbox" name="action[]" value="sort" checked /> 排序</label>
+                <label><input type="checkbox" name="action[]" value="read" /> 查看</label>
+            </td>
+        </tr>
+    </table>
+    <include file="Public/tb-data-control"/>
+</form>
+</block>

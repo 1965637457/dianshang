@@ -1,0 +1,102 @@
+<?php
+
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+return array(
+    'LANG_VERSION'  => '中文',
+    'LANG_MARK'     => '_cn',
+    'MODIFY_PWD'    => '修改密码',
+    'VIEW_FRONT'    => '查看前台',
+    'LOGOUT'        => '注销后台',
+    
+    'ADD'           => '新增',
+    'LIST'          => '列表',
+    'REFRESH'       => '刷新',
+    'CONFIRM'       => '确定',
+    'SAVE'          => '保存',
+    'BACK'          => '返回',
+    
+    'SEARCH'        => '查询',
+    'LIST_SORT'     => '排序',
+    'SORT'          => '排序',
+    'SORT_INFO'     => '倒序，默认为0',
+    
+    'EXPAND'        => '展开',
+    'COLLAPSE'      => '收起',
+    'CHILD_NODE'    => '下级',
+    
+    'ACCOUNT'       => '帐号',
+    'USERNAME'      => '用户名',
+    'SALUTATION'    => '称谓',
+    'FULLNAME'      => '姓名',
+    'NAME'          => '名称',
+    'ALIAS'         => '别名',
+    'SUBJECT'       => '主题',
+    'TITLE'         => '标题',
+    'VICE'          => '副',
+    'LEVEL'         => '等级',
+    'CATEGORY'      => '分类',
+    'VICE_CATE'     => '副分类',
+    'SUP_LEVEL'     => '上一级',
+    'CREATE_TIME'   => '创建时间',
+    'UPDATE_TIME'   => '更新时间',
+    'PUBLISH_TIME'  => '发布时间',
+    'START_TIME'    => '开始时间',
+    'END_TIME'      => '结束时间',
+    'CONTENT'       => '内容',
+    'REMARK'        => '备注',
+    'BRIEF'         => '简介',
+    'IMAGE'         => '图像',
+    'SIZE'          => '尺寸',
+    'SEO_LINK'      => '自定义路径',        //伪静态重写路径
+    'SEO_LINK_INFO' => "用'-'连接",
+    'OUT_LINK'      => '外链',      //重定向外链，绝对路径
+    'TEMPLATE'      => '模板',
+    'IS_TOP'        => '置顶',
+    'LANG'          => '语言版本',
+    'EMAIL'         => '电子邮箱',
+    'PHONE'         => '电话',
+    'FAX'           => '传真',
+    'MOBILE'        => '手机',
+    'COUNTRY'       => '国家',
+    'PROVINCE'      => '省份',
+    'CITY'          => '城市',
+    'ZONE'          => '区域',
+    'ADDRESS'       => '地址',
+    'ZIPCODE'       => '邮编',
+    'ROLE'          => '角色',
+    'PASSWORD'      => '密码',
+    'LOCATION'      => '位置',
+    'URL'           => '链接',
+    'FILE'          => '文件',
+    'DISPLAY'       => '展示',
+    /*邮件相关*/
+    'CC_ADDR'       => '抄送',
+    'BCC_ADDR'      => '暗送',
+    /*产品相关*/
+    'ONSALE'        => '上架',
+    'OFFSALE'       => '下架',
+    'RECYCLE'       => '回收站',
+    'RECOVER'       => '还原',
+    'CODE'          => '编码',
+    'PRICE'         => '销售价',
+    'STOCK'         => '库存',
+    
+    'STATUS'        => '状态',
+    'ACTIVE'        => '启用',
+    'DISABLED'      => '禁用',
+    'ACTIONS'       => '操作',
+    'EDIT'          => '编辑',
+    'DELETE'        => '删除',
+    
+    'PAGE_LIST'     => '列表管理',
+    'PAGE_SEARCH'   => '搜索页面',
+    'PAGE_ADD'      => '新增页面',
+    'PAGE_EDIT'     => '编辑页面',
+    'PAGE_PWD'      => '修改密码',
+    'PAGE_READ'     => '查看详情',
+    'PAGE_PRIV'     => '设置权限',
+);
+?>

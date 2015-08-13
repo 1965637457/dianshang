@@ -1,0 +1,103 @@
+<include file="Public/header" />
+<div id="banner">
+    <ul class="clear">
+        <volist name='index_banners' id='v'>
+        <li <eq name="i" value="1">class="on"</eq>></li>
+        </volist>
+    </ul>
+    <div id="banner_list">
+        <volist name='index_banners' id='v'>
+        <a href="{$v.link}"><img src="__UPLOAD__/{$v.image}" alt="{$v.title}" title="{$v.title}"/></a>
+        </volist>
+    </div>
+</div>
+<div class="content width">
+    <div class="index_product clear">
+        <volist name="nav_list.Product" id='v'>
+            <div class="<eq name='v.id' value='1'>product_oxides</eq><eq name='v.id' value='2'>product_metals</eq><eq name='v.id' value='3'>product_materials</eq>">
+            <h2><a href="<empty name='v.rewriteuri'>{:U('Product/category',array('id'=>$v['id']))}<else/>{:U('Product/category/'.$v['rewriteuri'])}</empty>">{$v.cate_name}</a></h2>
+            <p>{$v.short_desc|msubstr=0,80}</p>
+            <switch name='v.id'>
+            <case value='1'><img src="__IMAGES__/icon_oxides.png"></case>
+            <case value='2'><img src="__IMAGES__/icon_metals.png"></case>
+            </switch>
+            <ul class="product_navbar clear">
+                <volist name='v._list' id='vv'>
+                <li><a href="<empty name='vv.rewriteuri'>{:U('Product/detail',array('id'=>$vv['id']))}<else/>{:U('Product/'.$vv['rewriteuri'])}</empty>">{$vv.title}</a></li>
+                </volist>
+            </ul>
+            <a href="<empty name='v.rewriteuri'>{:U('Product/category',array('id'=>$v['id']))}<else/>{:U('Product/category/'.$v['rewriteuri'])}</empty>" class="view_all">View All</a>
+        </div>
+        </volist>
+    </div>
+    <div class="index_about">
+        <h3><a href="{:U('/About')}">About<br />Kehong Rare Earth</a></h3>
+        <p>KEHONG RARE EARTH specializes in Rare Earth industry for decades and now is a leading manufacturer and supplier of various Rare Earth Oxides, Metals & Alloys of China. </p>
+        <p></p>
+    </div>
+    <div class="index_news_services clear">
+        <volist name='news' id='v'>
+        <div class="index_news_box">
+            <a href="{:U('News/detail',array('id'=>$v['id']))}"><img src="__UPLOAD__/{$v.image}" onerror="this.src='__IMAGES__/news_default.jpg'" alt="{$v.title}" /></a>
+            <span>{$v.publish_time|date='d M Y',###}</span>
+            <h3><a href="{:U('News/detail',array('id'=>$v['id']))}">{$v.title}</a></h3>
+            <p>{$v.content|strip_html_tags|msubstr=0,240}</p>
+            <a href="{:U('News/detail',array('id'=>$v['id']))}" class="read_more">Read More +</a>
+        </div>
+        </volist>
+        <div class="index_services">
+            <h3>Services</h3>
+            <p>Customers satisfaction is guaranteed!in Rare Earth.</p>
+            <ul>
+                <volist name="nav_list.Service" id='v'>
+                <li><a href="<empty name='v.rewriteuri'>{:U('Service/detail',array('id'=>$v['id']))}<else/>{:U('Service/'.$v['rewriteuri'])}</empty>">· {$v.title}</a></li>
+                </volist>
+            </ul>
+            <img src="__IMAGES__/services_1.jpg">
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<script>
+    //banner切换
+    var t = n = 0, count;
+    $(function() {
+        count = $("#banner_list a").length;
+        $("#banner_list a:not(:first-child)").hide();
+        $("#banner_info").html($("#banner_list a:first-child").find("img").attr('alt'));
+        $("#banner_info").click(function() {
+            window.open($("#banner_list a:first-child").attr('href'), "_blank")
+        });
+        $("#banner li").click(function() {
+            var i = $(this).index();
+            n = i;
+            if (i >= count)
+                return;
+            $("#banner_info").html($("#banner_list a").eq(i).find("img").attr('alt'));
+            $("#banner_info").unbind().click(function() {
+                window.open($("#banner_list a").eq(i).attr('href'), "_blank")
+            })
+            $("#banner_list a").filter(":visible").fadeOut(600).parent().children().eq(i).fadeIn(1100);
+            document.getElementById("banner").style.background = "";
+            $(this).toggleClass("on");
+            $(this).siblings().removeAttr("class");
+        });
+        t = setInterval("showAuto()", 4000);
+        $("#banner").hover(function() {
+            clearInterval(t)
+        }, function() {
+            t = setInterval("showAuto()", 4000);
+        });
+    })
+    function showAuto()
+    {
+        n = n >= (count - 1) ? 0 : ++n;
+        $("#banner li").eq(n).trigger('click');
+    }
+</script>
+<include file="Public/footer" />

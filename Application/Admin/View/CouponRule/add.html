@@ -1,0 +1,123 @@
+<extend name="Public/tpl-add" />
+<block name="content">
+    <table class="table table-condensed tb-data">
+        <tr>
+            <th>{:L('STATUS')}</th>
+            <td>
+                <label><input type="radio" name="main[status]" value="1" checked /> {:L('ACTIVE')}</label>
+                <label><input type="radio" name="main[status]" value="0" /> {:L('DISABLED')}</label>
+            </td>
+        </tr>
+        <tr>
+            <th>优惠券规则</th>
+            <td><input type="text" name="main[coupon_rule]" class="form-control-sm require" /></td>
+        </tr>
+        <tr>
+            <th>规则别名</th>
+            <td><input type="text" name="main[coupon_alias]" class="form-control-sm require" /> <i>前台显示</i></td>
+        </tr>
+        <tr>
+            <th>{:L('START_TIME')}</th>
+            <td>
+                <input type="text" name="main[start_time]" value="{:date('Y-m-d H:i:s')}" class="form-control-sm js-form-datetime" data-date-format="yyyy-mm-dd hh:ii:ss" />
+            </td>
+        </tr>
+        <tr>
+            <th>{:L('END_TIME')}</th>
+            <td>
+                <input type="text" name="main[end_time]" value="{:date('Y-m-d 23:59:59')}" class="form-control-sm js-form-datetime" data-date-format="yyyy-mm-dd hh:ii:ss" />
+            </td>
+        </tr>
+        <tr>
+            <th>优惠券类型</th>
+            <td>
+                <select name="main[coupon_type]" class="form-control-sm" id="js-coupon-type">
+                    <volist name="coupon_types" id="v">
+                        <option value="{$key}">{$v}</option>
+                    </volist>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>最小消费金额</th>
+            <td><input type="text" name="main[min_amount]" placeholder="0.00" class="form-control-sm require isNumber" /></td>
+        </tr>
+        <tr id="sectionDiscountAmount">
+            <th>减免金额</th>
+            <td><input type="text" name="main[discount_amount]" placeholder="0.00" class="form-control-sm"/></td>
+        </tr>
+        <tr id="sectionDiscountRate" class="hidden">
+            <th>折扣</th>
+            <td><input type="text" name="main[discount_rate]" placeholder="99" class="form-control-sm"/> <i>取值0 - 99</i></td>
+        </tr>
+        <tr>
+            <th>发放目标</th>
+            <td>
+                <select name="main[target_type]" class="form-control-sm" id="js-target-type">
+                    <volist name="target_types" id="v">
+                        <option value="{$key}">{$v}</option>
+                    </volist>
+                </select>
+            </td>
+        </tr>
+        <tr id="sectionMember" class="hidden">
+            <th>
+                <a href="javascript:;" class="btn btn-success btn-xs" id="js-select-member" data-url="{:U('members')}">选择会员</a>
+            </th>
+            <td>
+                <ul id="js-member-list" style="list-style: none;padding: 0;">
+                    
+                </ul>
+            </td>
+        </tr>
+        <tr id="sectionMemberLevel" class="hidden">
+            <th>选择会员等级</th>
+            <td>
+                <ul style="height:150px;list-style: none;padding-left: 5px;border:1px solid #ccc;">
+                    <volist name="member_levels" id="v">
+                        <li><label><input type="checkbox" name="limit_levels[]" value="{$v.id}" > {$v.member_level}</label></li>
+                    </volist>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>限定类型</th>
+            <td>
+                <select name="main[limit_type]" class="form-control-sm" id="js-limit-type">
+                    <volist name="limit_types" id="v">
+                        <option value="{$key}">{$v}</option>
+                    </volist>
+                </select>
+            </td>
+        </tr>
+        <tr id="sectionProduct" class="hidden">
+            <th>
+                <a href="javascript:;" class="btn btn-success btn-xs" id="js-select-product" data-url="{:U('products')}">选择商品</a>
+            </th>
+            <td>
+                <ul id="js-limit-list" style="list-style: none;padding: 0;">
+                    
+                </ul>
+            </td>
+        </tr>
+        <tr id="sectionCategory" class="hidden">
+            <th>选择分类</th>
+            <td>
+                <ul style="height:150px;list-style: none;padding-left: 5px;border:1px solid #ccc;">
+                    <volist name="category_list" id="v">
+                        <li><label><input type="checkbox" name="limit_category[]" value="{$v.id}" > {$v.grade|do_sub_prefix}{$v.category}</label></li>
+                    </volist>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>{:L('REMARK')}</th>
+            <td><textarea name="main[remark]" class="form-control-sm"></textarea></td>
+        </tr>
+    </table>
+</block>
+<block name="scripts">
+    <script>
+        $.coupon.initRule();
+    </script>
+</block>

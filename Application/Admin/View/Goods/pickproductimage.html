@@ -1,0 +1,13 @@
+<extend name="Public/tpl-dialog" />
+<block name="content">
+    <ul class="goods-image-list" id="js-images" style="margin-top:20px;">
+        <volist name="image_list" id="v">
+        <li>
+            <label>
+                <img src="{$v.origin_image}" height="100" >
+                <input type="checkbox" name="img[]" value="{$v.image_id}" data-src="{$v.thumb_image}" >
+            </label>
+        </li>
+        </volist>
+    </ul>
+</block>

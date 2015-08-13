@@ -1,0 +1,52 @@
+<include file="Public/head" />
+<div style="width:830px; height:610px; padding:30px;">
+    <div class="contact_box">
+        <h2>Product Information</h2>
+        <img src="__UPLOAD__/{$product.image}" width="100" style=" display:inline-block; vertical-align:top;*float:left;">
+        <table>
+        　　<tbody>
+                <tr><td><strong>Product NO:</strong></td><td>{$product.product_no}</td></tr>
+                <tr><td><strong>Product Name:</strong></td><td>{$product.title}</td></tr>
+                <tr><td><strong>Weight:</strong></td><td>{$inquiry_type}kg</td></tr>
+        　　</tbody>
+        </table>
+    </div>
+    <div class="contact_box" style="margin-left:28px;">
+        <h2>Inquiry</h2>
+        <p>Leave your contacts information,and than we will send products price for you.</p>
+        <form action="{:U('Product/doinquiry')}" method="post" id="j-fmInquiry">
+            <input type="hidden" name="product_id" value="{$product.id}" />
+            <input type="hidden" name="inquiry_type" value="{$inquiry_type}" />
+            <label>First name *</label>
+            <input type="text" name="first_name" class="require" />
+            <label>Last name *</label>
+            <input type="text" name="last_name" class="require" />
+            <label>Company name *</label>
+            <input type="text" name="company" class="require" />
+            <label>Address *</label>
+            <input type="text" name="address" class="require" />
+            <label>Email Address *</label>
+            <input type="text" name="email" class="require email" />
+            <label>Message *</label>
+            <textarea name="memo" class="require"></textarea>
+            <button type="submit">INQUIRY</button>
+        </form>
+    </div>
+</div>
+<script>
+    $('#j-fmInquiry').bind('submit',function(){
+        var flag=true,v;
+        $('.require',this).each(function(){
+            v = $.trim($(this).val());
+            if(v===''){
+                flag=false;alert("Please fill your info!");return false;
+            }
+            if($(this).hasClass('email') && !isEmail(v)){
+                flag=false;alert("Please fill your Email!");return false;
+            }
+        });
+        if(!flag){ return false; }
+    });
+</script>
+</body>
+</html>

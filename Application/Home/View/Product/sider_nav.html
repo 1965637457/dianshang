@@ -1,0 +1,5 @@
+<ul class="left_nav">
+    <volist name="nav_list[CONTROLLER_NAME]" id='v'>
+        <li><a href="<empty name='v.rewriteuri'>{:U('category',array('id'=>$v['id']))}<else/>{:U('Product/category/'.$v['rewriteuri'])}</empty>" <eq name='article.id' value='$v.id'>class="on"</eq>>{$v.cate_name}</a></li>
+    </volist>
+</ul>

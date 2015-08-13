@@ -1,0 +1,50 @@
+<extend name="Public/tpl-list" />
+<block name="search">
+    <form action="{:U('search')}" method="get" class="list-search">
+        <select name='rid' class="form-control-sm">
+            <option value='0'>请选择角色...</option>
+            <volist name='roles' id='v'>
+                <option value='{$v.id}' <eq name='s_opts.rid' value='$v.id'>selected</eq>>{$v.grade|do_sub_prefix}{$v.name}</option>
+            </volist>
+        </select>
+        <input type="text" name="keyword" value="{$s_opts.keyword}" class="form-control-sm" />
+        <button type="submit" class="btn btn-primary btn-sm" name="search"><i class="glyphicon glyphicon-search"></i> {:L('SEARCH')}</button>
+    </form>
+</block>
+<block name="content">
+    <div class="table-responsive">
+        <table class="table table-condensed table-hover tb-list">
+            <thead>
+                <tr>
+                    <th class="th-20"><input type="checkbox" class="j-check-all" /></th>
+                    <th class="th-40">ID</th>
+                    <th>用户名</th>
+                    <th class="th-150">角色</th>
+                    <th class="th-60">{:L('STATUS')}</th>
+                    <th class="th-150">{:L('ACTIONS')}</th>
+                </tr>
+            </thead>
+            <tbody>
+            <volist name='list' id='v'>
+                <tr>
+                    <td><input type="checkbox" name="id[]" value="{$v.id}" /></td>
+                    <td>{$v.id}</td>
+                    <td><a href="{:U('edit',array('id'=>$v['id']))}">{$v.account|default='== 未定义 =='}</a></td>
+                    <td>{$v.role_name}</td>
+                    <td><button type="button" class="status-{$v.status|intval} j-status" data-url="{:U('setStatus',array('id'=>$v['id'],'field'=>'status','val'=>$v['status']))}">{$v['status']?L('ACTIVE'):L('DISABLED')}</button></td>
+                    <td>
+                        <a href="{:U('edit',array('id'=>$v['id']))}" class="btn btn-success btn-xs">{:L('EDIT')}</a>
+                        <a href="{:U('delete',array('id'=>$v['id']))}" class="btn btn-danger btn-xs j-del">{:L('DELETE')}</a>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-cog"></i> <span class="caret"></span></button>
+                            <ul class="dropdown-menu pull-right">
+                                <li><a href="{:U('editPwd',array('id'=>$v['id']))}">重置密码</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </volist>
+            </tbody>
+        </table>
+    </div>
+</block>

@@ -1,0 +1,52 @@
+<nav class="navbar navbar-defined" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand"><img src="__IMAGES__/logo.png" /></a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-navbar-collapse">
+            <ul class="nav navbar-nav main-nav">
+                <li><a href="{:U('Index/index')}"><span class="glyphicon glyphicon-home"></span></a></li>
+                <volist name="privileges" id="v">
+                    <li class="js-dropdown-hover">
+                        <a href="javascript:;"><b>{$v.$node_title}</b> <span class="caret"></span></a>
+                        <ul class="dropdown-menu  clearfix">
+                            <volist name="v._child" id="vv">
+                                <li class="dropdown-header">{$vv.$node_title}</li>
+                                <volist name="vv._child" id="ctrl">
+                                    <volist name="ctrl._child" id="act">
+                                        <li><a href="{:U($ctrl['name'].'/'.$act['name'])}">{$act.$node_title}</a></li>
+                                    </volist>
+                                </volist>
+                                <li class="divider clearfix"></li>
+                            </volist>
+                        </ul>
+                    </li>
+                </volist>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="js-dropdown-hover">
+                    <a href="javascript:;">{:L('LANG_VERSION')} <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="?l=en-us">English</a></li>
+                        <li><a href="?l=zh-cn">中文</a></li>
+                    </ul>
+                </li>
+                <li class="js-dropdown-hover">
+                    <a href="javascript:;"><span class="glyphicon glyphicon-user"></span> {$auth.account} <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{:U('Profile/editPwd')}"><span class="glyphicon glyphicon-cog"></span> {:L('MODIFY_PWD')}</a></li>
+                        <li><a href="/" target="_blank"><span class="glyphicon glyphicon-new-window"></span> {:L('VIEW_FRONT')}</a></li>
+                        <li class="divider"></li>
+                        <li><a href="{:U('Public/logout')}"><span class="glyphicon glyphicon-log-out"></span> {:L('LOGOUT')}</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

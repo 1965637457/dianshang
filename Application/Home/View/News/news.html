@@ -1,0 +1,29 @@
+<extend name="Public/basic" />
+<block name="left_nav">
+    <include file="sider_nav" />
+</block>
+<block name="bread_nav"><a href="{:U('/')}" class="icon">Home</a> <span>/</span> <a href="{:U('/News')}">News</a></block>
+<block name="right_side_content">
+    <div class="news_title clear">
+        <h2>{$article.cate_name}</h2>
+        <div class="next_page">
+            {$page_nav}
+        </div>
+    </div>
+    <volist name='list' id='v'>
+    <div class="inner_news_box clear">
+        <div class="inner_news_image"><img src="__UPLOAD__/{$v.image}" onerror="this.src='__IMAGES__/news_default.jpg'" alt="{$v.title}" /></div>
+        <div class="inner_news_content">
+            <span>{$v.publish_time|date='d M Y',###}</span>
+            <h3>{$v.title}</h3>
+            <p>{$v.content|strip_html_tags|msubstr=0,100}</p>
+        </div>
+        <a href="{:U('News/detail',array('id'=>$v['id']))}"></a>
+    </div>
+    </volist>
+    <div class="news_title clear">
+        <div class="next_page">
+            {$page_nav}
+        </div>
+    </div>
+</block>

@@ -1,0 +1,39 @@
+<extend name="Public/tpl-add" />
+<block name="content">
+    <table class="table table-condensed tb-data">
+        <tr>
+            <th>{:L('STATUS')}</th>
+            <td>
+                <label><input type="radio" name="status" value="1" checked /> {:L('ACTIVE')}</label>
+                <label><input type="radio" name="status" value="0" /> {:L('DISABLED')}</label>
+            </td>
+        </tr>
+        <tr>
+            <th>{:L('SORT')}</th>
+            <td><input type="text" name="sort" value="0" class="form-control-sm" /> <i>{:L('SORT_INFO')}</i></td>
+        </tr>
+        <tr>
+            <th>{:L('SUP_LEVEL')}</th>
+            <td>
+                <select name="pid" class="form-control-sm">
+                    <option value="0">==ROOT==</option>
+                    <volist name="parents" id="v">
+                        <option value="{$v.id}" <eq name="pid" value="$v.id">selected="selected"</eq>>{$v.grade|do_sub_prefix}{$v.title_cn} [{$v.name}]</option>
+                    </volist>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>{:L('NAME')}[中]</th>
+            <td><input type="text" name="title_cn" class="form-control-sm" /></td>
+        </tr>
+        <tr>
+            <th>{:L('NAME')}[英]</th>
+            <td><input type="text" name="title_en" class="form-control-sm" /></td>
+        </tr>
+        <tr>
+            <th>权限代码</th>
+            <td><input type="text" name="name" class="form-control-sm" /></td>
+        </tr>
+    </table>
+</block>

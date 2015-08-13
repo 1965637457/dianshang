@@ -1,0 +1,30 @@
+<eq name="data.order_status" value="1">
+<button type="button" class="btn btn-warning btn-sm" id="js-payOrder" data-url="{:U('payorder', array('code'=>$data['order_code']))}">支付订单</button>
+<button type="button" class="btn btn-danger btn-sm" id="js-cancelOrder" data-url="{:U('cancelorder', array('code'=>$data['order_code']))}">取消订单</button>
+</eq>
+<eq name="data.order_status" value="2">
+<button type="button" class="btn btn-warning btn-sm" id="js-confirmOrder" data-url="{:U('confirmorder', array('code'=>$data['order_code']))}">确认支付</button>
+</eq>
+<eq name="data.order_status" value="3">
+<button type="button" class="btn btn-default btn-sm disabled">已支付</button>
+<button type="button" class="btn btn-primary btn-sm" id="js-shipOrder" data-url="{:U('shiporder', array('code'=>$data['order_code']))}">发货</button>
+<button type="button" class="btn btn-warning btn-sm" id="js-cancelOrder" data-url="{:U('cancelorder', array('code'=>$data['order_code']))}">取消订单</button>
+</eq>
+<eq name="data.order_status" value="4">
+<button type="button" class="btn btn-default btn-sm disabled">已支付</button>
+<button type="button" class="btn btn-default btn-sm disabled">已发货</button>
+<button type="button" class="btn btn-primary btn-sm" id="js-completeOrder" data-url="{:U('completeorder', array('code'=>$data['order_code']))}">完成订单</button>
+</eq>
+<eq name="data.order_status" value="5">
+<button type="button" class="btn btn-default btn-sm disabled">已支付</button>
+<button type="button" class="btn btn-default btn-sm disabled">已发货</button>
+<button type="button" class="btn btn-default btn-sm disabled">交易完成</button>
+<gt name="data.total_amount" value="$data.total_refund">
+<button type="button" class="btn btn-warning btn-sm" id="js-refundOrder" data-url="{:U('refundorder', array('code'=>$data['order_code']))}">退货/退款</button>
+<else/>
+<button type="button" class="btn btn-default btn-sm disabled">已退款</button>
+</gt>
+</eq>
+<eq name="data.order_status" value="6">
+<button type="button" class="btn btn-default btn-sm disabled">已取消</button>
+</eq>

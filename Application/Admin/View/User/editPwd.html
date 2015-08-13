@@ -1,0 +1,17 @@
+<extend name="Public/tpl-data" />
+<block name="content">
+    <form action="{:U('updatePwd')}" method="post" enctype="multipart/form-data" class="form-data" id="j-fmData">
+        <input type="hidden" name="id" value="{$data.id}" />
+        <table class="table table-condensed tb-data">
+            <tr>
+                <th>{:L('ACCOUNT')}</th>
+                <td><input type="text" value="{$data.account|htmlspecialchars}" class="form-control-sm" disabled /></td>
+            </tr>
+            <tr>
+                <th>{:L('PASSWORD')}</th>
+                <td><input type="text" name="password" class="form-control-sm" /></td>
+            </tr>
+        </table>
+        <include file="Public/tb-data-control"/>
+    </form>
+</block>

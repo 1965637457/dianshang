@@ -1,0 +1,42 @@
+<extend name="Public/tpl-list" />
+<block name="content">
+    <div class="table-responsive">
+        <table class="table table-condensed table-hover tb-list" id="tree-list">
+            <thead>
+                <tr>
+                    <th class="th-20"><input type="checkbox" class="j-check-all" /></th>
+                    <th class="th-50">排序</th>
+                    <th class="th-40">ID</th>
+                    <th>{:L('NAME')}【<a href="#none" onclick="$('#tree-list').treetable('expandAll')">展开</a>|<a href="#none" onclick="$('#tree-list').treetable('collapseAll')">收起</a>】</th>
+                    <th class="th-300">值</th>
+                    <th class="th-150">配置代码</th>
+                    <th class="th-100">子配置</th>
+                    <th class="th-60">{:L('DELETE')}</th>
+                </tr>
+            </thead>
+            <tbody>
+            <volist name="list" id="v">
+                <tr data-tt-id="{$v.id}" <gt name="v.pid" value="0">data-tt-parent-id="{$v.pid}"</gt>>
+                <td><input type="checkbox" name="id[]" value="{$v.id}" /></td>
+                <td><input type="text" value="{$v.sort}" class="form-control-sm tl-xs js-sort" data-id="{$v.id}"/></td>
+                <td>{$v.id}</td>
+                <td><a href="{:U('edit',array('id'=>$v['id']))}">{$v.config_title}</a></td>
+                <td>{$v.config_value}</td>
+                <td>{$v.code}</td>
+                <td><lt name="v.grade" value="2"><a href="{:U('add',array('pid'=>$v['id']))}" class="btn-add">添加</a></lt></td>
+                <td><a href="{:U('delete',array('id'=>$v['id']))}" class="btn-del j-del">{:L('DELETE')}</a></td>
+                </tr>
+            </volist>
+            </tbody>
+        </table>
+        </form>
+    </div>
+</block>
+<block name="scripts">
+    <load href="__JS__/jquery.treetable.min.js" />
+    <script>
+        $(function() {
+            $("#tree-list").treetable({expandable: true, column: 3, initialState: "expanded"});
+        });
+    </script>
+</block>

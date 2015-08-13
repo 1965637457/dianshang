@@ -1,0 +1,48 @@
+<extend name="Public/tpl-dialog" />
+<block name="search">
+    <form action="{:U('members')}" method="get" class="list-search">
+        <select name="level_id" class="form-control-sm">
+            <option value="-1">==选择会员等级==</option>
+            <volist name="member_levels" id="v">
+                <option value="{$v.id}" <eq name="v.id" value="$opts.level_id">selected</eq>>{$v.member_level}</option>
+            </volist>
+        </select>
+        <input type="text" name="kw" value="{$opts.kw}" class="form-control-sm" />
+        <button type="submit" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-search"></i> {:L('SEARCH')}</button>
+    </form>
+</block>
+<block name="content">
+    <div class="table-responsive">
+        <table class="table table-condensed table-hover tb-list">
+            <thead>
+                <tr>
+                    <th class="th-20"><input type="checkbox" class="j-check-all" /></th>
+                    <th class="th-40">ID</th>
+                    <th>{:L('ACCOUNT')}</th>
+                    <th class="th-150">{:L('USERNAME')}</th>
+                    <th class="th-150">{:L('LEVEL')}</th>
+                </tr>
+            </thead>
+            <tbody id="js-members">
+            <volist name='list' id='v'>
+                <tr>
+                    <td><input type="checkbox" name="id[]" value="{$v.id}" data-name="{$v.account}" /></td>
+                    <td>{$v.id}</td>
+                    <td>{$v.account|default='== 未定义 =='}</td>
+                    <td>{$v.username}</td>
+                    <td>{$v.member_level}</td>
+                </tr>
+            </volist>
+            </tbody>
+        </table>
+    </div>
+</block>
+<block name="list-handle">
+    <div class="container-fluid">
+        <div class='row'>
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-8 text-right"><ul class="pagination square">{$page_nav}</ul></div>
+        </div>
+    </div>
+</block>

@@ -1,0 +1,13 @@
+<extend name="Public/tpl-edit" />
+<block name="content">
+    <table class="table table-condensed tb-data">
+        <tr>
+            <th>{:L('NAME')}</th>
+            <td><input type="text" name="member_level" value="{$data.member_level|htmlspecialchars}" class="form-control-sm" /></td>
+        </tr>
+        <tr>
+            <th>{:L('REMARK')}</th>
+            <td><textarea name="remark" class="form-control-sm">{$data.remark|htmlspecialchars}</textarea></td>
+        </tr>
+    </table>
+</block>

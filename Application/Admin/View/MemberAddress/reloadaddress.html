@@ -1,0 +1,12 @@
+<volist name="list" id="v">
+    <tr data-id="{$v.id}">
+        <td>{$v.truename}</td>
+        <td>{$v.phone}</td>
+        <td>{$v.mobile}</td>
+        <td>{$region_list[$v['province_id']]}{$region_list[$v['city_id']]}{$region_list[$v['zone_id']]}, {$v.address}, {$v.zipcode}</td>
+        <td class="f16">
+            <a href="javascript:;" class="js-edit-item"><span class="glyphicon glyphicon-edit"></span></a>
+            <a href="javascript:;" class="js-remove-item"><span class="glyphicon glyphicon-remove"></span></a>
+        </td>
+    </tr>
+</volist>

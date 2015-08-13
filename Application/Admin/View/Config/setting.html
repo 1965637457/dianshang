@@ -1,0 +1,39 @@
+<extend name="Public/tpl-data" />
+<block name="page-handle"></block>
+<block name="content">
+<form action="{:U('updateSetting')}" method="post" enctype="multipart/form-data" class="form-data" id="j-fmData">
+    <ul class="nav nav-tabs">
+        <volist name="list" id="vo">
+            <li <eq name="i" value="1">class="active"</eq>><a data-target="#pane{$i}" data-toggle="tab">{$vo.config_title}</a></li>
+        </volist>
+    </ul>
+    <div class="tab-content">
+        <volist name="list" id="vo" key='j'>
+            <div class="tab-pane <eq name='j' value='1'>active</eq>" id="pane{$j}">
+            <table class="table table-condensed tb-data">
+                <volist name="vo._child" id="v">
+                <tr>
+                    <th>{$v.config_title}</th>
+                    <td>
+                        <switch name="v.type">
+                            <case value="radio">
+                            <label><input type="radio" name="config[{$v.id}]" value="1" checked /> 是</label>
+                            <label><input type="radio" name="config[{$v.id}]" value="0" <eq name="v.config_value" value="0">checked</eq>/> 否</label>
+                            </case>
+                            <case value="text">
+                            <input type="text" name="config[{$v.id}]" value="{$v.config_value|htmlspecialchars}" class="form-control-sm t-lg"/> <i>{$v.remark}</i>
+                            </case>
+                            <case value="textarea">
+                            <textarea name="config[{$v.id}]" class="form-control-sm t-lg">{$v.config_value|htmlspecialchars}</textarea> <i>{$v.remark}</i>
+                            </case>
+                        </switch>
+                    </td>
+                </tr>
+                </volist>
+            </table>
+        </div>
+        </volist>
+    </div>
+    <include file="Public/tb-data-control"/>
+</form>
+</block>

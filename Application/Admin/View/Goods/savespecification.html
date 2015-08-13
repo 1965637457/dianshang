@@ -1,0 +1,8 @@
+<extend name="Public/tpl-dialog" />
+<block name="scripts">
+    <script>
+        var diag = Dialog.getInstance("popDialog");
+        diag.openerWindow.$.goods.loadProduct();
+        diag.close();
+    </script>
+</block>

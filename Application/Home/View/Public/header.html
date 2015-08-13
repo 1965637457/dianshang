@@ -1,0 +1,79 @@
+<include file="Public/head" />
+<div class="top">
+    <div class="width clear"><div class="top_link"><a href="{:U('/Sitemap')}">Sitemap</a><span>|</span><a href="{:U('/Contact')}">Contact us</a></div></div>
+</div>
+<div id="j-space" class="hidden"></div>
+<div id="j-header" class="header">
+    <div class="width clear">
+        <div class="logo">
+            <h1><a href="{:U('/')}"><img src="__IMAGES__/logo.jpg"></a></h1>
+        </div>
+        <div class="menu_rightside">
+            <div class="search top_search">
+                <form action="{:U('/Search')}" method='get'>
+                    <input type="text" class="text" name="kw" placeholder="Search Kehong..." style="width:260px;" />
+                    <button type="submit" class="submit"></button>
+                </form>
+            </div>
+            <ul class="menu">
+                <li><a href="{:U('/')}" <eq name="Think.CONTROLLER_NAME" value="Index">class="on"</eq>>Home</a></li>
+                <li class="j-sup">
+                    <a href="{:U('/about')}" <eq name="Think.CONTROLLER_NAME" value="About">class="on"</eq>>About us</a>
+                    <ul class="menu_dropdown j-sub hidden">
+                        <volist name="nav_list.About" id='v'>
+                        <li><a href="<empty name='v.rewriteuri'>{:U('About/detail',array('id'=>$v['id']))}<else/>{:U('About/'.$v['rewriteuri'])}</empty>">{$v.title}</a></li>
+                        </volist>
+                    </ul>
+                </li>
+                <li class="j-sup">
+                    <a href="{:U('/product')}" <eq name="Think.CONTROLLER_NAME" value="Product">class="on"</eq>>Products</a>
+                    <ul class="menu_dropdown j-sub hidden">
+                        <volist name="nav_list.Product" id='v'>
+                        <li><a href="<empty name='v.rewriteuri'>{:U('Product/category',array('id'=>$v['id']))}<else/>{:U('Product/category/'.$v['rewriteuri'])}</empty>">{$v.cate_name}</a></li>
+                        </volist>
+                    </ul>
+                </li>
+                <li class="j-sup">
+                    <a href="{:U('/news')}" <eq name="Think.CONTROLLER_NAME" value="News">class="on"</eq>>News</a>
+                    <ul class="menu_dropdown j-sub hidden">
+                        <volist name="nav_list.News" id='v'>
+                        <li><a href="<empty name='v.rewriteuri'>{:U('News/category',array('id'=>$v['id']))}<else/>{:U('News/'.$v['rewriteuri'])}</empty>">{$v.cate_name}</a></li>
+                        </volist>
+                    </ul>
+                </li>
+                <li class="j-sup">
+                    <a href="{:U('/service')}" <eq name="Think.CONTROLLER_NAME" value="Service">class="on"</eq>>Services</a>
+                    <ul class="menu_dropdown j-sub hidden">
+                        <volist name="nav_list.Service" id='v'>
+                        <li><a href="<empty name='v.rewriteuri'>{:U('Service/detail',array('id'=>$v['id']))}<else/>{:U('Service/'.$v['rewriteuri'])}</empty>">{$v.title}</a></li>
+                        </volist>
+                    </ul>
+                </li>
+                <li class="j-sup">
+                    <a href="{:U('/resource')}" <eq name="Think.CONTROLLER_NAME" value="Resource">class="on"</eq>>Resources</a>
+                    <ul class="menu_dropdown j-sub hidden">
+                        <volist name="nav_list.Resource" id='v'>
+                        <li><a href="<empty name='v.rewriteuri'>{:U('Resource/detail',array('id'=>$v['id']))}<else/>{:U('Resource/'.$v['rewriteuri'])}</empty>">{$v.title}</a></li>
+                        </volist>
+                    </ul>
+                </li>
+                <li class="j-sup">
+                    <a href="{:U('/quality')}" <eq name="Think.CONTROLLER_NAME" value="Quality">class="on"</eq>>Quality</a>
+                    <ul class="menu_dropdown j-sub hidden">
+                        <volist name="nav_list.Quality" id='v'>
+                        <li><a href="<empty name='v.rewriteuri'>{:U('Quality/detail',array('id'=>$v['id']))}<else/>{:U('Quality/'.$v['rewriteuri'])}</empty>">{$v.title}</a></li>
+                        </volist>
+                    </ul>
+                </li>
+                <li class="j-sup">
+                    <a href="{:U('/technology')}" <eq name="Think.CONTROLLER_NAME" value="Technology">class="on"</eq>>Technology</a>
+                    <ul class="menu_dropdown j-sub hidden">
+                        <volist name="nav_list.Technology" id='v'>
+                        <li><a href="<empty name='v.rewriteuri'>{:U('Technology/detail',array('id'=>$v['id']))}<else/>{:U('Technology/'.$v['rewriteuri'])}</empty>">{$v.title}</a></li>
+                        </volist>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

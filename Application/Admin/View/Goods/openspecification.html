@@ -1,0 +1,90 @@
+<extend name="Public/tpl-dialog" />
+<block name="content">
+    <form action="{:U('savespecification')}" method="post" enctype="multipart/form-data" class="form-data" id="j-fmData">
+        <input type="hidden" name="goods_id" value="{$goods_id}" >
+        <div class="tab-left">
+            <ul class="nav nav-tabs" id="js-spec-list">
+                <volist name="spec_list" id="v">
+                <li <eq name="i" value="1">class="active"</eq>>
+                    <label><input type="checkbox" name="specs[]" value="{$v.id}" <eq name="v._checked" value="1">checked</eq> ></label>
+                    <span>
+                        <a href="javascript:;" class="js-move-up"><i class="glyphicon glyphicon-arrow-up"></i></a>
+                        <a href="javascript:;" class="js-move-down"><i class="glyphicon glyphicon-arrow-down"></i></a>
+                    </span>
+                    <a data-target="#p{$i}" data-toggle="tab">{$v.spec}</a>
+                </li>
+                </volist>
+            </ul>
+            <div class="tab-content" id="js-spec-value-list">
+                <volist name="spec_list" id="v">
+                    <div class="tab-pane <eq name='i' value='1'>active</eq>" id="p{$i}">
+                        <table class="table table-condensed table-hover tb-list">
+                            <thead>
+                            <tr>
+                                <th class="th-20"><input type="checkbox" class="j-check-all" /></th>
+                                <th class="th-150">系统值</th>
+                                <th class="th-150">自定义值</th>
+                                <eq name="v.display" value="0">
+                                <th class="th-100">图像(30*30px)</th>
+                                </eq>
+                                <th>排序</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <volist name="v._list" id="vv" key="j">
+                            <tr>
+                                <th>
+                                    <input type="checkbox" name="spec_value_ids[{$vv.spec_id}][]" value="{$vv.id}" <eq name="vv._checked" value="1">checked</eq> />
+                                    <input type="hidden" name="spec_values[{$vv.spec_id}][{$vv.id}][id]" value="{$vv.id}" >
+                                </th>
+                                <th>{$vv.spec_value}</th>
+                                <th><input type="text" name="spec_values[{$vv.spec_id}][{$vv.id}][pvt_val]" value="{$vv['pvt_val']|default=$vv['spec_value']|htmlspecialchars}" class="form-control-sm t-xs" /></th>
+                                <eq name="v.display" value="0">
+                                <th>
+                                    <img src="{$vv['pvt_img']|default=$vv['spec_image']|htmlspecialchars}" width="30" height="30" class="js-change-image">
+                                    <input type="hidden" name="spec_values[{$vv.spec_id}][{$vv.id}][pvt_img]" value="{$vv['pvt_img']|default='__UPLOAD__/'.$vv['spec_image']|htmlspecialchars}" >
+                                </th>
+                                </eq>
+                                <th>
+                                    <a href="javascript:;" class="js-move-up"><i class="glyphicon glyphicon-arrow-up"></i></a>
+                                    <a href="javascript:;" class="js-move-down"><i class="glyphicon glyphicon-arrow-down"></i></a>
+                                </th>
+                            </tr>
+                            </volist>
+                            </tbody>
+                        </table>
+                    </div>
+                </volist>
+            </div>
+        </div>
+    </form>
+</block>
+<block name="scripts">
+    <script>
+        +function($){
+            $.spec = {
+                init : function(){
+                    $('.js-change-image').bind('click',function(){
+                        $.spec.el = $(this);
+                        window.open("{:U('Editor/elfinderforspecimage')}", 'elfinder','height=450,z-look=1');
+                    });
+                    $('#j-fmData').bind('submit',function(){
+                        var m = $("#js-spec-list :checked").length;
+                        if(m < 1 || m > 2){
+                            alert('请至少在左栏列表中选择1个规格，至多可以选择2个！');return false;
+                        }
+                        var n = $("#js-spec-value-list :checked").length;
+                        if(n < 1){
+                            alert('请在右栏列表中选择规格值！');return false;
+                        }
+                        return confirm("系统将更新产品规格信息，将有可能丢失现有的货品信息！您确定继续吗？");
+                    });
+                },
+                setFile: function(file){
+                    $.spec.el.attr('src', file).siblings(":hidden").val(file);
+                }
+            };
+            $.spec.init();
+        }(jQuery);
+    </script>
+</block>

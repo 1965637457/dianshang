@@ -1,0 +1,32 @@
+<extend name="Public/basic" />
+<block name="left_nav">
+    <include file="sider_nav" />
+</block>
+<block name="bread_nav"><a href="{:U('/')}" class="icon">Home</a> <span>/</span> <a href="{:U('/Product')}">Product</a></block>
+<block name="right_side_content">
+    <div class="editor_public clear">
+        <div style="width:410px; float:left">
+            <h3>As a major rare earth products producer, we have a full line of products.</h3>
+            <p>
+You can always navigate through the products using the menu at our <a href="http://kehongre.com/" style="font-weight:bold; color:#d07a00;">home page</a>.<br />
+If you don't find what you need, please send us your requests, we do provide customized products.</p>
+        </div>
+        <img src="__IMAGES__/products_1.jpg">
+    </div>
+    <div class="intro_list">
+        <volist name="nav_list.Product" id='v'>
+        <div class="products_box clear">
+            <div class="image"><img src="__UPLOAD__/{$v.image}"></div>
+            <div class="content">
+                <h3><a href="<empty name='v.rewriteuri'>{:U('category',array('id'=>$v['id']))}<else/>{:U('Product/category/'.$v['rewriteuri'])}</empty>">{$v.cate_name}</a></h3>
+                <a href="<empty name='v.rewriteuri'>{:U('category',array('id'=>$v['id']))}<else/>{:U('Product/category/'.$v['rewriteuri'])}</empty>"><img src="__IMAGES__/arrow_4.gif"></a>
+            </div>
+            <div class="text">
+                <p>{$v.short_desc|nl2br}</p>
+            </div>
+        </div>
+        </volist>
+    	<div><img src="__IMAGES__/zhouqibiao.jpg" width="830"></div>
+    </div>
+    <include file="bottom_info" />
+</block>

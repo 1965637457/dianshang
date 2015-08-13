@@ -1,0 +1,48 @@
+<extend name="Public/tpl-dialog" />
+<block name="content">
+    <form action="" method="post" enctype="multipart/form-data" class="form-data" id="j-fmData">
+        <input type="hidden" name="code" value="{$order.order_code}" >
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>订单总额</th>
+                    <td>￥{$order.total_amount|number_format=2}</td>
+                </tr>
+                <tr>
+                    <th>支付时间</th>
+                    <td><input type="text" name="pay_time" value="{:date('Y-m-d H:i')}" class="form-control-sm"></td>
+                </tr>
+                <tr>
+                    <th>支付方式</th>
+                    <td>
+                        <select name="pay_method" class="form-control-sm">
+                            <option value='1'>在线支付</option>
+                            <option value='2'>银行转账</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>实付金额</th>
+                    <td><input type="text" name="pay_amount" value="{$order.total_amount}" class="form-control-sm" ></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</block>
+<block name="scripts">
+    <script>
+        $(function(){
+            $('#j-fmData').bind('submit',function(){
+                $.post(this.action,$(this).serialize(),function(data){
+                    if(data.status===1){
+                        var diag = Dialog.getInstance("popDialog");
+                        diag.openerWindow.reload();
+                    }else{
+                        alert(data.info);
+                    }
+                },'json');
+                return false;
+            });
+        });
+    </script>
+</block>

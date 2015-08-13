@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /Application/
+Disallow: /Data/
+Disallow: /Pubic/
+Disallow: /Runtime/
+Disallow: /ThinkPHP/
+Disallow: /Uploads/
+

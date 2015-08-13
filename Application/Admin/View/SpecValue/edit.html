@@ -1,0 +1,21 @@
+<extend name="Public/tpl-edit-dialog" />
+<block name="content">
+    <table class="table table-condensed tb-data">
+        <tr>
+            <th>规格值</th>
+            <td><input type="text" name="spec_value" value="{$data.spec_value|htmlspecialchars}" class="form-control-sm" /></td>
+        </tr>
+        <tr>
+            <th>{:L('IMAGE')}</th>
+            <td><input type="file" name="upload_spec_image" /><input type="hidden" name="spec_image" value="{$data.spec_image}" /> <i>{:L('SIZE')}：30*30px</i></td>
+        </tr>
+        <notempty name="data.spec_image">
+            <tr>
+                <th></th>
+                <td>
+                    <img src="{$data.spec_image}" style="max-height: 30px;" />
+                </td>
+            </tr>
+        </notempty>
+    </table>
+</block>

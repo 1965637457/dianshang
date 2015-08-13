@@ -1,0 +1,10 @@
+<volist name="attributes" id="attr">
+    <tr>
+        <th>{$attr.attribute}</th>
+        <td>
+            <volist name="attr._list" id="attr_val">
+                <label><input type="{$attr['display']==1?'radio':'checkbox'}" name="attrs[{$attr.id}][]" value="{$attr_val.id}" <in name="attr_val.id" value="$chosen_attribute_ids">checked</in> > {$attr_val.attribute_value}</label>&nbsp;
+            </volist>
+        </td>
+    </tr>
+</volist>

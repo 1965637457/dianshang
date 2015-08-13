@@ -1,0 +1,20 @@
+<extend name="Public/tpl-edit" />
+<block name="content">
+    <table class="table table-condensed tb-data">
+        <tr>
+            <th>{:L('STATUS')}</th>
+            <td>
+                <label><input type="radio" name="status" value="1" checked /> {:L('ACTIVE')}</label>
+                <label><input type="radio" name="status" value="0" <eq name="data.status" value="0">checked</eq> /> {:L('DISABLED')}</label>
+            </td>
+        </tr>
+        <tr>
+            <th>{:L('SORT')}</th>
+            <td><input type="text" name="sort" value="{$data.sort|htmlspecialchars}" class="form-control-sm" /> <i>{:L('SORT_INFO')}</i></td>
+        </tr>
+        <tr>
+            <th>{:L('TITLE')}</th>
+            <td><input type="text" name="express" value="{$data.express|htmlspecialchars}" class="form-control-sm" /></td>
+        </tr>
+    </table>
+</block>

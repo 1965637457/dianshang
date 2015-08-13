@@ -1,0 +1,12 @@
+<ul class="left_nav">
+    <volist name="nav_list[CONTROLLER_NAME]" id='v'>
+        <li>
+            <a href="<empty name='v.rewriteuri'>{:U('detail',array('id'=>$v['id']))}<else/>{:U($v['rewriteuri'])}</empty>" <eq name='article.id' value='$v.id'>class="on"</eq>>{$v.title}</a>
+            <ul>
+                <volist name="v._child" id="vv">
+                <li><a href="<empty name='vv.rewriteuri'>{:U('detail',array('id'=>$vv['id']))}<else/>{:U($vv['rewriteuri'])}</empty>" <eq name='article.id' value='$vv.id'>class="on"</eq>>{$vv.title}</a></li>
+                </volist>
+            </ul>
+        </li>
+    </volist>
+</ul>

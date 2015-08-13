@@ -1,0 +1,161 @@
+<extend name="Public/tpl-edit" />
+<block name="content">
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-target="#pane1" data-toggle="tab">基本信息</a></li>
+        <li><a data-target="#pane2" data-toggle="tab">广告信息</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="pane1">
+            <table class="table table-condensed tb-data">
+                <tr>
+                    <th>{:L('SORT')}</th>
+                    <td><input type="text" name="sort" value="{$data.sort|htmlspecialchars}" class="form-control-sm" /> <i>{:L('SORT_INFO')}</i></td>
+                </tr>
+                <tr>
+                    <th>{:L('NAME')}</th>
+                    <td><input type="text" name="name" value="{$data.name|htmlspecialchars}" class="form-control-sm" /></td>
+                </tr>
+                <tr>
+                    <th>{:L('REMARK')}</th>
+                    <td><textarea name="remark" class="form-control-sm">{$data.remark|htmlspecialchars}</textarea></td>
+                </tr>
+            </table>
+        </div>
+        <div class="tab-pane" id="pane2">
+            <table class="table table-condensed table-bordered tb-data-list" id="js-poster-list" data-add-url="{:U('Poster/add',array('spaceid'=>$data['id']))}" data-edit-url="{:U('Poster/edit')}" data-update-url="{:U('Poster/setStatus')}" data-remove-url="{:U('Poster/delete')}">
+                <thead>
+                    <tr>
+                        <th class="th-40">ID</th>
+                        <th>{:L('TITLE')}</th>
+                        <th class="th-300">{:L('URL')}</th>
+                        <th class="th-200">{:L('FILE')}</th>
+                        <th class="th-60">{:L('STATUS')}</th>
+                        <th class="th-150">{:L('ACTIONS')}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <volist name="data._list" id='v'>
+                    <tr data-id="{$v.id}">
+                        <td>{$v.id}</td>
+                        <td>{$v.title|default='== 未定义 =='}</td>
+                        <td>{$v.url}</td>
+                        <td><img src="__UPLOAD__/{$v.file}" style="max-height: 100px;max-width: 200px;"/></td>
+                        <td class="f16"><a href="javascript:;" class="js-update-item" data-field="status" data-status="{$v.status}"><span class="glyphicon {$v['status']==1?'glyphicon-ok-circle green':'glyphicon-remove-circle red'}"></span></a></td>
+                        <td class="f16">
+                            <a href="javascript:;" class="js-move-up"><span class="glyphicon glyphicon-arrow-up"></span></a>
+                            <a href="javascript:;" class="js-move-down"><span class="glyphicon glyphicon-arrow-down"></span></a>
+                            <a href="javascript:;" class="js-edit-item"><span class="glyphicon glyphicon-edit"></span></a>
+                            <a href="javascript:;" class="js-remove-item"><span class="glyphicon glyphicon-remove"></span></a>
+                            <input type="hidden" name="posters[]" value="{$v.id}">
+                        </td>
+                    </tr>
+                </volist>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3"><button type="button" class="btn btn-success btn-xs" id="js-add-item" data-url="{:U('Spec/addspecvalue',array('specid'=>$data['id']))}">添加</button></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</block>
+<block name="scripts">
+    <script>
+        +function($){
+            var $obj = $('#js-poster-list');
+            var url_add = $obj.attr('data-add-url');
+            var url_edit = $obj.attr('data-edit-url');
+            var url_remove = $obj.attr('data-remove-url');
+            var url_update = $obj.attr('data-update-url');
+            $.poster = {
+                init : function(){
+                    $obj.on('click','#js-add-item',function(){
+                        var diag = new Dialog();
+                        diag.ID = 'popDialog';
+                        diag.URL = url_add;
+                        diag.Title = '添加';
+                        diag.Height = 200;
+                        diag.OKEvent = function(){
+                            diag.innerDoc.getElementById('j-fmData').submit();
+                        };
+                        diag.show();
+                    }).on('click','.js-edit-item',function(){
+                        var $o = $(this).parent().parent();
+                        var url = url_edit + '/id/' + $o.attr('data-id');
+                        var diag = new Dialog();
+                        diag.ID = 'popDialog';
+                        diag.URL = url;
+                        diag.Title = '编辑';
+                        diag.Height = 320;
+                        diag.OKEvent = function(){
+                            diag.innerDoc.getElementById('j-fmData').submit();
+                        };
+                        diag.show();
+                    }).on('click','.js-update-item',function(){
+                        var $this = $(this);
+                        var $o = $(this).parent().parent();
+                        $.getJSON(url_update,{ id : $o.attr('data-id'), field : $(this).attr('data-field'), val : $(this).attr('data-status') }, function(data){
+                            if(data.status===0){
+                                refresh();
+                            }else{
+                                var classes = data.val === 1 ? 'glyphicon glyphicon-ok-circle green' : 'glyphicon glyphicon-remove-circle red';
+                                $this.attr('data-status', data.val);
+                                $('span',$this).removeClass().addClass(classes);
+                            }
+                        });
+                    }).on('click','.js-remove-item',function(){
+                        var $o = $(this).parent().parent();
+                        if(confirm('确认删除吗？')){
+                            $.getJSON(url_remove,{ id : $o.attr('data-id') },function(data){
+                                if(data.status===0){
+                                    alert(data.info);
+                                }else{
+                                    $o.remove();
+                                }
+                            });
+                        }
+                    });
+                },
+                createItem : function(data){
+                    var status = data.status===1?'glyphicon-ok-circle green':'glyphicon-remove-circle red';
+                    var html = '<tr data-id="'+data.id+'">\
+                        <td>'+data.id+'</td>\
+                        <td>'+data.title+'</td>\
+                        <td>'+data.url+'</td>\
+                        <td><img src="__UPLOAD__/'+data.file+'" style="max-height: 100px;max-width: 200px;"/></td>\
+                        <td class="f16"><a href="javascript:;" class="js-update"><span class="glyphicon '+status+'"></span></a></td>\
+                        <td class="f16">\
+                            <a href="javascript:;" class="js-move-up"><span class="glyphicon glyphicon-arrow-up"></span></a>\
+                            <a href="javascript:;" class="js-move-down"><span class="glyphicon glyphicon-arrow-down"></span></a>\
+                            <a href="javascript:;" class="js-edit-item"><span class="glyphicon glyphicon-edit"></span></a>\
+                            <a href="javascript:;" class="js-remove-item"><span class="glyphicon glyphicon-remove"></span></a>\
+                            <input type="hidden" name="spec_values[]" value="'+data.id+'">\
+                        </td>\
+                    </tr>';
+                    $('tbody',$obj).append(html);
+                },
+                updateItem : function(data){
+                    var status = data.status===1?'glyphicon-ok-circle green':'glyphicon-remove-circle red';
+                    var html = '<tr data-id="'+data.id+'">\
+                        <td>'+data.id+'</td>\
+                        <td>'+data.title+'</td>\
+                        <td>'+data.url+'</td>\
+                        <td><img src="__UPLOAD__/'+data.file+'" style="max-height: 100px;max-width: 200px;"/></td>\
+                        <td class="f16"><a href="javascript:;" class="js-update"><span class="glyphicon '+status+'"></span></a></td>\
+                        <td class="f16">\
+                            <a href="javascript:;" class="js-move-up"><span class="glyphicon glyphicon-arrow-up"></span></a>\
+                            <a href="javascript:;" class="js-move-down"><span class="glyphicon glyphicon-arrow-down"></span></a>\
+                            <a href="javascript:;" class="js-edit-item"><span class="glyphicon glyphicon-edit"></span></a>\
+                            <a href="javascript:;" class="js-remove-item"><span class="glyphicon glyphicon-remove"></span></a>\
+                            <input type="hidden" name="spec_values[]" value="'+data.id+'">\
+                        </td>\
+                    </tr>';
+                    $o = $("tr[data-id='"+data.id+"']", $obj);
+                    $o.after(html).remove();
+                }
+            };
+            $.poster.init();
+        }(jQuery);
+    </script>
+</block>

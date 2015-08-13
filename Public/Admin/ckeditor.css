@@ -1,0 +1,13 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td,button{margin:0;padding:0}
+h1,h2,h3,h4,h5,h6{font-weight:normal;font-size:100%;}
+address,caption,cite,code,dfn,th,var{font-style:normal;font-weight:normal;}
+fieldset,img{border:none;}
+img{vertical-align:bottom;}
+caption,th{text-align:left;}
+a{text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+body{font:12px/20px "Microsoft YaHei", Arial, "SimSun", "MingLiu", Verdana, Helvetica, sans-serif;color:#3A3A3A;padding:10px;}
+p{margin:0;}
+ul{list-style-type:disc;}
+ol{list-style-type:decimal;}

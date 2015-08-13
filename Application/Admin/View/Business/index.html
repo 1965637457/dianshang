@@ -1,0 +1,54 @@
+<extend name="Public/tpl-list" />
+<!-- <block name="search">
+    <form action="" method="get" class="list-search">
+        <select name="level_id" class="form-control-sm">
+            <option value="-1">==选择会员等级==</option>
+            <volist name="level_list" id='v'>
+                <option value="{$v.id}" <eq name="v.id" value="$opts.level_id">selected</eq>>{$v.member_level}</option>
+            </volist>
+        </select>
+        <input type="text" name="kw" value="{$opts.kw}" class="form-control-sm" />
+        <button type="submit" class="btn btn-primary btn-sm" ><i class="glyphicon glyphicon-search"></i> {:L('SEARCH')}</button>
+    </form>
+</block> -->
+<block name="content">
+    <div class="table-responsive">
+        <table class="table table-condensed table-hover tb-list">
+            <thead>
+                <tr>
+                    <th class="th-20"><input type="checkbox" class="j-check-all" /></th>
+                    <th class="th-40">ID</th>
+                    <th>商家名称</th>
+                    <th class="th-150">联系人</th>
+                    <th class="th-150">tel</th>
+                    <th class="th-150">email</th>
+                    <th class="th-400">地址</th>
+                    <th class="th-150">{:L('ACTIONS')}</th>
+                </tr>
+            </thead>
+            <tbody>
+            <volist name='list' id='v'> 
+                <tr>
+                    <td><input type="checkbox" name="id[]" value="{$v.id}" /></td>
+                    <td>{$v.id}</td>
+                    <td><a href="{:U('edit',array('id'=>$v['id']))}">{$v.business_name}</a></td>
+                    <td>{$v.contact_name}</td>
+                    <td>{$v.mobile}</td>
+                    <td>{$v.email}</td>
+                    <td>{$v.business_address}</td> 
+                    <td>
+                        <a href="{:U('edit',array('id'=>$v['id']))}" class="btn btn-success btn-xs">{:L('EDIT')}</a>
+                        <a href="{:U('delete',array('id'=>$v['id']))}" class="btn btn-danger btn-xs j-del">{:L('DELETE')}</a>
+                  <!--       <div class="btn-group">
+                            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-cog"></i> <span class="caret"></span></button>
+                            <ul class="dropdown-menu pull-right">
+                                <li><a href="{:U('modifypwd',array('id'=>$v['id']))}">修改密码</a></li>
+                            </ul>
+                        </div> -->
+                    </td>
+                </tr>
+            </volist>
+            </tbody>
+        </table>
+    </div>
+</block>

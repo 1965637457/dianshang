@@ -1,0 +1,20 @@
+<extend name="Public/basic" />
+<block name="bread_nav"><a href="{:U('/')}" class="icon">Home</a> <span>/</span> <a href="{:U('/Info')}">Info</a></block>
+<block name="right_side_content">
+    <div class="news_title clear">
+        <h2>{$article.title}</h2>
+        <div class="next_page">
+            {$page_nav}
+        </div>
+    </div>
+    <ul class="download_box clear">
+        <volist name="list" id="v">
+        <li><h3>{$v.title}</h3><a href="__UPLOAD__/{$v.file}" target='_blank'>Download PDF</a></li>
+        </volist>
+    </ul>
+    <div class="news_title clear">
+        <div class="next_page">
+            {$page_nav}
+        </div>
+    </div>
+</block>

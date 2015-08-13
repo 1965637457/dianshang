@@ -1,0 +1,53 @@
+<extend name="Public/tpl-data" />
+<block name="content">
+    <form action="{:U('setPrivilege')}" method="post">
+        <input type="hidden" name="role_id" value="{$role_id}" />
+        <volist name="list" id="vo">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <p class="panel-title">{$vo.title_cn}</p>
+                </div>
+                <div class="panel-body">
+                    <volist name="vo._child" id="group">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <p class="panel-title"><input type="checkbox" class="js-group" <present name="access[$group['id']]">checked</present> /> {$group.title_cn}</p>
+                            </div>
+                            <div class="panel-body">
+                                <volist name="group._child" id="module">
+                                    <div class="check_mod">
+                                        <p class="check_mod_title"><input type="checkbox" class="j-module" <present name="access[$module['id']]">checked</present> /> {$module.title_cn}</p>
+                                        <div class="check_node form-inline">
+                                            <volist name="module._child" id="action">
+                                                <label><input type="checkbox" name="node[]" value="{$vo.id},{$group.id},{$module.id},{$action.id}" <present name="access[$action['id']]">checked</present>/> {$action.title_cn} </label>
+                                            </volist>
+                                        </div>
+                                    </div>
+                                </volist>
+                            </div>
+                        </div>
+                    </volist>
+                </div>
+            </div>
+        </volist>
+        <include file="Public/tb-data-control"/>
+    </form>
+</block>
+<block name="scripts">
+    <script>
+        $(function() {
+            $('.js-group').click(function() {
+                var $dd = $(this).parent().parent().next('.panel-body'), checked = this.checked;
+                $.each($(':checkbox', $dd), function() {
+                    this.checked = checked;
+                });
+            });
+            $('.j-module').click(function() {
+                var $dd = $(this).parent().next('.check_node'), checked = this.checked;
+                $.each($(':checkbox', $dd), function() {
+                    this.checked = checked;
+                });
+            });
+        });
+    </script>
+</block>

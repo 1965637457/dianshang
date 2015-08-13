@@ -1,0 +1,44 @@
+<extend name="Public/basic" />
+<block name="bread_nav"><a href="{:U('/')}" class="icon">Home</a> <span>/</span> <a href="{:U('/Info')}">Info</a></block>
+<block name="right_side_content">
+    <div class="search_title clear">
+        <h2>Search Result: " <strong>{$kw}</strong> "</h2>
+        <span>Found About <strong>{$count}</strong> results</span>
+    </div>
+    <div class="search_box">
+        <div class="tool">
+            <div class="search">
+                <form action="{:U('/Search')}">
+                    <input type="text" class="text" name="kw" placeholder="Search" style="width:300px;">
+                    <button type="submit" class="btn_search"></button>
+                </form>
+            </div>
+        </div>
+        <volist name='list' id='v'>
+        <div class="content">
+            <switch name='v.controller'>
+            <case value="About|Service|Resource|Quality|Technology|News|Product"><a href="<empty name='v.rewriteuri'>{:U($v['controller'].'/detail',array('id'=>$v['id']))}<else/>{:U($v['controller'].'/'.$v['rewriteuri'])}</empty>">{$v.title}</a></case>
+            <case value="Info">
+                <empty name='v.rewriteuri'>
+                    <a href="{:U($v['controller'].'/detail',array('id'=>$v['id']))}">{$v.title}</a>
+                <else/>
+                    <if condition="strpos($v['rewriteuri'],'/') eq 0">
+                        <a href="{:U($v['rewriteuri'])}">{$v.title}</a>
+                    <else/>
+                        <a href="{:U($v['controller'].'/'.$v['rewriteuri'])}">{$v.title}</a>
+                    </if>
+                </empty>
+            </case>
+            <default /><a href="">{$v.title}</a>
+            </switch>
+            
+            <p>{$v.content|strip_html_tags|msubstr=0,100}</p>
+        </div>
+        </volist>
+    </div>
+    <div class="news_title clear">
+        <div class="next_page">
+            {$page_nav}
+        </div>
+    </div>
+</block>

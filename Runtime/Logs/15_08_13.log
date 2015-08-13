@@ -1,0 +1,398 @@
+[ 2015-08-13T13:48:20+08:00 ] ::1 /ham/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000699s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001366s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001683s ]
+SQL: SHOW COLUMNS FROM `smi_config` [ RunTime:0.030468s ]
+SQL: SELECT `code`,`config_value` FROM `smi_config`  [ RunTime:0.002482s ]
+SQL: SHOW COLUMNS FROM `smi_about` [ RunTime:0.008141s ]
+ERR: 1146:Table 'hamanaka3.smi_about' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_about`
+SQL: SELECT * FROM `smi_about` WHERE ( `status` = 1 ) ORDER BY sort desc,id  [ RunTime:0.000705s ]
+ERR: 1146:Table 'hamanaka3.smi_about' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `smi_about` WHERE ( `status` = 1 ) ORDER BY sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_news_category` [ RunTime:0.005936s ]
+ERR: 1146:Table 'hamanaka3.smi_news_category' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_news_category`
+SQL: SELECT * FROM `smi_news_category` WHERE ( `status` = 1 ) ORDER BY sort desc,id  [ RunTime:0.000455s ]
+ERR: 1146:Table 'hamanaka3.smi_news_category' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `smi_news_category` WHERE ( `status` = 1 ) ORDER BY sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_product_category` [ RunTime:0.009615s ]
+ERR: 1146:Table 'hamanaka3.smi_product_category' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_product_category`
+SQL: SELECT `id`,`cate_name`,`rewriteuri`,`image`,`short_desc` FROM `smi_product_category` WHERE ( `status` = 1 ) ORDER BY sort desc,id  [ RunTime:0.000490s ]
+ERR: 1146:Table 'hamanaka3.smi_product_category' doesn't exist
+ [ SQL语句 ] : SELECT `id`,`cate_name`,`rewriteuri`,`image`,`short_desc` FROM `smi_product_category` WHERE ( `status` = 1 ) ORDER BY sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_service` [ RunTime:0.005889s ]
+ERR: 1146:Table 'hamanaka3.smi_service' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_service`
+SQL: SELECT * FROM `smi_service` WHERE ( `status` = 1 ) ORDER BY sort desc,id  [ RunTime:0.000377s ]
+ERR: 1146:Table 'hamanaka3.smi_service' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `smi_service` WHERE ( `status` = 1 ) ORDER BY sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_resource` [ RunTime:0.005867s ]
+ERR: 1146:Table 'hamanaka3.smi_resource' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_resource`
+SQL: SELECT * FROM `smi_resource` WHERE ( `status` = 1 ) ORDER BY route,sort desc,id  [ RunTime:0.000364s ]
+ERR: 1146:Table 'hamanaka3.smi_resource' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `smi_resource` WHERE ( `status` = 1 ) ORDER BY route,sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_quality` [ RunTime:0.004325s ]
+ERR: 1146:Table 'hamanaka3.smi_quality' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_quality`
+SQL: SELECT * FROM `smi_quality` WHERE ( `status` = 1 ) ORDER BY sort desc,id  [ RunTime:0.000342s ]
+ERR: 1146:Table 'hamanaka3.smi_quality' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `smi_quality` WHERE ( `status` = 1 ) ORDER BY sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_technology` [ RunTime:0.004687s ]
+ERR: 1146:Table 'hamanaka3.smi_technology' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_technology`
+SQL: SELECT * FROM `smi_technology` WHERE ( `status` = 1 ) ORDER BY sort desc,id  [ RunTime:0.000439s ]
+ERR: 1146:Table 'hamanaka3.smi_technology' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `smi_technology` WHERE ( `status` = 1 ) ORDER BY sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_info` [ RunTime:0.009921s ]
+ERR: 1146:Table 'hamanaka3.smi_info' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_info`
+SQL: SELECT * FROM `smi_info` WHERE ( `status` = 1 ) ORDER BY sort desc,id  [ RunTime:0.000421s ]
+ERR: 1146:Table 'hamanaka3.smi_info' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `smi_info` WHERE ( `status` = 1 ) ORDER BY sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_product` [ RunTime:0.007567s ]
+SQL: SELECT * FROM `smi_product` WHERE ( status=1 AND is_bottom=1 ) ORDER BY sort desc,id  [ RunTime:0.000239s ]
+ERR: 1054:Unknown column 'status' in 'where clause'
+ [ SQL语句 ] : SELECT * FROM `smi_product` WHERE ( status=1 AND is_bottom=1 ) ORDER BY sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_news` [ RunTime:0.004464s ]
+ERR: 1146:Table 'hamanaka3.smi_news' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_news`
+SQL: SELECT * FROM `smi_news` WHERE ( `status` = 1 ) ORDER BY publish_time desc,id LIMIT 3   [ RunTime:0.000382s ]
+ERR: 1146:Table 'hamanaka3.smi_news' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `smi_news` WHERE ( `status` = 1 ) ORDER BY publish_time desc,id LIMIT 3  
+SQL: SHOW COLUMNS FROM `smi_advert_position` [ RunTime:0.004461s ]
+ERR: 1146:Table 'hamanaka3.smi_advert_position' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_advert_position`
+SQL: SELECT * FROM `smi_advert_position` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000345s ]
+ERR: 1146:Table 'hamanaka3.smi_advert_position' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `smi_advert_position` WHERE ( `id` = 1 ) LIMIT 1  
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000166s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000284s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.027085s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.027147s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000703s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000747s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000936s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2015-08-13T13:48:21+08:00 ] ::1 /ham/Public/Home/style.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000782s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001398s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001509s ]
+SQL: SHOW COLUMNS FROM `smi_about` [ RunTime:0.020390s ]
+ERR: 1146:Table 'hamanaka3.smi_about' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_about`
+SQL: SELECT * FROM `smi_about` WHERE ( `status` = 1 ) ORDER BY sort desc,id  [ RunTime:0.000965s ]
+ERR: 1146:Table 'hamanaka3.smi_about' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `smi_about` WHERE ( `status` = 1 ) ORDER BY sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_news_category` [ RunTime:0.016971s ]
+ERR: 1146:Table 'hamanaka3.smi_news_category' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_news_category`
+SQL: SELECT * FROM `smi_news_category` WHERE ( `status` = 1 ) ORDER BY sort desc,id  [ RunTime:0.000730s ]
+ERR: 1146:Table 'hamanaka3.smi_news_category' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `smi_news_category` WHERE ( `status` = 1 ) ORDER BY sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_product_category` [ RunTime:0.008795s ]
+ERR: 1146:Table 'hamanaka3.smi_product_category' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_product_category`
+SQL: SELECT `id`,`cate_name`,`rewriteuri`,`image`,`short_desc` FROM `smi_product_category` WHERE ( `status` = 1 ) ORDER BY sort desc,id  [ RunTime:0.000621s ]
+ERR: 1146:Table 'hamanaka3.smi_product_category' doesn't exist
+ [ SQL语句 ] : SELECT `id`,`cate_name`,`rewriteuri`,`image`,`short_desc` FROM `smi_product_category` WHERE ( `status` = 1 ) ORDER BY sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_service` [ RunTime:0.006864s ]
+ERR: 1146:Table 'hamanaka3.smi_service' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_service`
+SQL: SELECT * FROM `smi_service` WHERE ( `status` = 1 ) ORDER BY sort desc,id  [ RunTime:0.000582s ]
+ERR: 1146:Table 'hamanaka3.smi_service' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `smi_service` WHERE ( `status` = 1 ) ORDER BY sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_resource` [ RunTime:0.008851s ]
+ERR: 1146:Table 'hamanaka3.smi_resource' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_resource`
+SQL: SELECT * FROM `smi_resource` WHERE ( `status` = 1 ) ORDER BY route,sort desc,id  [ RunTime:0.000855s ]
+ERR: 1146:Table 'hamanaka3.smi_resource' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `smi_resource` WHERE ( `status` = 1 ) ORDER BY route,sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_quality` [ RunTime:0.010726s ]
+ERR: 1146:Table 'hamanaka3.smi_quality' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_quality`
+SQL: SELECT * FROM `smi_quality` WHERE ( `status` = 1 ) ORDER BY sort desc,id  [ RunTime:0.000433s ]
+ERR: 1146:Table 'hamanaka3.smi_quality' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `smi_quality` WHERE ( `status` = 1 ) ORDER BY sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_technology` [ RunTime:0.004733s ]
+ERR: 1146:Table 'hamanaka3.smi_technology' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_technology`
+SQL: SELECT * FROM `smi_technology` WHERE ( `status` = 1 ) ORDER BY sort desc,id  [ RunTime:0.000398s ]
+ERR: 1146:Table 'hamanaka3.smi_technology' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `smi_technology` WHERE ( `status` = 1 ) ORDER BY sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_info` [ RunTime:0.005180s ]
+ERR: 1146:Table 'hamanaka3.smi_info' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_info`
+SQL: SELECT * FROM `smi_info` WHERE ( `status` = 1 ) ORDER BY sort desc,id  [ RunTime:0.000400s ]
+ERR: 1146:Table 'hamanaka3.smi_info' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `smi_info` WHERE ( `status` = 1 ) ORDER BY sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_product` [ RunTime:0.009112s ]
+SQL: SELECT * FROM `smi_product` WHERE ( status=1 AND is_bottom=1 ) ORDER BY sort desc,id  [ RunTime:0.000495s ]
+ERR: 1054:Unknown column 'status' in 'where clause'
+ [ SQL语句 ] : SELECT * FROM `smi_product` WHERE ( status=1 AND is_bottom=1 ) ORDER BY sort desc,id 
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000177s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000275s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.021297s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021388s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000939s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001006s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001272s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001366s ]
+
+[ 2015-08-13T13:48:23+08:00 ] ::1 /ham/Public/Home/js/jquery-1.11.1.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000797s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001212s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001343s ]
+SQL: SHOW COLUMNS FROM `smi_about` [ RunTime:0.020227s ]
+ERR: 1146:Table 'hamanaka3.smi_about' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_about`
+SQL: SELECT * FROM `smi_about` WHERE ( `status` = 1 ) ORDER BY sort desc,id  [ RunTime:0.001052s ]
+ERR: 1146:Table 'hamanaka3.smi_about' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `smi_about` WHERE ( `status` = 1 ) ORDER BY sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_news_category` [ RunTime:0.011676s ]
+ERR: 1146:Table 'hamanaka3.smi_news_category' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_news_category`
+SQL: SELECT * FROM `smi_news_category` WHERE ( `status` = 1 ) ORDER BY sort desc,id  [ RunTime:0.000864s ]
+ERR: 1146:Table 'hamanaka3.smi_news_category' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `smi_news_category` WHERE ( `status` = 1 ) ORDER BY sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_product_category` [ RunTime:0.011840s ]
+ERR: 1146:Table 'hamanaka3.smi_product_category' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_product_category`
+SQL: SELECT `id`,`cate_name`,`rewriteuri`,`image`,`short_desc` FROM `smi_product_category` WHERE ( `status` = 1 ) ORDER BY sort desc,id  [ RunTime:0.000775s ]
+ERR: 1146:Table 'hamanaka3.smi_product_category' doesn't exist
+ [ SQL语句 ] : SELECT `id`,`cate_name`,`rewriteuri`,`image`,`short_desc` FROM `smi_product_category` WHERE ( `status` = 1 ) ORDER BY sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_service` [ RunTime:0.012790s ]
+ERR: 1146:Table 'hamanaka3.smi_service' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_service`
+SQL: SELECT * FROM `smi_service` WHERE ( `status` = 1 ) ORDER BY sort desc,id  [ RunTime:0.000780s ]
+ERR: 1146:Table 'hamanaka3.smi_service' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `smi_service` WHERE ( `status` = 1 ) ORDER BY sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_resource` [ RunTime:0.011776s ]
+ERR: 1146:Table 'hamanaka3.smi_resource' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_resource`
+SQL: SELECT * FROM `smi_resource` WHERE ( `status` = 1 ) ORDER BY route,sort desc,id  [ RunTime:0.000811s ]
+ERR: 1146:Table 'hamanaka3.smi_resource' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `smi_resource` WHERE ( `status` = 1 ) ORDER BY route,sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_quality` [ RunTime:0.007778s ]
+ERR: 1146:Table 'hamanaka3.smi_quality' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_quality`
+SQL: SELECT * FROM `smi_quality` WHERE ( `status` = 1 ) ORDER BY sort desc,id  [ RunTime:0.000600s ]
+ERR: 1146:Table 'hamanaka3.smi_quality' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `smi_quality` WHERE ( `status` = 1 ) ORDER BY sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_technology` [ RunTime:0.009415s ]
+ERR: 1146:Table 'hamanaka3.smi_technology' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_technology`
+SQL: SELECT * FROM `smi_technology` WHERE ( `status` = 1 ) ORDER BY sort desc,id  [ RunTime:0.000466s ]
+ERR: 1146:Table 'hamanaka3.smi_technology' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `smi_technology` WHERE ( `status` = 1 ) ORDER BY sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_info` [ RunTime:0.007076s ]
+ERR: 1146:Table 'hamanaka3.smi_info' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_info`
+SQL: SELECT * FROM `smi_info` WHERE ( `status` = 1 ) ORDER BY sort desc,id  [ RunTime:0.001990s ]
+ERR: 1146:Table 'hamanaka3.smi_info' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `smi_info` WHERE ( `status` = 1 ) ORDER BY sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_product` [ RunTime:0.006623s ]
+SQL: SELECT * FROM `smi_product` WHERE ( status=1 AND is_bottom=1 ) ORDER BY sort desc,id  [ RunTime:0.000246s ]
+ERR: 1054:Unknown column 'status' in 'where clause'
+ [ SQL语句 ] : SELECT * FROM `smi_product` WHERE ( status=1 AND is_bottom=1 ) ORDER BY sort desc,id 
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000170s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000256s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024017s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024281s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001233s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001332s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000751s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000797s ]
+
+[ 2015-08-13T13:48:24+08:00 ] ::1 /ham/Public/Home/js/common.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000754s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.008265s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.008463s ]
+SQL: SHOW COLUMNS FROM `smi_about` [ RunTime:0.023891s ]
+ERR: 1146:Table 'hamanaka3.smi_about' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_about`
+SQL: SELECT * FROM `smi_about` WHERE ( `status` = 1 ) ORDER BY sort desc,id  [ RunTime:0.001307s ]
+ERR: 1146:Table 'hamanaka3.smi_about' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `smi_about` WHERE ( `status` = 1 ) ORDER BY sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_news_category` [ RunTime:0.015532s ]
+ERR: 1146:Table 'hamanaka3.smi_news_category' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_news_category`
+SQL: SELECT * FROM `smi_news_category` WHERE ( `status` = 1 ) ORDER BY sort desc,id  [ RunTime:0.000778s ]
+ERR: 1146:Table 'hamanaka3.smi_news_category' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `smi_news_category` WHERE ( `status` = 1 ) ORDER BY sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_product_category` [ RunTime:0.013926s ]
+ERR: 1146:Table 'hamanaka3.smi_product_category' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_product_category`
+SQL: SELECT `id`,`cate_name`,`rewriteuri`,`image`,`short_desc` FROM `smi_product_category` WHERE ( `status` = 1 ) ORDER BY sort desc,id  [ RunTime:0.000927s ]
+ERR: 1146:Table 'hamanaka3.smi_product_category' doesn't exist
+ [ SQL语句 ] : SELECT `id`,`cate_name`,`rewriteuri`,`image`,`short_desc` FROM `smi_product_category` WHERE ( `status` = 1 ) ORDER BY sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_service` [ RunTime:0.009323s ]
+ERR: 1146:Table 'hamanaka3.smi_service' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_service`
+SQL: SELECT * FROM `smi_service` WHERE ( `status` = 1 ) ORDER BY sort desc,id  [ RunTime:0.000446s ]
+ERR: 1146:Table 'hamanaka3.smi_service' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `smi_service` WHERE ( `status` = 1 ) ORDER BY sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_resource` [ RunTime:0.004956s ]
+ERR: 1146:Table 'hamanaka3.smi_resource' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_resource`
+SQL: SELECT * FROM `smi_resource` WHERE ( `status` = 1 ) ORDER BY route,sort desc,id  [ RunTime:0.000399s ]
+ERR: 1146:Table 'hamanaka3.smi_resource' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `smi_resource` WHERE ( `status` = 1 ) ORDER BY route,sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_quality` [ RunTime:0.006352s ]
+ERR: 1146:Table 'hamanaka3.smi_quality' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_quality`
+SQL: SELECT * FROM `smi_quality` WHERE ( `status` = 1 ) ORDER BY sort desc,id  [ RunTime:0.000469s ]
+ERR: 1146:Table 'hamanaka3.smi_quality' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `smi_quality` WHERE ( `status` = 1 ) ORDER BY sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_technology` [ RunTime:0.005414s ]
+ERR: 1146:Table 'hamanaka3.smi_technology' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_technology`
+SQL: SELECT * FROM `smi_technology` WHERE ( `status` = 1 ) ORDER BY sort desc,id  [ RunTime:0.000445s ]
+ERR: 1146:Table 'hamanaka3.smi_technology' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `smi_technology` WHERE ( `status` = 1 ) ORDER BY sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_info` [ RunTime:0.005538s ]
+ERR: 1146:Table 'hamanaka3.smi_info' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_info`
+SQL: SELECT * FROM `smi_info` WHERE ( `status` = 1 ) ORDER BY sort desc,id  [ RunTime:0.000482s ]
+ERR: 1146:Table 'hamanaka3.smi_info' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `smi_info` WHERE ( `status` = 1 ) ORDER BY sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_product` [ RunTime:0.009301s ]
+SQL: SELECT * FROM `smi_product` WHERE ( status=1 AND is_bottom=1 ) ORDER BY sort desc,id  [ RunTime:0.000231s ]
+ERR: 1054:Unknown column 'status' in 'where clause'
+ [ SQL语句 ] : SELECT * FROM `smi_product` WHERE ( status=1 AND is_bottom=1 ) ORDER BY sort desc,id 
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000171s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000276s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020879s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020962s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000772s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000840s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000971s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001044s ]
+
+[ 2015-08-13T13:48:25+08:00 ] ::1 /ham/Public/Home/font.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000039s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000988s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001361s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001450s ]
+SQL: SHOW COLUMNS FROM `smi_about` [ RunTime:0.022573s ]
+ERR: 1146:Table 'hamanaka3.smi_about' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_about`
+SQL: SELECT * FROM `smi_about` WHERE ( `status` = 1 ) ORDER BY sort desc,id  [ RunTime:0.002605s ]
+ERR: 1146:Table 'hamanaka3.smi_about' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `smi_about` WHERE ( `status` = 1 ) ORDER BY sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_news_category` [ RunTime:0.024615s ]
+ERR: 1146:Table 'hamanaka3.smi_news_category' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_news_category`
+SQL: SELECT * FROM `smi_news_category` WHERE ( `status` = 1 ) ORDER BY sort desc,id  [ RunTime:0.000692s ]
+ERR: 1146:Table 'hamanaka3.smi_news_category' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `smi_news_category` WHERE ( `status` = 1 ) ORDER BY sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_product_category` [ RunTime:0.009260s ]
+ERR: 1146:Table 'hamanaka3.smi_product_category' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_product_category`
+SQL: SELECT `id`,`cate_name`,`rewriteuri`,`image`,`short_desc` FROM `smi_product_category` WHERE ( `status` = 1 ) ORDER BY sort desc,id  [ RunTime:0.000604s ]
+ERR: 1146:Table 'hamanaka3.smi_product_category' doesn't exist
+ [ SQL语句 ] : SELECT `id`,`cate_name`,`rewriteuri`,`image`,`short_desc` FROM `smi_product_category` WHERE ( `status` = 1 ) ORDER BY sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_service` [ RunTime:0.008587s ]
+ERR: 1146:Table 'hamanaka3.smi_service' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_service`
+SQL: SELECT * FROM `smi_service` WHERE ( `status` = 1 ) ORDER BY sort desc,id  [ RunTime:0.000734s ]
+ERR: 1146:Table 'hamanaka3.smi_service' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `smi_service` WHERE ( `status` = 1 ) ORDER BY sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_resource` [ RunTime:0.010303s ]
+ERR: 1146:Table 'hamanaka3.smi_resource' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_resource`
+SQL: SELECT * FROM `smi_resource` WHERE ( `status` = 1 ) ORDER BY route,sort desc,id  [ RunTime:0.000540s ]
+ERR: 1146:Table 'hamanaka3.smi_resource' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `smi_resource` WHERE ( `status` = 1 ) ORDER BY route,sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_quality` [ RunTime:0.004863s ]
+ERR: 1146:Table 'hamanaka3.smi_quality' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_quality`
+SQL: SELECT * FROM `smi_quality` WHERE ( `status` = 1 ) ORDER BY sort desc,id  [ RunTime:0.000415s ]
+ERR: 1146:Table 'hamanaka3.smi_quality' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `smi_quality` WHERE ( `status` = 1 ) ORDER BY sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_technology` [ RunTime:0.006039s ]
+ERR: 1146:Table 'hamanaka3.smi_technology' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_technology`
+SQL: SELECT * FROM `smi_technology` WHERE ( `status` = 1 ) ORDER BY sort desc,id  [ RunTime:0.000376s ]
+ERR: 1146:Table 'hamanaka3.smi_technology' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `smi_technology` WHERE ( `status` = 1 ) ORDER BY sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_info` [ RunTime:0.005297s ]
+ERR: 1146:Table 'hamanaka3.smi_info' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `smi_info`
+SQL: SELECT * FROM `smi_info` WHERE ( `status` = 1 ) ORDER BY sort desc,id  [ RunTime:0.000429s ]
+ERR: 1146:Table 'hamanaka3.smi_info' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `smi_info` WHERE ( `status` = 1 ) ORDER BY sort desc,id 
+SQL: SHOW COLUMNS FROM `smi_product` [ RunTime:0.010476s ]
+SQL: SELECT * FROM `smi_product` WHERE ( status=1 AND is_bottom=1 ) ORDER BY sort desc,id  [ RunTime:0.000243s ]
+ERR: 1054:Unknown column 'status' in 'where clause'
+ [ SQL语句 ] : SELECT * FROM `smi_product` WHERE ( status=1 AND is_bottom=1 ) ORDER BY sort desc,id 
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000110s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000166s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019922s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020014s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000819s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000904s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001071s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001160s ]
+
+[ 2015-08-13T13:48:29+08:00 ] ::1 /ham/admin.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000484s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000581s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001331s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001995s ]
+SQL: SHOW COLUMNS FROM `smi_node` [ RunTime:0.032567s ]
+SQL: SELECT * FROM `smi_node` WHERE ( status = 1 ) ORDER BY route,sort desc,id  [ RunTime:0.008391s ]
+SQL: SELECT `title_cn` FROM `smi_node` WHERE ( `name` = 'Index' ) LIMIT 1   [ RunTime:0.000683s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000281s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000416s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.031045s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031201s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000451s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000502s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000848s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000921s ]
+

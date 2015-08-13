@@ -1,0 +1,28 @@
+<extend name="Public/basic" />
+<block name="left_nav">
+    <include file="sider_nav" />
+</block>
+<block name="bread_nav"><a href="{:U('/')}" class="icon">Home</a> <span>/</span> <a href="{:U('/News')}">News</a> <span>/</span> <a href="<empty name='article.rewriteuri'>{:U('category',array('id'=>$article['id']))}<else/>{:U($article['rewriteuri'])}</empty>">{$article.cate_name}</a></block>
+<block name="right_side_content">
+    <div class="news_title clear">
+        <h2>{$article.cate_name}</h2>
+        <div class="next_page">
+            <gt name="prev_id" value="0"><a href="{:U('News/detail',array('id'=>$prev_id))}">Previous News</a></gt>
+            <gt name="next_id" value="0"><a href="{:U('News/detail',array('id'=>$next_id))}">Next News</a></gt>
+        </div>
+    </div>
+    <div class="inner_news_detail clear">
+        <h3>{$data.title}</h3>
+        <div class="article_content clear">
+            <span>{$data.publish_time|date='d M Y',###}</span>
+            {$data.content}
+        </div>
+    </div>
+    <div class="news_title clear">
+        <a href="#none">Back</a>
+        <div class="next_page">
+            <gt name="prev_id" value="0"><a href="{:U('News/detail',array('id'=>$prev_id))}">Previous</a></gt>
+            <gt name="next_id" value="0"><a href="{:U('News/detail',array('id'=>$next_id))}">Next</a></gt>
+        </div>
+    </div>
+</block>

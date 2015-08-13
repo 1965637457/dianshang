@@ -1,0 +1,62 @@
+<extend name="Public/tpl-edit" />
+<block name="content">
+    <table class="table table-condensed tb-data">
+        <tr>
+            <th>{:L('STATUS')}</th>
+            <td>
+                <label><input type="radio" name="status" value="1" checked="checked" /> {:L('ACTIVE')}</label>
+                <label><input type="radio" name="status" value="0" <eq name="data.status" value="0">checked</eq> /> {:L('DISABLED')}</label>
+            </td>
+        </tr>
+        <tr>
+            <th>{:L('SORT')}</th>
+            <td><input type="text" name="sort" value="{$data.sort|htmlspecialchars}" class="form-control-sm" /> <i>{:L('SORT_INFO')}</i></td>
+        </tr>
+        <tr>
+            <th>{:L('TITLE')}</th>
+            <td><input type="text" name="title" value="{$data.title|htmlspecialchars}" class="form-control-sm" /></td>
+        </tr>
+        <tr>
+            <th>{:L('BRIEF')}</th>
+            <td><textarea name="brief" class="form-control-sm t-600-50">{$data.brief|htmlspecialchars}</textarea></td>
+        </tr>
+        <tr>
+            <th>{:L('PUBLISH_TIME')}</th>
+            <td>
+                <input type="text" name="publish_time" value="{:date('Y-m-d H:i',$data['publish_time'])}" class="form-control-sm js-form-datetime" data-date-format="yyyy-mm-dd hh:ii" />
+            </td>
+        </tr>
+        <tr>
+            <th>{:L('CONTENT')}</th>
+            <td><textarea name="content">{$data.content|htmlspecialchars}</textarea></td>
+        </tr>
+        <tr>
+            <th>{:L('SEO_LINK')}</th>
+            <td><input type="text" name="seo_name" value="{$data.seo_name|htmlspecialchars}" class="form-control-sm" /> <i>{:L('SEO_LINK_INFO')}</i></td>
+        </tr>
+        <tr>
+            <th>{:L('IMAGE')}</th>
+            <td>
+                <input type="file" name="upload_image" /><input type="hidden" name="image" value="{$data.image}" /> <i>{:L('SIZE')}：--*--px</i>
+            </td>
+        </tr>
+        <notempty name="data.image">
+            <tr>
+                <th></th>
+                <td>
+                    <img src="__UPLOAD__/{$data.image}" style="max-height: 200px;" />
+                </td>
+            </tr>
+        </notempty>
+    </table>
+</block>
+<block name="scripts">
+    <script>
+        CKEDITOR.replace('content');
+        $(".js-form-datetime").datetimepicker({
+            todayBtn: true,
+            todayHighlight: true,
+            autoclose: true
+        });
+    </script>
+</block>

@@ -1,0 +1,65 @@
+<extend name="Public/tpl-add" />
+<block name="content">
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-target="#pane1" data-toggle="tab">基本信息</a></li>
+        <li class="disabled"><a data-target="#pane2" data-toggle="tab">其他信息</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="pane1">
+            <table class="table table-condensed tb-data">
+                <tr>
+                    <th>{:L('STATUS')}</th>
+                    <td>
+                        <label><input type="radio" name="main[status]" value="1" checked /> {:L('ACTIVE')}</label>
+                        <label><input type="radio" name="main[status]" value="0" /> {:L('DISABLED')}</label>
+                    </td>
+                </tr>
+        <!--         <tr>
+                    <th>{:L('LEVEL')}</th>
+                    <td>
+                        <select name="main[level_id]" class="form-control-sm">
+                            <option value="0">请选择...</option>
+                            <volist name="level_list" id="v">
+                                <option value="{$v.id}">{$v.member_level}</option>
+                            </volist>
+                        </select>
+                    </td>
+                </tr> -->
+                <tr>
+                    <th>商家名称</th>
+                    <td><input type="text" name="business[business_name]" placeholder="商家名称" class="form-control-sm" /> <i></i></td>
+                </tr>
+                <tr>
+                    <th>联系人</th>
+                    <td><input type="text" name="business[contact_name]" class="form-control-sm" /> <i></i></td>
+                </tr>
+                <tr>
+                    <th>tel</th>
+                    <td><input type="text" name="business[mobile]" class="form-control-sm" /></td>
+                </tr>
+                <tr>
+                    <th>eamil</th>
+                    <td><input type="text" name="business[email]" class="form-control-sm" /></td>
+                </tr>
+                <tr>
+                    <th>商家地址</th>
+                    <td><input type="text" name="business[business_address]" class="form-control-sm" /></td>
+                </tr>
+                <tr>
+                    <th>{:L('REMARK')}</th>
+                    <td><textarea name="business[business_info]" class="form-control-sm"></textarea></td>
+                </tr>
+            </table>
+        </div>
+        <div class="tab-pane" id="pane2">
+            <table class="table table-condensed tb-data">
+            </table>
+        </div>
+    </div>
+
+</block>
+<block name="scripts">
+    <script>
+        
+    </script>
+</block>

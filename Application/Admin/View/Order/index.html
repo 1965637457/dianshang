@@ -1,0 +1,76 @@
+<extend name="Public/tpl-list" />
+<block name="search">
+    <form action="" method="get" class="list-search">
+        <input type="hidden" name="order_status" value="{$opts.order_status}" >
+        <input type="text" name="code" value="{$opts.code}" placeholder="订单号" class="form-control-sm t-sm" />
+        <input type="text" name="start_time" value="{$opts.start_time}" placeholder="开始创建时间" class="form-control-sm t-xs js-form-datetime" data-date-format="yyyy-mm-dd" data-min-view='2' /> -
+        <input type="text" name="end_time" value="{$opts.end_time}" placeholder="结束创建时间" class="form-control-sm t-xs js-form-datetime" data-date-format="yyyy-mm-dd" data-min-view='2' />
+        
+        <button type="submit" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-search"></i> {:L('SEARCH')}</button>
+    </form>
+</block>
+<block name="content">
+    <div class="table-responsive">
+        <table class="table table-condensed table-hover tb-list">
+            <thead>
+                <tr>
+                    <th class="th-40">ID</th>
+                    <th>订单号</th>
+                    <th class="th-100">总金额</th>
+                    <th class="th-100">退款</th>
+                    <th class="th-100">积分</th>
+                    <th class="th-150">会员帐号</th>
+                    <th class="th-150">{:L('CREATE_TIME')}</th>
+                    <th class="th-100">{:L('STATUS')}</th>
+                    <th class="th-100">{:L('ACTIONS')}</th>
+                </tr>
+            </thead>
+            <tbody>
+            <volist name='list' id='v'>
+                <tr>
+                    <td>{$v.id}</td>
+                    <td><a href="{:U('edit',array('id'=>$v['id']))}">{$v.order_code|default='== 未定义 =='}</a></td>
+                    <td>{:C('DOLLAR')}{$v.total_amount|number_format=2}</td>
+                    <td>{:C('DOLLAR')}{$v.total_refund|number_format=2}</td>
+                    <td>{$v.integral}</td>
+                    <td><a href="{:U('Member/edit',array('id'=>$v['member_id']))}">{$v.account}</a></td>
+                    <td>{$v.order_time|date='Y-m-d H:i',###}</td>
+                    <td>{$order_status_list[$v['order_status']]}</td>
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-cog"></i> <span class="caret"></span></button>
+                            <ul class="dropdown-menu pull-right">
+                                <li><a href="{:U('copy',array('id'=>$v['id']))}">复制订单</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </volist>
+            </tbody>
+        </table>
+    </div>
+</block>
+<block name="list-handle">
+    <div class="container-fluid">
+        <div class='row'>
+            <div class="col-md-4">
+                <a href="{:U('index')}" class="btn <eq name='opts.order_status' value='0'>btn-primary<else/>btn-default</eq> btn-sm">全部订单</a>
+                <a href="{:U('index',array('order_status'=>1))}" class="btn <eq name='opts.order_status' value='1'>btn-primary<else/>btn-default</eq> btn-sm">新订单</a>
+                <a href="{:U('index',array('order_status'=>3))}" class="btn <eq name='opts.order_status' value='3'>btn-primary<else/>btn-default</eq> btn-sm">待发货</a>
+                <a href="{:U('index',array('order_status'=>4))}" class="btn <eq name='opts.order_status' value='4'>btn-primary<else/>btn-default</eq> btn-sm">已发货</a>
+                <a href="{:U('index',array('order_status'=>5))}" class="btn <eq name='opts.order_status' value='5'>btn-primary<else/>btn-default</eq> btn-sm">交易完成</a>
+                <a href="{:U('index',array('order_status'=>6))}" class="btn <eq name='opts.order_status' value='6'>btn-primary<else/>btn-default</eq> btn-sm">已取消</a>
+            </div>
+            <div class="col-md-8 text-right"><ul class="pagination square">{$page_nav}</ul></div>
+        </div>
+    </div>
+</block>
+<block name="scripts">
+    <script>
+        $(".js-form-datetime").datetimepicker({
+            todayBtn: true,
+            todayHighlight: true,
+            autoclose: true
+        });
+    </script>
+</block>

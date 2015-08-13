@@ -1,0 +1,17 @@
+<extend name="Public/basic" />
+<block name="bread_nav"><a href="/">首页</a><span></span><a href="{:U('/Visitor')}">观众中心</a></block>
+<block name="main">
+    <div class="center_side">
+        <div class="editor">
+            <h3>{$article.title}</h3>
+            <ul class="download-list">
+                <volist name="list" id="v">
+                <li>{$v.title}<a href="__UPLOAD__/{$v.file}" target="_blank" class="btn_download">下载文档</a></li>
+                </volist>
+            </ul>
+            <div class="other_page width435">                	
+                {$page_nav}
+            </div>
+        </div>   
+    </div>
+</block>

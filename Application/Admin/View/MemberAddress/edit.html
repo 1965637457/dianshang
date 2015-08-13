@@ -1,0 +1,61 @@
+<extend name="Public/tpl-edit-dialog" />
+<block name="content">
+    <input type="hidden" name="member_id" value="{$data.member_id}" >
+    <table class="table table-condensed tb-data">
+        <tr>
+            <th>默认</th>
+            <td>
+                <label><input type="radio" name="is_default" value="1" checked /> {:L('ACTIVE')}</label>
+                <label><input type="radio" name="is_default" value="0" <eq name="data.is_default" value="0">checked</eq> /> {:L('DISABLED')}</label>
+            </td>
+        </tr>
+        <tr>
+            <th>{:L('CATEGORY')}</th>
+            <td data-url="{:U('MemberAddress/getregion')}">
+                <select name="province_id" class="form-control-sm js-province">
+                    <option value="0">请选择省份...</option>
+                    <volist name="province_list" id="v">
+                        <option value="{$v.id}" <eq name="data.province_id" value="$v.id">selected="selected"</eq>>{$v.region_name}</option>
+                    </volist>
+                </select>
+                <select name="city_id" class="form-control-sm js-city">
+                    <option value="0">请选择城市...</option>
+                    <volist name="city_list" id="v">
+                        <option value="{$v.id}" <eq name="data.city_id" value="$v.id">selected="selected"</eq>>{$v.region_name}</option>
+                    </volist>
+                </select>
+                <select name="zone_id" class="form-control-sm js-zone">
+                    <option value="0">请选择区域...</option>
+                    <volist name="zone_list" id="v">
+                        <option value="{$v.id}" <eq name="data.zone_id" value="$v.id">selected="selected"</eq>>{$v.region_name}</option>
+                    </volist>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>{:L('ADDRESS')}</th>
+            <td><input type="text" name="address" value="{$data.address|htmlspecialchars}" class="form-control-sm" /></td>
+        </tr>
+        <tr>
+            <th>{:L('ZIPCODE')}</th>
+            <td><input type="text" name="zipcode" value="{$data.zipcode|htmlspecialchars}" class="form-control-sm" /></td>
+        </tr>
+        <tr>
+            <th>{:L('FULLNAME')}</th>
+            <td><input type="text" name="truename" value="{$data.truename|htmlspecialchars}" class="form-control-sm" /></td>
+        </tr>
+        <tr>
+            <th>{:L('PHONE')}</th>
+            <td><input type="text" name="phone" value="{$data.phone|htmlspecialchars}" class="form-control-sm" /></td>
+        </tr>
+        <tr>
+            <th>{:L('MOBILE')}</th>
+            <td><input type="text" name="mobile" value="{$data.mobile|htmlspecialchars}" class="form-control-sm" /></td>
+        </tr>
+    </table>
+</block>
+<block name="scripts">
+    <script>
+        $.region.init();
+    </script>
+</block>

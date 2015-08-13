@@ -1,0 +1,15 @@
+<div class="left_links">
+    <h3>Products</h3>
+    <ul class="line" id="j-siderCateList">
+        <volist name="nav_list.Product" id='v'>
+        <li>
+            <a class="j-siderCate" href="javascript:;">{$v.cate_name}</a>
+            <ul class="j-siderCatePros">
+                <volist name="v._list" id='vv'>
+                <li><a href="<empty name='vv.rewriteuri'>{:U('detail',array('id'=>$vv['id']))}<else/>{:U('Product/'.$vv['rewriteuri'])}</empty>">{$vv.title}</a></li>
+                </volist>
+            </ul>
+        </li>
+        </volist>
+    </ul>
+</div>

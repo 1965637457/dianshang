@@ -1,0 +1,14 @@
+<extend name="Public/tpl-add-dialog" />
+<block name="content">
+    <input type="hidden" name="spec_id" value="{$spec_id}" />
+    <table class="table table-condensed tb-data">
+        <tr>
+            <th>规格值</th>
+            <td><input type="text" name="spec_value" class="form-control-sm" /></td>
+        </tr>
+        <tr>
+            <th>{:L('IMAGE')}</th>
+            <td><input type="file" name="upload_spec_image" /> <i>{:L('SIZE')}：30*30px</i></td>
+        </tr>
+    </table>
+</block>

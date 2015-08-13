@@ -1,0 +1,54 @@
+<extend name="Public/tpl-list" />
+<block name="content">
+    <div class="table-responsive">
+        <table class="table table-condensed table-hover tb-list">
+            <thead>
+                <tr>
+                    <th class="th-20"><input type="checkbox" class="j-check-all" /></th>
+                    <th class="th-40">ID</th>
+                    <th>{:L('NAME')}</th>
+                    <th class="th-100">{:L('ALIAS')}</th>
+                    <th class="th-80">券类型</th>
+                    <th class="th-80">消费金额</th>
+                    <th class="th-100">优惠|折扣</th>
+                    <th class="th-150">发放目标</th>
+                    <th class="th-80">限定类型</th>
+                    <th class="th-150">{:L('START_TIME')} - {:L('END_TIME')}</th>
+                    <th class="th-80">发放次数</th>
+                    <th class="th-60">{:L('STATUS')}</th>
+                    <th class="th-200">{:L('ACTIONS')}</th>
+                </tr>
+            </thead>
+            <tbody>
+            <volist name='list' id='v'>
+                <tr>
+                    <td><input type="checkbox" name="id[]" value="{$v.id}" /></td>
+                    <td>{$v.id}</td>
+                    <td><a href="{:U('edit',array('id'=>$v['id']))}">{$v.coupon_rule|default='== 未定义 =='}</a></td>
+                    <td>{$v.coupon_alias}</td>
+                    <td>{$coupon_types[$v['coupon_type']]}</td>
+                    <td>{$v.min_amount}</td>
+                    <td><eq name="v.coupon_type" value="1">{$v.discount_amount}<else/>{$v.discount_rate}%</eq></td>
+                    <td>{$target_types[$v['target_type']]}</td>
+                    <td>{$limit_types[$v['limit_type']]}</td>
+                    <td>始{$v.start_time|date='Y-m-d H:i:s',###}<br/>
+                        至{$v.end_time|date='Y-m-d H:i:s',###}</td>
+                    <td>{$v.total_batch}</td>
+                    <td><button type="button" class="status-{$v.status|intval} j-status" data-url="{:U('setStatus',array('id'=>$v['id'],'field'=>'status','val'=>$v['status']))}">{$v['status']?L('ACTIVE'):L('DISABLED')}</button></td>
+                    <td>
+                        <a href="{:U('edit',array('id'=>$v['id']))}" class="btn btn-success btn-xs">{:L('EDIT')}</a>
+                        <a href="{:U('Coupon/index',array('rid'=>$v['id']))}" class="btn btn-danger btn-xs">查看优惠券</a>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-cog"></i> <span class="caret"></span></button>
+                            <ul class="dropdown-menu pull-right">
+                                <li><a href="{:U('grant',array('id'=>$v['id']))}">发放优惠券</a></li>
+                                <li><a href="{:U('delete',array('id'=>$v['id']))}" class="j-del">{:L('DELETE')}</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </volist>
+            </tbody>
+        </table>
+    </div>
+</block>

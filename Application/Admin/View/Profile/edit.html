@@ -1,0 +1,17 @@
+<extend name="Public/tpl-data" />
+<block name="page-handle"></block>
+<block name="content">
+<form action="{:U('update')}" method="post" enctype="multipart/form-data" class="form-data" id="j-fmData">
+    <table class="table table-condensed tb-data">
+        <tr>
+            <th>登录用户名</th>
+            <td><input type="text" value="{$data.account|htmlspecialchars}" class="form-control-sm" disabled /></td>
+        </tr>
+        <tr>
+            <th>单位名称</th>
+            <td><input type="text" name="company" value="{$data.company|htmlspecialchars}" class="form-control-sm" /></td>
+        </tr>
+    </table>
+    <include file="Public/tb-data-control"/>
+</form>
+</block>
