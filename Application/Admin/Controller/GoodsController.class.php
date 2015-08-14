@@ -119,7 +119,7 @@ class GoodsController extends CommonController {
         $data['images'] = M('GoodsImage')->where(array('goods_id'=>$goods_id))->order('sort,image_id')->getField('image_id,origin_image,small_image,sort');
         $data['products'] = M('Product')->where(array('goods_id'=>$goods_id))->order('sku_info')->select();
         //与商品对应的商家
-        $this->assign('business',M('business')->field('id,business_name')->select());
+        $this->assign('business',M('business')->field('id,business_name')->where('status=1')->order('id DESC')->select());
         //获取相应产品类型的关联属性
         $this->assign('attributes', $this->_getAttributes($data['type_id']));
         //读取产品已关联信息

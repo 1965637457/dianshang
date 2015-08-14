@@ -5,6 +5,7 @@
         <li><a data-target="#pane2" data-toggle="tab">地址信息</a></li>
         <li><a data-target="#pane3" data-toggle="tab">购买列表</a></li>
         <li><a data-target="#pane4" data-toggle="tab">收藏列表</a></li>
+        <li><a data-target="#pane5" data-toggle="tab">设计列表</a></li>
     </ul>
     <div class="tab-content">
         <div class="tab-pane active" id="pane1">
@@ -135,6 +136,54 @@
                         <th class="th-120">OnSale</th>
                         <th class="th-120">SkuIofo</th>
                         <th class="th-120">原价</th>
+                        <th class="th-120">售价</th>
+                        <th class="th-120">stack</th> 
+                        <th class="th-120">手机</th> 
+                        <th class="th-120">是否付款</th> 
+                        <th>地址</th>
+                        <th class="th-120">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <volist name="data._stock_list" id="b">
+                    <tr data-id="{$b.id}">
+                        <td>{$b.account}</td>
+                        <td>{$b.goods}</td>
+                        <td>{$b.category}</td>
+                        <td>{$b.is_onsale}</td>
+                        <td>{$b.sku_info}</td>
+                        <td>{$b.original_price}</td> 
+                        <td>{$b.price}</td>
+                        <td>{$b.stock}</td> 
+                        <td>{$b.mobile}</td>
+                        <td>{$b.is_payed}</td>
+                        <td>{$region_list[$v['province_id']]}{$region_list[$v['city_id']]}{$region_list[$v['zone_id']]}, {$v.address}, {$v.zipcode}</td>
+                        <td class="f16">
+                            <a href="javascript:;" class="js-edit-item"><span class="glyphicon glyphicon-edit"></span></a>
+                            <a href="javascript:;" class="js-remove-item"><span class="glyphicon glyphicon-remove"></span></a>
+                        </td>
+                    </tr>
+                </volist>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3"><button type="button" class="btn btn-success btn-xs" id="js-add-address">添加</button></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <div class="tab-pane" id="pane5">
+            <table class="table table-condensed table-bordered tb-data-list" id="js-address-list" data-reload-url="{:U('MemberAddress/reloadaddress',array('mid'=>$data['id']))}" data-add-url="{:U('MemberAddress/add',array('mid'=>$data['id']))}" data-edit-url="{:U('MemberAddress/edit')}" data-remove-url="{:U('MemberAddress/delete')}">
+            <thead>
+                    <tr>
+                        <th class="th-20">id</th>
+                        <th class="th-120">户型</th>
+                        <th class="th-120">设计缩略图</th>
+                        <th class="th-120">商品分类</th>
+                        <th class="th-120">销售量</th>
+                        <th class="th-120">点击量</th>
+                        <th class="th-120">是否审核</th>
                         <th class="th-120">售价</th>
                         <th class="th-120">stack</th> 
                         <th class="th-120">手机</th> 
